@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import html
 import json
 import os
 from pathlib import Path
@@ -8,8 +9,8 @@ import pandas as pd
 import streamlit as st
 
 from trendwatcher.demo_data import demo_articles
-from trendwatcher.pipeline import run_pipeline, save_outputs
-from trendwatcher.rss import DEFAULT_RSS_SOURCES, fetch_rss_articles
+from trendwatcher.pipeline import format_publication_date, run_pipeline, save_outputs
+from trendwatcher.rss import DEFAULT_RSS_SOURCES, fetch_rss_articles_with_status
 
 
 st.set_page_config(page_title="Fintech TrendWatcher", layout="wide")
@@ -18,47 +19,120 @@ st.markdown(
     """
     <style>
     :root {
-      --border: #d8dee7;
-      --muted: #5f6b7a;
-      --panel: #f7f9fb;
-      --ink: #18202a;
-      --accent: #0b6bcb;
+      --tw-bg: #ffffff;
+      --tw-card: #f7f9fc;
+      --tw-card-strong: #edf3f8;
+      --tw-border: #d7e0ea;
+      --tw-text: #16202c;
+      --tw-muted: #536579;
+      --tw-link: #0b68c8;
+      --tw-chip-bg: #ffffff;
+      --tw-chip-text: #243246;
+      --tw-good: #0d7c66;
     }
-    .block-container { padding-top: 1.4rem; }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --tw-bg: #0f1720;
+        --tw-card: #17212d;
+        --tw-card-strong: #1f2d3c;
+        --tw-border: #344457;
+        --tw-text: #edf3f8;
+        --tw-muted: #b7c4d3;
+        --tw-link: #8cc8ff;
+        --tw-chip-bg: #233246;
+        --tw-chip-text: #edf3f8;
+        --tw-good: #64d7b5;
+      }
+    }
+    .block-container { padding-top: 1.35rem; }
     .metric-row [data-testid="stMetric"] {
-      background: var(--panel);
-      border: 1px solid var(--border);
+      background: var(--tw-card);
+      border: 1px solid var(--tw-border);
       border-radius: 8px;
       padding: 12px 14px;
     }
-    .signal-card {
-      border: 1px solid var(--border);
+    .flow-card, .signal-card {
+      border: 1px solid var(--tw-border);
       border-radius: 8px;
-      padding: 14px 16px;
-      margin: 0 0 12px 0;
-      background: #ffffff;
+      background: var(--tw-card);
+      color: var(--tw-text);
+    }
+    .flow-card {
+      min-height: 124px;
+      padding: 14px;
+    }
+    .flow-title {
+      font-weight: 700;
+      color: var(--tw-text);
+      margin-bottom: 6px;
+    }
+    .flow-note, .small-muted {
+      color: var(--tw-muted);
+      font-size: 0.88rem;
+      line-height: 1.45;
+    }
+    .signal-card {
+      padding: 16px 18px;
+      margin: 0 0 14px 0;
     }
     .signal-card h3 {
-      font-size: 1rem;
+      font-size: 1.03rem;
       margin: 0 0 8px 0;
-      color: var(--ink);
+      color: var(--tw-text);
       letter-spacing: 0;
     }
-    .small-muted { color: var(--muted); font-size: 0.88rem; }
+    .signal-card p {
+      color: var(--tw-text);
+      margin: 8px 0;
+      line-height: 1.5;
+    }
+    .signal-card a {
+      color: var(--tw-link);
+      text-decoration: none;
+    }
+    .score-line {
+      background: var(--tw-card-strong);
+      border: 1px solid var(--tw-border);
+      border-radius: 8px;
+      padding: 8px 10px;
+      margin: 10px 0;
+      color: var(--tw-text);
+    }
     .chip {
       display: inline-block;
-      border: 1px solid var(--border);
+      border: 1px solid var(--tw-border);
       border-radius: 999px;
       padding: 2px 8px;
-      margin: 0 4px 4px 0;
+      margin: 0 4px 5px 0;
       font-size: 0.78rem;
-      color: #263241;
-      background: #f9fbfd;
+      color: var(--tw-chip-text);
+      background: var(--tw-chip-bg);
+    }
+    .source-line {
+      color: var(--tw-muted);
+      font-size: 0.88rem;
+      line-height: 1.45;
     }
     </style>
     """,
     unsafe_allow_html=True,
 )
+
+
+CATEGORY_LABELS = {
+    "payments": "Платежи",
+    "banking_product": "Банковский продукт",
+    "UX": "UX / клиентский сценарий",
+    "partnership": "Партнерство",
+    "regulation": "Регулирование",
+    "market_signal": "Рыночный сигнал",
+    "fraud_risk": "Риски / антифрод",
+    "other": "Другое",
+}
+
+
+def esc(value: object) -> str:
+    return html.escape(str(value))
 
 
 def load_uploaded_csv(uploaded_file) -> pd.DataFrame | None:
@@ -69,154 +143,288 @@ def load_uploaded_csv(uploaded_file) -> pd.DataFrame | None:
 
 def render_signal_card(signal: dict) -> None:
     components = signal["score_components"]
-    tags = "".join(f'<span class="chip">{tag}</span>' for tag in signal.get("tags", [])[:7])
-    source_links = "<br>".join(
-        f'<a href="{src["url"]}" target="_blank">{src["source"]}</a> · quality {src["quality"]}'
+    tags = "".join(f'<span class="chip">{esc(tag)}</span>' for tag in signal.get("tags", [])[:7])
+    sources = "<br>".join(
+        (
+            f'<span class="source-line"><a href="{esc(src["url"])}" target="_blank">'
+            f'{esc(src.get("source_date", src["source"]))}</a> · надежность {esc(src["quality"])}</span>'
+        )
         for src in signal.get("sources", [])[:4]
     )
+    category = CATEGORY_LABELS.get(signal.get("category"), signal.get("category", "Другое"))
     st.markdown(
         f"""
         <div class="signal-card">
-          <h3>{signal["headline"]}</h3>
-          <div class="small-muted">Hotness {signal["hotness"]}/5 · Score {signal["score"]}/100 · {signal["category"]}</div>
+          <h3>{esc(signal["headline"])}</h3>
+          <div class="small-muted">
+            {esc(signal.get("date_label", "дата не указана"))} · свежесть: {esc(signal.get("freshness_label", "неизвестно"))}
+            · категория: {esc(category)}
+          </div>
           <div style="margin-top:8px;">{tags}</div>
-          <p><b>Why now:</b> {signal["why_now"]}</p>
-          <p><b>Summary:</b> {signal["summary"]}</p>
-          <p><b>Suggested action:</b> {signal["suggested_action"]}</p>
-          <p class="small-muted">
-            relevance {components["relevance"]} · source quality {components["source_quality"]} ·
-            novelty {components["novelty"]} · impact {components["impact"]} ·
-            evidence {components["evidence_count"]} · confidence {components["confidence"]}
-          </p>
-          <p class="small-muted"><b>Sources</b><br>{source_links}</p>
+          <p><b>Что произошло?</b><br>{esc(signal["summary"])}</p>
+          <p><b>Почему это важно для банка?</b><br>{esc(signal["why_now"])}</p>
+          <p><b>Рекомендуемое действие:</b> {esc(signal["suggested_action"])}</p>
+          <p class="small-muted"><b>Проверяемые источники</b><br>{sources}</p>
+          <div class="score-line"><b>Важность:</b> {esc(signal["hotness"])}/5 · score {esc(signal["score"])}/100</div>
         </div>
         """,
         unsafe_allow_html=True,
     )
+    with st.expander("Как рассчитана оценка"):
+        st.write(signal.get("score_explanation", "Подробное объяснение score недоступно."))
+        st.write(f"Релевантность: {components['relevance']}")
+        st.write(f"Качество источника: {components['source_quality']}")
+        st.write(f"Новизна: {components['novelty']}")
+        st.write(f"Impact: {components['impact']}")
+        st.write(f"Количество подтверждений: {components['evidence_count']}")
+        st.write(f"Confidence: {components['confidence']}")
+        st.caption(signal.get("context_note", "Полный текст не загружался, анализ основан на RSS snippet."))
+
+
+def flow_card(title: str, note: str) -> str:
+    return f"""
+    <div class="flow-card">
+      <div class="flow-title">{esc(title)}</div>
+      <div class="flow-note">{esc(note)}</div>
+    </div>
+    """
 
 
 with st.sidebar:
-    st.header("Run settings")
-    data_source = st.radio("Input", ["Demo dataset", "Upload CSV", "RSS sample"], index=0)
-    uploaded = st.file_uploader("CSV columns: title, url, source, published_at, snippet, text", type=["csv"])
-    top_n = st.slider("Signals in digest", 3, 10, 7)
-    use_llm = st.toggle("Use OpenRouter enrichment", value=False)
-    max_llm_items = st.slider("Max LLM-enriched signals", 1, 12, 6, disabled=not use_llm)
-    api_key = st.text_input("OpenRouter API key", type="password", value=os.getenv("OPENROUTER_API_KEY", ""))
-    model = st.text_input("Model", value=os.getenv("OPENROUTER_MODEL", "openai/gpt-5-nano"), disabled=not use_llm)
-    run_clicked = st.button("Run pipeline", type="primary", width="stretch")
+    st.header("Настройки запуска")
+    data_source = st.radio("Источник данных", ["Демо-набор", "CSV-файл", "Live RSS"], index=0)
+    uploaded = st.file_uploader("CSV: title, url, source, published_at, snippet, text", type=["csv"])
+    top_n = st.slider("Сигналов в дайджесте", 3, 10, 7)
 
     st.divider()
-    st.caption("RSS mode needs internet. Demo mode is deterministic and best for the hackathon defense.")
+    st.subheader("Дедупликация")
+    dedup_label = st.radio("Метод дедупликации", ["Fuzzy", "TF-IDF"], index=0, horizontal=True)
+    dedup_method = "tfidf" if dedup_label == "TF-IDF" else "fuzzy"
+    fuzzy_threshold = st.slider("Порог Fuzzy", 0.55, 0.95, 0.72, 0.01, disabled=dedup_label != "Fuzzy")
+    tfidf_threshold = st.slider("Порог TF-IDF", 0.35, 0.85, 0.58, 0.01, disabled=dedup_label != "TF-IDF")
+
+    st.divider()
+    st.subheader("LLM-обогащение")
+    use_llm = st.toggle("Включить OpenRouter", value=False)
+    max_llm_items = st.slider("Сигналов для LLM", 1, 12, 6, disabled=not use_llm)
+    api_key = st.text_input("OpenRouter API key", type="password", value=os.getenv("OPENROUTER_API_KEY", ""))
+    model = st.text_input("Модель", value=os.getenv("OPENROUTER_MODEL", "openai/gpt-5-nano"), disabled=not use_llm)
+    run_clicked = st.button("Запустить pipeline", type="primary", width="stretch")
+
+    st.divider()
+    st.caption(
+        "Live RSS mode использует российские и международные источники. "
+        "Российские источники нужны для локальной применимости сигналов, международные — "
+        "для отслеживания глобальных финтех-трендов."
+    )
 
 
 st.title("Fintech TrendWatcher")
-st.caption("Raw fintech publications -> noise filtering -> deduplication -> importance scoring -> digest")
+st.caption("Внутренний инструмент банка: публикации → шум → дубли → важность → проверяемый дайджест")
 
 if api_key:
     os.environ["OPENROUTER_API_KEY"] = api_key
 if model:
     os.environ["OPENROUTER_MODEL"] = model
 
-if "result" not in st.session_state or run_clicked:
-    if data_source == "Upload CSV":
+config = (
+    data_source,
+    uploaded.name if uploaded else "",
+    top_n,
+    use_llm,
+    max_llm_items,
+    model,
+    dedup_label,
+    fuzzy_threshold,
+    tfidf_threshold,
+)
+
+if "result" not in st.session_state or run_clicked or st.session_state.get("config") != config:
+    rss_warnings: list[str] = []
+    if data_source == "CSV-файл":
         articles = load_uploaded_csv(uploaded)
         if articles is None:
-            st.warning("Upload a CSV or switch back to demo dataset.")
+            st.info("Загрузите CSV-файл или выберите демо-набор.")
             st.stop()
-    elif data_source == "RSS sample":
-        with st.spinner("Fetching RSS sources..."):
-            articles = pd.DataFrame(fetch_rss_articles(DEFAULT_RSS_SOURCES, limit_per_source=15))
+    elif data_source == "Live RSS":
+        with st.spinner("Загружаем российские и международные RSS-источники..."):
+            rss_articles, rss_warnings = fetch_rss_articles_with_status(DEFAULT_RSS_SOURCES, limit_per_source=15)
+            articles = pd.DataFrame(rss_articles)
+        if rss_warnings:
+            st.warning("Часть RSS-источников не загрузилась. Pipeline продолжит работу с доступными публикациями.")
         if articles.empty:
-            st.warning("RSS fetch returned no articles. Using demo dataset instead.")
+            st.warning("RSS не вернул публикации. Для стабильного демо включен встроенный демо-набор.")
             articles = pd.DataFrame(demo_articles())
     else:
         articles = pd.DataFrame(demo_articles())
 
-    with st.spinner("Running transparent pipeline..."):
-        result = run_pipeline(articles=articles, use_llm=use_llm, max_llm_items=max_llm_items, top_n=top_n)
+    with st.spinner("Запускаем explainable pipeline..."):
+        result = run_pipeline(
+            articles=articles,
+            use_llm=use_llm,
+            max_llm_items=max_llm_items,
+            top_n=top_n,
+            dedup_method=dedup_method,
+            fuzzy_threshold=fuzzy_threshold,
+            tfidf_threshold=tfidf_threshold,
+        )
         save_outputs(result, "data")
         st.session_state["result"] = result
+        st.session_state["rss_warnings"] = rss_warnings
+        st.session_state["config"] = config
 
 result = st.session_state["result"]
+rss_warnings = st.session_state.get("rss_warnings", [])
+
+if result.warnings:
+    for warning in result.warnings:
+        st.warning(warning)
+if rss_warnings:
+    with st.expander("Статус RSS-источников"):
+        for warning in rss_warnings:
+            st.write(f"- {warning}")
 
 st.markdown('<div class="metric-row">', unsafe_allow_html=True)
-m1, m2, m3, m4, m5 = st.columns(5)
-m1.metric("Raw articles", len(result.raw_articles))
-m2.metric("Candidates", len(result.candidate_articles))
-m3.metric("Rejected noise", len(result.rejected_articles))
-m4.metric("Signals", len(result.signals))
+m1, m2, m3, m4, m5, m6 = st.columns(6)
+m1.metric("Исходные публикации", len(result.raw_articles))
+m2.metric("Кандидаты", len(result.candidate_articles))
+m3.metric("Отфильтрованный шум", len(result.rejected_articles))
+m4.metric("Сигналы", len(result.signals))
 avg_score = round(sum(s["score"] for s in result.signals) / max(1, len(result.signals)), 1)
-m5.metric("Avg signal score", avg_score)
+m5.metric("Средний score", avg_score)
+duplicates_merged = max(0, len(result.candidate_articles) - len(result.signals))
+m6.metric("Объединено дублей", duplicates_merged)
 st.markdown("</div>", unsafe_allow_html=True)
 
-pipeline_tab, signals_tab, digest_tab, rejected_tab, prompts_tab = st.tabs(
-    ["Pipeline", "Signals", "Digest", "Rejected Noise", "Prompts"]
+if data_source == "Live RSS":
+    st.caption(
+        "В live RSS режиме количество дублей зависит от пересечения источников. "
+        "Для демонстрации механики dedup можно использовать demo fallback dataset."
+    )
+
+pipeline_tab, signals_tab, rejected_tab, prompts_tab = st.tabs(
+    ["Pipeline", "Сигналы", "Отфильтрованный шум", "LLM-промпты"]
 )
 
 with pipeline_tab:
-    st.subheader("Pipeline trace")
+    st.subheader("Этапы обработки")
     st.write(
-        "The prototype keeps the logic inspectable: cheap code filters first, dedup groups second, "
-        "optional LLM enrichment only after candidates are selected."
+        "Pipeline показывает, как из открытых публикаций получается короткий проверяемый дайджест: "
+        "сначала дешевые и объяснимые правила, затем дедупликация и score, LLM — только опционально."
     )
-    st.code(
-        "ingest -> normalize metadata -> rule filter -> fuzzy dedup -> hybrid score -> ranked digest",
-        language="text",
-    )
-    st.markdown("**Scoring formula**")
-    st.code(
-        "score = 0.30*relevance + 0.20*source_quality + 0.20*novelty + 0.15*impact + 0.15*evidence_count",
-        language="text",
-    )
-
-    st.markdown("**Candidate articles after filtering and clustering**")
-    candidate_cols = [
-        "cluster_id",
-        "title",
-        "source",
-        "published_at",
-        "detected_category",
-        "relevance",
-        "source_quality",
-        "canonical_url",
+    steps = [
+        ("RSS / CSV", "Получаем публикации из демо-набора, CSV или live RSS."),
+        ("Очистка", "Нормализуем URL, даты, источники и текстовые поля."),
+        ("Удаление дублей", f"Метод: {result.dedup_method_used.upper()}. Группируем перепечатки одного события."),
+        ("Оценка важности", "Считаем relevance, source quality, novelty, impact и evidence count."),
+        ("Финальный дайджест", "Оставляем top-сигналы с why now, источниками и действием для команды."),
     ]
-    st.dataframe(result.candidate_articles[candidate_cols], width="stretch", hide_index=True)
+    cols = st.columns(len(steps))
+    for col, (title, note) in zip(cols, steps):
+        col.markdown(flow_card(title, note), unsafe_allow_html=True)
+    st.markdown("**Формула оценки**")
+    st.code(
+        "score = 0.30*релевантность + 0.20*качество_источника + 0.20*новизна + 0.15*impact + 0.15*подтверждения",
+        language="text",
+    )
 
-    st.markdown("**Dedup groups**")
+    st.markdown("**Top candidates после фильтрации**")
+    candidates = result.candidate_articles.copy()
+    if not candidates.empty:
+        candidates["Дата"] = candidates.apply(lambda row: format_publication_date(row["published_at"], row["source"]), axis=1)
+        candidates["Категория"] = candidates["detected_category"].map(CATEGORY_LABELS).fillna(candidates["detected_category"])
+        top_candidates = (
+            candidates.sort_values(["candidate_score", "source_quality"], ascending=[False, False])
+            .head(20)
+            .rename(
+                columns={
+                    "title": "Заголовок",
+                    "source": "Источник",
+                    "candidate_score": "Score",
+                }
+            )
+        )
+        st.dataframe(
+            top_candidates[["Заголовок", "Источник", "Дата", "Категория", "Score"]],
+            width="stretch",
+            hide_index=True,
+        )
+
+        with st.expander("Технические детали"):
+            debug_cols = [
+                "cluster_id",
+                "title",
+                "source",
+                "published_at",
+                "detected_category",
+                "relevance",
+                "source_quality",
+                "candidate_score",
+                "dedup_method",
+                "dedup_similarity",
+                "canonical_url",
+                "allow_hits",
+                "deny_hits",
+            ]
+            existing = [col for col in debug_cols if col in candidates.columns]
+            st.dataframe(candidates[existing], width="stretch", hide_index=True)
+    else:
+        st.info("После фильтрации не осталось кандидатов.")
+
+    st.markdown("**Группы дублей**")
     dedup_rows = []
     for signal in result.signals:
         dedup_rows.append(
             {
                 "signal_id": signal["id"],
-                "headline": signal["headline"],
-                "articles_grouped": len(signal["article_ids"]),
-                "unique_sources": len(signal["sources"]),
-                "deduped_titles": " | ".join(signal["deduped_titles"][:4]),
+                "заголовок": signal["headline"],
+                "дата": signal.get("date_label", "дата не указана"),
+                "статей в группе": len(signal["article_ids"]),
+                "уникальных источников": len(signal["sources"]),
+                "метод": result.dedup_method_used,
+                "варианты заголовков": " | ".join(signal["deduped_titles"][:4]),
             }
         )
     st.dataframe(pd.DataFrame(dedup_rows), width="stretch", hide_index=True)
 
 with signals_tab:
-    st.subheader("Ranked signal cards")
-    for signal in result.signals[:top_n]:
-        render_signal_card(signal)
-
-    signals_json = json.dumps(result.signals, ensure_ascii=False, indent=2)
-    st.download_button("Download signals.json", signals_json, file_name="signals.json", mime="application/json")
-
-with digest_tab:
-    st.subheader("Final digest")
-    st.markdown(result.digest_markdown)
-    st.download_button("Download digest.md", result.digest_markdown, file_name="digest.md", mime="text/markdown")
+    mode = st.radio("Режим просмотра", ["Карточки сигналов", "Финальный дайджест"], horizontal=True)
+    if mode == "Карточки сигналов":
+        st.subheader("Приоритизированные сигналы")
+        for signal in result.signals[:top_n]:
+            render_signal_card(signal)
+        signals_json = json.dumps(result.signals, ensure_ascii=False, indent=2)
+        st.download_button("Скачать signals.json", signals_json, file_name="signals.json", mime="application/json")
+    else:
+        st.subheader("Финальный дайджест")
+        st.markdown(result.digest_markdown)
+        st.download_button("Скачать digest.md", result.digest_markdown, file_name="digest.md", mime="text/markdown")
 
 with rejected_tab:
-    st.subheader("Rejected as noise")
-    rejected_cols = ["title", "source", "noise_reason", "deny_hits", "allow_hits", "canonical_url"]
-    st.dataframe(result.rejected_articles[rejected_cols], width="stretch", hide_index=True)
+    st.subheader("Что отброшено как шум")
+    rejected = result.rejected_articles.copy()
+    if not rejected.empty:
+        rejected["Дата"] = rejected.apply(lambda row: format_publication_date(row["published_at"], row["source"]), axis=1)
+        rejected_view = rejected.rename(
+            columns={
+                "title": "Заголовок",
+                "source": "Источник",
+                "noise_reason": "Причина фильтрации",
+                "deny_hits": "Шумовые триггеры",
+                "allow_hits": "Финтех-триггеры",
+            }
+        )
+        st.dataframe(
+            rejected_view[["Заголовок", "Источник", "Дата", "Причина фильтрации", "Шумовые триггеры", "Финтех-триггеры"]],
+            width="stretch",
+            hide_index=True,
+        )
+    else:
+        st.success("Шум не найден: все публикации прошли первичный фильтр.")
 
 with prompts_tab:
-    st.subheader("LLM prompts")
+    st.subheader("LLM-промпты")
+    st.write("Эти промпты используются только в опциональном режиме LLM-обогащения после дешевой фильтрации и дедупликации.")
     prompt_dir = Path("prompts")
     for prompt_file in sorted(prompt_dir.glob("*.txt")):
         with st.expander(prompt_file.stem.replace("_", " ").title()):

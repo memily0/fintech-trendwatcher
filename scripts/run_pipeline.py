@@ -23,10 +23,21 @@ def main() -> None:
     parser.add_argument("--use-llm", action="store_true", help="Enable optional OpenRouter enrichment")
     parser.add_argument("--max-llm-items", type=int, default=8, help="Max top signals to enrich with LLM")
     parser.add_argument("--top-n", type=int, default=7, help="Signals in the final digest")
+    parser.add_argument("--dedup-method", choices=["fuzzy", "tfidf", "tf-idf"], default="fuzzy", help="Deduplication method")
+    parser.add_argument("--fuzzy-threshold", type=float, default=0.72, help="Fuzzy duplicate threshold")
+    parser.add_argument("--tfidf-threshold", type=float, default=0.58, help="TF-IDF cosine duplicate threshold")
     args = parser.parse_args()
 
     articles = pd.read_csv(args.input_csv) if args.input_csv else None
-    result = run_pipeline(articles=articles, use_llm=args.use_llm, max_llm_items=args.max_llm_items, top_n=args.top_n)
+    result = run_pipeline(
+        articles=articles,
+        use_llm=args.use_llm,
+        max_llm_items=args.max_llm_items,
+        top_n=args.top_n,
+        dedup_method=args.dedup_method,
+        fuzzy_threshold=args.fuzzy_threshold,
+        tfidf_threshold=args.tfidf_threshold,
+    )
     save_outputs(result, args.output_dir)
 
     print("Fintech TrendWatcher pipeline complete")
@@ -34,6 +45,9 @@ def main() -> None:
     print(f"Candidates after filtering: {len(result.candidate_articles)}")
     print(f"Rejected as noise: {len(result.rejected_articles)}")
     print(f"Signals after deduplication: {len(result.signals)}")
+    print(f"Dedup method used: {result.dedup_method_used}")
+    for warning in result.warnings or []:
+        print(f"Warning: {warning}")
     print(f"Digest: {args.output_dir / 'digest.md'}")
     print(f"Signals JSON: {args.output_dir / 'signals.json'}")
 
