@@ -1,0 +1,561 @@
+[
+  {
+    "id": "s009",
+    "headline": "Fintech firm Marquis alerts dozens of US banks and credit unions of a data breach after ransomware attack",
+    "category": "fraud_risk",
+    "tags": [
+      "ai",
+      "bank",
+      "banking",
+      "credit",
+      "fintech",
+      "fraud_risk"
+    ],
+    "hotness": 4,
+    "score": 63.2,
+    "score_components": {
+      "relevance": 4.3,
+      "source_quality": 0.55,
+      "novelty": 2.0,
+      "impact": 4.47,
+      "evidence_count": 1,
+      "confidence": 3.41
+    },
+    "why_now": "Это сигнал остается актуальным: fraud/authentication механики стоит оценивать до роста потерь и давления на UX.",
+    "summary": "Fintech firm Marquis alerts dozens of US banks and credit unions of a data breach after ransomware attack. Сигнал относится к категории fraud_risk и подтвержден источниками: TechCrunch Fintech. Для банка это повод проверить влияние на продуктовые сценарии, риски или конкурентную позицию.",
+    "suggested_action": "Проверить применимость для антифрода, KYC/AML и платежной авторизации.",
+    "sources": [
+      {
+        "source": "TechCrunch Fintech",
+        "url": "https://techcrunch.com/2025/12/03/fintech-firm-marquis-alerts-dozens-of-us-banks-and-credit-unions-of-a-data-breach-after-ransomware-attack",
+        "quality": 0.55
+      }
+    ],
+    "article_ids": [
+      "rss-techcrunch-fintech-9"
+    ],
+    "deduped_titles": [
+      "Fintech firm Marquis alerts dozens of US banks and credit unions of a data breach after ransomware attack"
+    ],
+    "freshness_days": 160
+  },
+  {
+    "id": "s014",
+    "headline": "Karat Financial is bringing business banking to creators",
+    "category": "banking_product",
+    "tags": [
+      "bank",
+      "banking",
+      "banking_product",
+      "card",
+      "credit"
+    ],
+    "hotness": 4,
+    "score": 61.3,
+    "score_components": {
+      "relevance": 3.75,
+      "source_quality": 0.55,
+      "novelty": 2.7,
+      "impact": 3.99,
+      "evidence_count": 1,
+      "confidence": 3.41
+    },
+    "why_now": "Это сигнал остается актуальным: конкурент меняет банковский сценарий, который можно проверить в продуктовой дорожной карте.",
+    "summary": "Karat Financial is bringing business banking to creators. Сигнал относится к категории banking_product и подтвержден источниками: TechCrunch Fintech. Для банка это повод проверить влияние на продуктовые сценарии, риски или конкурентную позицию.",
+    "suggested_action": "Добавить в конкурентный обзор и оценить быстрый продуктовый эксперимент.",
+    "sources": [
+      {
+        "source": "TechCrunch Fintech",
+        "url": "https://techcrunch.com/2025/05/28/karat-financial-is-bringing-business-banking-to-creators",
+        "quality": 0.55
+      }
+    ],
+    "article_ids": [
+      "rss-techcrunch-fintech-14"
+    ],
+    "deduped_titles": [
+      "Karat Financial is bringing business banking to creators"
+    ],
+    "freshness_days": 349
+  },
+  {
+    "id": "s011",
+    "headline": "Venmo launches cash back rewards program for debit cards",
+    "category": "banking_product",
+    "tags": [
+      "banking_product",
+      "card",
+      "credit",
+      "debit"
+    ],
+    "hotness": 3,
+    "score": 57.9,
+    "score_components": {
+      "relevance": 3.2,
+      "source_quality": 0.55,
+      "novelty": 2.7,
+      "impact": 3.95,
+      "evidence_count": 1,
+      "confidence": 3.41
+    },
+    "why_now": "Это сигнал остается актуальным: конкурент меняет банковский сценарий, который можно проверить в продуктовой дорожной карте.",
+    "summary": "Venmo launches cash back rewards program for debit cards. Сигнал относится к категории banking_product и подтвержден источниками: TechCrunch Fintech. Для банка это повод проверить влияние на продуктовые сценарии, риски или конкурентную позицию.",
+    "suggested_action": "Добавить в конкурентный обзор и оценить быстрый продуктовый эксперимент.",
+    "sources": [
+      {
+        "source": "TechCrunch Fintech",
+        "url": "https://techcrunch.com/2025/11/10/venmo-launches-cash-back-rewards-program-for-debit-cards",
+        "quality": 0.55
+      }
+    ],
+    "article_ids": [
+      "rss-techcrunch-fintech-11"
+    ],
+    "deduped_titles": [
+      "Venmo launches cash back rewards program for debit cards"
+    ],
+    "freshness_days": 183
+  },
+  {
+    "id": "s008",
+    "headline": "These 21-year-old dropouts raised $2M to build Givefront, a fintech for nonprofits",
+    "category": "fraud_risk",
+    "tags": [
+      "ai",
+      "bank",
+      "fintech",
+      "fraud_risk"
+    ],
+    "hotness": 3,
+    "score": 56.3,
+    "score_components": {
+      "relevance": 3.2,
+      "source_quality": 0.55,
+      "novelty": 2.0,
+      "impact": 4.35,
+      "evidence_count": 1,
+      "confidence": 3.41
+    },
+    "why_now": "Это сигнал остается актуальным: fraud/authentication механики стоит оценивать до роста потерь и давления на UX.",
+    "summary": "These 21-year-old dropouts raised $2M to build Givefront, a fintech for nonprofits. Сигнал относится к категории fraud_risk и подтвержден источниками: TechCrunch Fintech. Для банка это повод проверить влияние на продуктовые сценарии, риски или конкурентную позицию.",
+    "suggested_action": "Проверить применимость для антифрода, KYC/AML и платежной авторизации.",
+    "sources": [
+      {
+        "source": "TechCrunch Fintech",
+        "url": "https://techcrunch.com/2025/12/18/these-21-year-old-dropouts-raised-2m-to-build-givefront-a-fintech-for-nonprofits",
+        "quality": 0.55
+      }
+    ],
+    "article_ids": [
+      "rss-techcrunch-fintech-8"
+    ],
+    "deduped_titles": [
+      "These 21-year-old dropouts raised $2M to build Givefront, a fintech for nonprofits"
+    ],
+    "freshness_days": 145
+  },
+  {
+    "id": "s015",
+    "headline": "Brex partners with former competitor Zip, with an eye on reducing cash burn to get to an IPO",
+    "category": "partnership",
+    "tags": [
+      "ai",
+      "fintech",
+      "partner",
+      "partners",
+      "partnership"
+    ],
+    "hotness": 3,
+    "score": 53.3,
+    "score_components": {
+      "relevance": 2.65,
+      "source_quality": 0.55,
+      "novelty": 2.7,
+      "impact": 3.55,
+      "evidence_count": 1,
+      "confidence": 3.41
+    },
+    "why_now": "Это сигнал остается актуальным: тема может быть ранним индикатором изменения клиентского поведения.",
+    "summary": "Brex partners with former competitor Zip, with an eye on reducing cash burn to get to an IPO. Сигнал относится к категории partnership и подтвержден источниками: TechCrunch Fintech. Для банка это повод проверить влияние на продуктовые сценарии, риски или конкурентную позицию.",
+    "suggested_action": "Оценить партнерскую модель и возможный аналог для банковской экосистемы.",
+    "sources": [
+      {
+        "source": "TechCrunch Fintech",
+        "url": "https://techcrunch.com/2025/05/20/brex-partners-with-former-competitor-zip-with-an-eye-on-reducing-cash-burn-to-get-to-an-ipo",
+        "quality": 0.55
+      }
+    ],
+    "article_ids": [
+      "rss-techcrunch-fintech-15"
+    ],
+    "deduped_titles": [
+      "Brex partners with former competitor Zip, with an eye on reducing cash burn to get to an IPO"
+    ],
+    "freshness_days": 357
+  },
+  {
+    "id": "s003",
+    "headline": "Collide Capital raises $95M fund to back fintech, future-of-work startups",
+    "category": "fraud_risk",
+    "tags": [
+      "ai",
+      "fintech",
+      "fraud_risk"
+    ],
+    "hotness": 3,
+    "score": 53.0,
+    "score_components": {
+      "relevance": 2.65,
+      "source_quality": 0.55,
+      "novelty": 2.0,
+      "impact": 4.35,
+      "evidence_count": 1,
+      "confidence": 3.41
+    },
+    "why_now": "Это сигнал остается актуальным: fraud/authentication механики стоит оценивать до роста потерь и давления на UX.",
+    "summary": "Collide Capital raises $95M fund to back fintech, future-of-work startups. Сигнал относится к категории fraud_risk и подтвержден источниками: TechCrunch Fintech. Для банка это повод проверить влияние на продуктовые сценарии, риски или конкурентную позицию.",
+    "suggested_action": "Проверить применимость для антифрода, KYC/AML и платежной авторизации.",
+    "sources": [
+      {
+        "source": "TechCrunch Fintech",
+        "url": "https://techcrunch.com/2026/04/09/collide-capital-raises-95m-fund-to-back-fintech-future-of-work-startups",
+        "quality": 0.55
+      }
+    ],
+    "article_ids": [
+      "rss-techcrunch-fintech-3"
+    ],
+    "deduped_titles": [
+      "Collide Capital raises $95M fund to back fintech, future-of-work startups"
+    ],
+    "freshness_days": 33
+  },
+  {
+    "id": "s007",
+    "headline": "Data breach at fintech giant Figure affects close to a million customers",
+    "category": "fraud_risk",
+    "tags": [
+      "ai",
+      "fintech",
+      "fraud_risk"
+    ],
+    "hotness": 3,
+    "score": 53.0,
+    "score_components": {
+      "relevance": 2.65,
+      "source_quality": 0.55,
+      "novelty": 2.0,
+      "impact": 4.35,
+      "evidence_count": 1,
+      "confidence": 3.41
+    },
+    "why_now": "Это сигнал остается актуальным: fraud/authentication механики стоит оценивать до роста потерь и давления на UX.",
+    "summary": "Data breach at fintech giant Figure affects close to a million customers. Сигнал относится к категории fraud_risk и подтвержден источниками: TechCrunch Fintech. Для банка это повод проверить влияние на продуктовые сценарии, риски или конкурентную позицию.",
+    "suggested_action": "Проверить применимость для антифрода, KYC/AML и платежной авторизации.",
+    "sources": [
+      {
+        "source": "TechCrunch Fintech",
+        "url": "https://techcrunch.com/2026/02/18/data-breach-at-fintech-giant-figure-affects-close-to-a-million-customers",
+        "quality": 0.55
+      }
+    ],
+    "article_ids": [
+      "rss-techcrunch-fintech-7"
+    ],
+    "deduped_titles": [
+      "Data breach at fintech giant Figure affects close to a million customers"
+    ],
+    "freshness_days": 83
+  },
+  {
+    "id": "s006",
+    "headline": "X taps William Shatner to give out invites to its payments service, X Money",
+    "category": "payments",
+    "tags": [
+      "payment",
+      "payments"
+    ],
+    "hotness": 3,
+    "score": 52.4,
+    "score_components": {
+      "relevance": 2.65,
+      "source_quality": 0.55,
+      "novelty": 2.0,
+      "impact": 4.15,
+      "evidence_count": 1,
+      "confidence": 3.41
+    },
+    "why_now": "Это сигнал остается актуальным: платежные механики быстро масштабируются через банки, сети и merchant-сценарии.",
+    "summary": "X taps William Shatner to give out invites to its payments service, X Money. Сигнал относится к категории payments и подтвержден источниками: TechCrunch Fintech. Для банка это повод проверить влияние на продуктовые сценарии, риски или конкурентную позицию.",
+    "suggested_action": "Сравнить механику с текущими платежными сценариями и merchant-предложением.",
+    "sources": [
+      {
+        "source": "TechCrunch Fintech",
+        "url": "https://techcrunch.com/2026/03/04/x-taps-william-shatner-to-give-out-invites-to-its-payments-service-x-money",
+        "quality": 0.55
+      }
+    ],
+    "article_ids": [
+      "rss-techcrunch-fintech-6"
+    ],
+    "deduped_titles": [
+      "X taps William Shatner to give out invites to its payments service, X Money"
+    ],
+    "freshness_days": 69
+  },
+  {
+    "id": "s010",
+    "headline": "Pine Labs gets warm market welcome on $440M India IPO despite a valuation trim",
+    "category": "market_signal",
+    "tags": [
+      "ai",
+      "card",
+      "market",
+      "market_signal"
+    ],
+    "hotness": 3,
+    "score": 50.0,
+    "score_components": {
+      "relevance": 2.65,
+      "source_quality": 0.55,
+      "novelty": 2.0,
+      "impact": 3.35,
+      "evidence_count": 1,
+      "confidence": 3.41
+    },
+    "why_now": "Это сигнал остается актуальным: тема может быть ранним индикатором изменения клиентского поведения.",
+    "summary": "Pine Labs gets warm market welcome on $440M India IPO despite a valuation trim. Сигнал относится к категории market_signal и подтвержден источниками: TechCrunch Fintech. Для банка это повод проверить влияние на продуктовые сценарии, риски или конкурентную позицию.",
+    "suggested_action": "Занести в стратегический radar и дождаться подтверждений от первоисточников.",
+    "sources": [
+      {
+        "source": "TechCrunch Fintech",
+        "url": "https://techcrunch.com/2025/11/14/pine-labs-gets-warm-market-welcome-on-440m-india-ipo-despite-a-valuation-trim",
+        "quality": 0.55
+      }
+    ],
+    "article_ids": [
+      "rss-techcrunch-fintech-10"
+    ],
+    "deduped_titles": [
+      "Pine Labs gets warm market welcome on $440M India IPO despite a valuation trim"
+    ],
+    "freshness_days": 179
+  },
+  {
+    "id": "s012",
+    "headline": "With its latest acqui-hire, OpenAI is doubling down on personalized consumer AI",
+    "category": "fraud_risk",
+    "tags": [
+      "ai",
+      "fraud_risk"
+    ],
+    "hotness": 3,
+    "score": 49.6,
+    "score_components": {
+      "relevance": 2.1,
+      "source_quality": 0.55,
+      "novelty": 2.0,
+      "impact": 4.35,
+      "evidence_count": 1,
+      "confidence": 3.41
+    },
+    "why_now": "Это сигнал остается актуальным: fraud/authentication механики стоит оценивать до роста потерь и давления на UX.",
+    "summary": "With its latest acqui-hire, OpenAI is doubling down on personalized consumer AI. Сигнал относится к категории fraud_risk и подтвержден источниками: TechCrunch Fintech. Для банка это повод проверить влияние на продуктовые сценарии, риски или конкурентную позицию.",
+    "suggested_action": "Проверить применимость для антифрода, KYC/AML и платежной авторизации.",
+    "sources": [
+      {
+        "source": "TechCrunch Fintech",
+        "url": "https://techcrunch.com/2025/10/03/with-its-latest-acqui-hire-openai-is-doubling-down-on-personalized-consumer-ai",
+        "quality": 0.55
+      }
+    ],
+    "article_ids": [
+      "rss-techcrunch-fintech-12"
+    ],
+    "deduped_titles": [
+      "With its latest acqui-hire, OpenAI is doubling down on personalized consumer AI"
+    ],
+    "freshness_days": 221
+  },
+  {
+    "id": "s013",
+    "headline": "Numeral raises $35M to automate sales tax with AI",
+    "category": "fraud_risk",
+    "tags": [
+      "ai",
+      "fraud_risk"
+    ],
+    "hotness": 3,
+    "score": 49.6,
+    "score_components": {
+      "relevance": 2.1,
+      "source_quality": 0.55,
+      "novelty": 2.0,
+      "impact": 4.35,
+      "evidence_count": 1,
+      "confidence": 3.41
+    },
+    "why_now": "Это сигнал остается актуальным: fraud/authentication механики стоит оценивать до роста потерь и давления на UX.",
+    "summary": "Numeral raises $35M to automate sales tax with AI. Сигнал относится к категории fraud_risk и подтвержден источниками: TechCrunch Fintech. Для банка это повод проверить влияние на продуктовые сценарии, риски или конкурентную позицию.",
+    "suggested_action": "Проверить применимость для антифрода, KYC/AML и платежной авторизации.",
+    "sources": [
+      {
+        "source": "TechCrunch Fintech",
+        "url": "https://techcrunch.com/2025/09/18/numeral-raises-35m-to-automate-sales-tax-with-ai",
+        "quality": 0.55
+      }
+    ],
+    "article_ids": [
+      "rss-techcrunch-fintech-13"
+    ],
+    "deduped_titles": [
+      "Numeral raises $35M to automate sales tax with AI"
+    ],
+    "freshness_days": 236
+  },
+  {
+    "id": "s001",
+    "headline": "Apple’s new CEO, and why Elon Musk wants to buy Cursor for $60B",
+    "category": "UX",
+    "tags": [
+      "UX",
+      "app"
+    ],
+    "hotness": 3,
+    "score": 46.5,
+    "score_components": {
+      "relevance": 1.55,
+      "source_quality": 0.55,
+      "novelty": 2.7,
+      "impact": 3.45,
+      "evidence_count": 1,
+      "confidence": 3.41
+    },
+    "why_now": "Это сигнал остается актуальным: тема может быть ранним индикатором изменения клиентского поведения.",
+    "summary": "Apple’s new CEO, and why Elon Musk wants to buy Cursor for $60B. Сигнал относится к категории UX и подтвержден источниками: TechCrunch Fintech. Для банка это повод проверить влияние на продуктовые сценарии, риски или конкурентную позицию.",
+    "suggested_action": "Проверить UX-механику на применимость в мобильном банке.",
+    "sources": [
+      {
+        "source": "TechCrunch Fintech",
+        "url": "https://techcrunch.com/podcast/apples-new-ceo-and-why-elon-musk-wants-to-buy-cursor-for-60b",
+        "quality": 0.55
+      }
+    ],
+    "article_ids": [
+      "rss-techcrunch-fintech-1"
+    ],
+    "deduped_titles": [
+      "Apple’s new CEO, and why Elon Musk wants to buy Cursor for $60B"
+    ],
+    "freshness_days": 18
+  },
+  {
+    "id": "s005",
+    "headline": "Polymarket continues its partnership spree with a Major League Baseball deal",
+    "category": "partnership",
+    "tags": [
+      "partner",
+      "partners",
+      "partnership"
+    ],
+    "hotness": 3,
+    "score": 44.0,
+    "score_components": {
+      "relevance": 1.55,
+      "source_quality": 0.55,
+      "novelty": 2.0,
+      "impact": 3.55,
+      "evidence_count": 1,
+      "confidence": 3.41
+    },
+    "why_now": "Это сигнал остается актуальным: тема может быть ранним индикатором изменения клиентского поведения.",
+    "summary": "Polymarket continues its partnership spree with a Major League Baseball deal. Сигнал относится к категории partnership и подтвержден источниками: TechCrunch Fintech. Для банка это повод проверить влияние на продуктовые сценарии, риски или конкурентную позицию.",
+    "suggested_action": "Оценить партнерскую модель и возможный аналог для банковской экосистемы.",
+    "sources": [
+      {
+        "source": "TechCrunch Fintech",
+        "url": "https://techcrunch.com/2026/03/19/polymarket-continues-its-partnership-spree-with-a-major-league-baseball-deal",
+        "quality": 0.55
+      }
+    ],
+    "article_ids": [
+      "rss-techcrunch-fintech-5"
+    ],
+    "deduped_titles": [
+      "Polymarket continues its partnership spree with a Major League Baseball deal"
+    ],
+    "freshness_days": 54
+  },
+  {
+    "id": "s002",
+    "headline": "Tim Cook is stepping down. What happens to Apple now?",
+    "category": "UX",
+    "tags": [
+      "UX",
+      "app"
+    ],
+    "hotness": 3,
+    "score": 43.7,
+    "score_components": {
+      "relevance": 1.55,
+      "source_quality": 0.55,
+      "novelty": 2.0,
+      "impact": 3.45,
+      "evidence_count": 1,
+      "confidence": 3.41
+    },
+    "why_now": "Это сигнал остается актуальным: тема может быть ранним индикатором изменения клиентского поведения.",
+    "summary": "Tim Cook is stepping down. What happens to Apple now?. Сигнал относится к категории UX и подтвержден источниками: TechCrunch Fintech. Для банка это повод проверить влияние на продуктовые сценарии, риски или конкурентную позицию.",
+    "suggested_action": "Проверить UX-механику на применимость в мобильном банке.",
+    "sources": [
+      {
+        "source": "TechCrunch Fintech",
+        "url": "https://techcrunch.com/video/tim-cook-is-stepping-down-what-happens-to-apple-now",
+        "quality": 0.55
+      }
+    ],
+    "article_ids": [
+      "rss-techcrunch-fintech-2"
+    ],
+    "deduped_titles": [
+      "Tim Cook is stepping down. What happens to Apple now?"
+    ],
+    "freshness_days": 18
+  },
+  {
+    "id": "s004",
+    "headline": "Money transfer app Duc exposed thousands of driver’s licenses and passports to the open web",
+    "category": "UX",
+    "tags": [
+      "UX",
+      "app"
+    ],
+    "hotness": 3,
+    "score": 43.7,
+    "score_components": {
+      "relevance": 1.55,
+      "source_quality": 0.55,
+      "novelty": 2.0,
+      "impact": 3.45,
+      "evidence_count": 1,
+      "confidence": 3.41
+    },
+    "why_now": "Это сигнал остается актуальным: тема может быть ранним индикатором изменения клиентского поведения.",
+    "summary": "Money transfer app Duc exposed thousands of driver’s licenses and passports to the open web. Сигнал относится к категории UX и подтвержден источниками: TechCrunch Fintech. Для банка это повод проверить влияние на продуктовые сценарии, риски или конкурентную позицию.",
+    "suggested_action": "Проверить UX-механику на применимость в мобильном банке.",
+    "sources": [
+      {
+        "source": "TechCrunch Fintech",
+        "url": "https://techcrunch.com/2026/04/02/canadian-money-transfer-app-duc-expose-drivers-licenses-passports-amazon-server",
+        "quality": 0.55
+      }
+    ],
+    "article_ids": [
+      "rss-techcrunch-fintech-4"
+    ],
+    "deduped_titles": [
+      "Money transfer app Duc exposed thousands of driver’s licenses and passports to the open web"
+    ],
+    "freshness_days": 40
+  }
+]

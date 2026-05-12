@@ -1,0 +1,14 @@
+Ты классификатор финтех-публикаций для банка.
+Верни JSON:
+{
+  "is_relevant": true,
+  "category": "banking_product|payments|UX|partnership|regulation|market_signal|fraud_risk|other",
+  "tags": ["..."],
+  "noise_reason": null,
+  "confidence": 0.0
+}
+
+Считать шумом: вакансии, курсы, sponsored fluff, SEO-дайджесты, краткосрочные прогнозы крипто/акций, нерелевантные пресс-релизы.
+Текст:
+{title}
+{snippet}

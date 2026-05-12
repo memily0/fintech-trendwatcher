@@ -1,0 +1,13 @@
+Извлеки категории и теги.
+Верни только JSON:
+{
+  "primary_category": "banking_product|payments|UX|partnership|regulation|market_signal|fraud_risk|other",
+  "product_area": "коротко",
+  "companies": ["..."],
+  "countries": ["..."],
+  "tags": ["..."]
+}
+
+Текст:
+{title}
+{snippet}
