@@ -16,9 +16,8 @@ DEFAULT_RSS_SOURCES: dict[str, str] = {
     "Банк России — события": "https://www.cbr.ru/rss/eventrss",
     "Банк России — пресс-релизы": "https://www.cbr.ru/rss/RssPress",
     "РБК — новости": "https://rssexport.rbc.ru/rbcnews/news/30/full.rss",
-    "Finextra": "https://www.finextra.com/rss/news.aspx",
+    "Finextra": "https://www.finextra.com/rss/headlines.aspx",
     "TechCrunch Fintech": "https://techcrunch.com/tag/fintech/feed/",
-    "The Paypers": "https://thepaypers.com/rss",
     "PYMNTS": "https://www.pymnts.com/feed/",
     "Stripe Blog": "https://stripe.com/blog/feed.rss",
 }
