@@ -214,8 +214,8 @@ with st.sidebar:
     data_source = st.radio("Источник данных", ["Демо-набор", "CSV-файл", "Live RSS"], index=0)
     uploaded = st.file_uploader("CSV: title, url, source, published_at, snippet, text", type=["csv"])
     st.caption(
-        "CSV-режим нужен для проверки pipeline на заранее собранном наборе публикаций или данных из другого crawler "
-        "Это делает прототип независимым от доступности RSS. Обязательные поля: title, url, source, published_at, snippet, text"
+        "CSV-режим нужен для проверки pipeline на заранее собранном наборе публикаций или данных "
+        "Обязательные поля: title, url, source, published_at, snippet, text"
     )
     top_n = st.slider("Сигналов в дайджесте", 3, 10, 7)
 
@@ -225,7 +225,7 @@ with st.sidebar:
     dedup_method = "tfidf" if dedup_label == "TF-IDF" else "fuzzy"
     st.caption(
         "Порог дедупликации управляет тем, насколько похожими должны быть две публикации, чтобы система объединила их в один сигнал "
-        "Ниже порог — больше объединений и выше риск склеить разные события. Выше порог — осторожнее, но часть дублей может остаться"
+        "Ниже порог - больше объединений и выше риск склеить разные события. Выше порог - осторожнее, но часть дублей может остаться"
     )
     fuzzy_threshold = st.slider("Порог Fuzzy", 0.55, 0.95, 0.72, 0.01, disabled=dedup_label != "Fuzzy")
     if dedup_label == "Fuzzy":

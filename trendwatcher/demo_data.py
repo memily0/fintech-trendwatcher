@@ -199,6 +199,97 @@ SIGNALS: list[dict[str, Any]] = [
         ],
         "duplicates": ["Banking regulator issues AI model risk guidance"],
     },
+    {
+        "topic": "cbr_digital_ruble_pilot",
+        "title": "Банк России расширяет пилот цифрового рубля для банков и торговых сценариев",
+        "category": "regulation",
+        "companies": "Банк России",
+        "snippet": (
+            "Банк России сообщил о расширении пилота цифрового рубля: банки подключают новые "
+            "клиентские сценарии, переводы и оплату через QR, включая тестирование операций для бизнеса."
+        ),
+        "sources": [
+            ("Банк России — пресс-релизы", "https://www.cbr.ru/press/event/?id=digital-ruble-pilot"),
+            ("РБК — новости", "https://www.rbc.ru/finances/2026/05/10/digital-ruble-pilot-banks"),
+        ],
+        "duplicates": [
+            "ЦБ расширяет пилот цифрового рубля для банковских клиентов",
+            "Банки подключают новые сценарии цифрового рубля",
+        ],
+    },
+    {
+        "topic": "sbp_loyalty_merchant",
+        "title": "Банки тестируют кешбэк и подписки в СБП для merchant-сценариев",
+        "category": "payments",
+        "companies": "Банки и платежные провайдеры",
+        "snippet": (
+            "Несколько банков и платежных провайдеров тестируют механики лояльности в СБП: "
+            "кешбэк, QR-оплату и повторные платежи для малого бизнеса и онлайн-мерчантов."
+        ),
+        "sources": [
+            ("РБК — новости", "https://www.rbc.ru/finances/2026/05/09/sbp-loyalty-merchant-payments"),
+            ("Банк России — события", "https://www.cbr.ru/press/event/?id=sbp-merchant-loyalty"),
+            ("Finextra", "https://www.finextra.com/newsarticle/sbp-merchant-loyalty-cashback"),
+        ],
+        "duplicates": [
+            "Российские банки проверяют кешбэк и повторные платежи в СБП",
+            "СБП тестирует новые сценарии лояльности для малого бизнеса",
+        ],
+    },
+    {
+        "topic": "cbr_antifraud_transfers",
+        "title": "Банк России усиливает требования к антифрод-мониторингу переводов",
+        "category": "fraud_risk",
+        "companies": "Банк России",
+        "snippet": (
+            "Регулятор описал новые подходы к борьбе с мошенничеством: проверка подозрительных "
+            "операций, KYC/AML-сигналы, биометрия и уведомления клиентов при переводах."
+        ),
+        "sources": [
+            ("Банк России — новости", "https://www.cbr.ru/press/event/?id=antifraud-transfers-monitoring"),
+            ("РБК — новости", "https://www.rbc.ru/finances/2026/05/08/cbr-antifraud-transfers"),
+        ],
+        "duplicates": [
+            "ЦБ обновляет подход к антифроду при переводах",
+            "Банки усилят мониторинг подозрительных операций по требованиям регулятора",
+        ],
+    },
+    {
+        "topic": "russian_bank_biometric_onboarding",
+        "title": "Российский банк запускает биометрический онбординг в мобильном приложении",
+        "category": "UX",
+        "companies": "Российский банк",
+        "snippet": (
+            "Российский банк запускает сценарий удаленной идентификации и биометрического "
+            "онбординга в мобильном приложении, чтобы быстрее открывать счет и подключать карту."
+        ),
+        "sources": [
+            ("РБК — новости", "https://www.rbc.ru/finances/2026/05/07/mobile-bank-biometric-onboarding"),
+            ("Finextra", "https://www.finextra.com/newsarticle/russian-bank-biometric-onboarding"),
+        ],
+        "duplicates": [
+            "Банк тестирует биометрический onboarding для новых клиентов",
+            "Мобильный банк ускоряет открытие счета через удаленную идентификацию",
+        ],
+    },
+    {
+        "topic": "marketplace_bnpl_bank_partnership",
+        "title": "Банк и маркетплейс запускают рассрочку BNPL для повторных покупок",
+        "category": "partnership",
+        "companies": "Банк и маркетплейс",
+        "snippet": (
+            "Банк и крупный маркетплейс тестируют партнерскую BNPL-механику: рассрочка "
+            "показывается в checkout, а скоринг использует историю покупок и банковские данные."
+        ),
+        "sources": [
+            ("РБК — новости", "https://www.rbc.ru/technology_and_media/2026/05/06/bank-marketplace-bnpl"),
+            ("The Paypers", "https://thepaypers.com/online-payments/russian-bank-marketplace-bnpl"),
+        ],
+        "duplicates": [
+            "Маркетплейс и банк тестируют рассрочку в checkout",
+            "BNPL-партнерство банка и маркетплейса выходит в пилот",
+        ],
+    },
 ]
 
 
@@ -251,6 +342,33 @@ NOISE: list[dict[str, str]] = [
         "url": "https://tradingdesk.example/weekly-bank-stock-market-recap",
         "snippet": "Market recap focused on share prices, rates, indexes and analyst calls rather than product signals.",
     },
+    {
+        "title": "Банк России выпускает памятную серебряную монету новой серии",
+        "source": "Банк России — пресс-релизы",
+        "url": "https://www.cbr.ru/press/pr/?id=commemorative-silver-coin",
+        "snippet": (
+            "Банк России сообщает о выпуске памятной серебряной монеты номиналом три рубля. "
+            "Публикация относится к нумизматике и коллекционным выпускам."
+        ),
+    },
+    {
+        "title": "Вебинар: как заработать на криптовалюте и трейдинге за выходные",
+        "source": "EduPromo",
+        "url": "https://education.example/crypto-trading-webinar-ru",
+        "snippet": "Рекламный вебинар с прогнозом цены биткоина, промокодом и скидкой на курс для начинающих трейдеров.",
+    },
+    {
+        "title": "Вакансия продуктового аналитика в финтех-стартапе",
+        "source": "JobsBoard",
+        "url": "https://jobs.example/ru/fintech-product-analyst",
+        "snippet": "Описание вакансии, требования к кандидату, зарплатная вилка и условия удаленной работы.",
+    },
+    {
+        "title": "Обзор рынка: акции банков выросли после изменения котировок",
+        "source": "TradingDesk",
+        "url": "https://tradingdesk.example/ru/bank-shares-market-review",
+        "snippet": "Обзор рынка и котировок: акции выросли на фоне ожиданий инвесторов и прогнозов аналитиков.",
+    },
 ]
 
 
@@ -300,6 +418,34 @@ FILLER: list[dict[str, str]] = [
 ]
 
 
+def _has_cyrillic(value: str) -> bool:
+    return any(("а" <= char.lower() <= "я") or char in {"ё", "Ё"} for char in value)
+
+
+def _signal_text(signal: dict[str, Any]) -> str:
+    if _has_cyrillic(signal["title"] + signal["snippet"]):
+        return (
+            f"{signal['snippet']} Публикация упоминает {signal['companies']} и связывает событие "
+            f"с направлением {signal['category']} для банковских команд."
+        )
+    return (
+        f"{signal['snippet']} The publication mentions {signal['companies']} and "
+        f"connects the update with {signal['category']} use cases for banks."
+    )
+
+
+def _repost_snippet(signal: dict[str, Any]) -> str:
+    if _has_cyrillic(signal["title"] + signal["snippet"]):
+        return signal["snippet"] + " Материал пересказывает детали из другого отраслевого источника."
+    return signal["snippet"] + " The article republishes details from another industry source."
+
+
+def _filler_text(item: dict[str, str]) -> str:
+    if _has_cyrillic(item["title"] + item["snippet"]):
+        return item["snippet"] + f" Обновление релевантно для команды направления {item['category']}."
+    return item["snippet"] + f" This update is relevant to {item['category']} teams."
+
+
 def demo_articles() -> list[dict[str, str]]:
     """Return a deterministic article list with useful signals and noise."""
 
@@ -318,10 +464,7 @@ def demo_articles() -> list[dict[str, str]]:
                     "source": source,
                     "published_at": str(BASE_DATE - timedelta(days=(signal_idx + source_idx) % 12)),
                     "snippet": signal["snippet"],
-                    "text": (
-                        f"{signal['snippet']} The publication mentions {signal['companies']} and "
-                        f"connects the update with {signal['category']} use cases for banks."
-                    ),
+                    "text": _signal_text(signal),
                 }
             )
             idx += 1
@@ -335,7 +478,7 @@ def demo_articles() -> list[dict[str, str]]:
                     "url": f"https://fintechrepost.example/{signal['topic']}?utm_source=telegram",
                     "source": "Fintech Repost",
                     "published_at": str(BASE_DATE - timedelta(days=(signal_idx + 2) % 12)),
-                    "snippet": signal["snippet"] + " The article republishes details from another industry source.",
+                    "snippet": _repost_snippet(signal),
                     "text": signal["snippet"],
                 }
             )
@@ -364,7 +507,7 @@ def demo_articles() -> list[dict[str, str]]:
                 "source": item["source"],
                 "published_at": str(BASE_DATE - timedelta(days=(filler_idx + 3) % 14)),
                 "snippet": item["snippet"],
-                "text": item["snippet"] + f" This update is relevant to {item['category']} teams.",
+                "text": _filler_text(item),
             }
         )
         idx += 1
