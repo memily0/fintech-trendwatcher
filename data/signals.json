@@ -1,2633 +1,1553 @@
 [
   {
     "id": "s001",
-    "headline": "Результаты мониторинга максимальных процентных ставок кредитных организаций (05.05.2026)",
-    "category": "banking_product",
+    "headline": "Банк России расширяет пилот цифрового рубля для банков и торговых сценариев",
+    "category": "payments",
     "tags": [
-      "bank",
-      "banking_product",
+      "payments",
+      "qr",
       "банк",
-      "вклад",
-      "депозит",
-      "кредит",
-      "счет"
+      "банк россии",
+      "банки",
+      "перевод",
+      "переводы",
+      "цб"
     ],
     "hotness": 5,
-    "score": 85.9,
-    "published_at": "2026-05-05",
-    "date_label": "05.05.2026",
-    "freshness_label": "9 дней назад",
+    "score": 96.8,
+    "published_at": "2026-05-12",
+    "date_label": "12.05.2026",
+    "freshness_label": "2 дня назад",
     "score_components": {
-      "relevance": 4.75,
+      "relevance": 5.0,
       "source_quality": 1.0,
-      "novelty": 2.0,
-      "impact": 4.79,
+      "novelty": 4.2,
+      "impact": 5.0,
+      "evidence_count": 3,
+      "confidence": 5.0
+    },
+    "score_explanation": "Высокий score: много финтех-триггеров; сильный первоисточник; есть признаки свежего запуска/пилота; сигнал подтвержден несколькими ссылками.",
+    "signal_level": "strong",
+    "why_now": "Сигнал затрагивает платежный сценарий: изменения в платежах быстро влияют на ожидания клиентов к скорости, удобству, комиссии и доступности операций. Сигнал свежий; сигнал подтверждается несколькими источниками; источник выглядит надежным.",
+    "summary": "Банк России расширяет пилот цифрового рубля для банков и торговых сценариев. Банк России сообщил о расширении пилота цифрового рубля: банки подключают новые клиентские сценарии, переводы и оплату через QR, включая тестирование операций для бизнеса.",
+    "suggested_action": "Передать владельцу платежного сценария. Сравнить механику с текущими переводами, оплатой, checkout/acquiring или merchant-сценариями и сформулировать гипотезу для discovery или A/B-теста.",
+    "sources": [
+      {
+        "source": "Банк России — пресс-релизы",
+        "url": "https://cbr.ru/press/event?id=digital-ruble-pilot",
+        "quality": 1.0,
+        "published_at": "2026-05-12",
+        "date_label": "12.05.2026",
+        "source_date": "Банк России — пресс-релизы · 12.05.2026"
+      },
+      {
+        "source": "РБК — новости",
+        "url": "https://rbc.ru/finances/2026/05/10/digital-ruble-pilot-banks",
+        "quality": 0.7,
+        "published_at": "2026-05-11",
+        "date_label": "11.05.2026",
+        "source_date": "РБК — новости · 11.05.2026"
+      },
+      {
+        "source": "Fintech Repost",
+        "url": "https://fintechrepost.example/cbr_digital_ruble_pilot",
+        "quality": 0.45,
+        "published_at": "2026-05-10",
+        "date_label": "10 May 2026",
+        "source_date": "Fintech Repost · 10 May 2026"
+      }
+    ],
+    "article_ids": [
+      "a032",
+      "a033",
+      "a034"
+    ],
+    "deduped_titles": [
+      "Банк России расширяет пилот цифрового рубля для банков и торговых сценариев",
+      "ЦБ расширяет пилот цифрового рубля для банковских клиентов"
+    ],
+    "freshness_days": 2,
+    "context_note": "Использован расширенный текст/snippet из входных данных."
+  },
+  {
+    "id": "s009",
+    "headline": "Visa launches passkey-based checkout pilot for bank cards",
+    "category": "fraud_risk",
+    "tags": [
+      "ai",
+      "authentication",
+      "bank",
+      "card",
+      "checkout",
+      "fraud",
+      "fraud_risk",
+      "merchant"
+    ],
+    "hotness": 5,
+    "score": 93.2,
+    "published_at": "2026-05-10",
+    "date_label": "10 May 2026",
+    "freshness_label": "4 дня назад",
+    "score_components": {
+      "relevance": 5.0,
+      "source_quality": 0.9,
+      "novelty": 3.8,
+      "impact": 5.0,
+      "evidence_count": 3,
+      "confidence": 4.93
+    },
+    "score_explanation": "Высокий score: много финтех-триггеров; сильный первоисточник; сигнал подтвержден несколькими ссылками; высокая потенциальная значимость для банка.",
+    "signal_level": "strong",
+    "why_now": "Сигнал связан с fraud/security: такие изменения могут повлиять на потери, KYC/AML-процессы, авторизацию или баланс между безопасностью и UX. Сигнал свежий; сигнал подтверждается несколькими источниками; источник выглядит надежным.",
+    "summary": "Visa launches passkey-based checkout pilot for bank cards. Visa announced a passkey checkout pilot designed to reduce card-not-present fraud and simplify authentication for issuers and merchants.",
+    "suggested_action": "Передать risk/anti-fraud команде. Проверить, есть ли похожий риск в текущих операциях, KYC/AML, авторизации или мониторинге транзакций.",
+    "sources": [
+      {
+        "source": "Visa",
+        "url": "https://usa.visa.com/about-visa/newsroom/press-releases/passkey-checkout-pilot.html",
+        "quality": 0.9,
+        "published_at": "2026-05-10",
+        "date_label": "10 May 2026",
+        "source_date": "Visa · 10 May 2026"
+      },
+      {
+        "source": "PYMNTS",
+        "url": "https://pymnts.com/visa-passkey-checkout-pilot",
+        "quality": 0.8,
+        "published_at": "2026-05-09",
+        "date_label": "9 May 2026",
+        "source_date": "PYMNTS · 9 May 2026"
+      },
+      {
+        "source": "Fintech Repost",
+        "url": "https://fintechrepost.example/visa_passkeys",
+        "quality": 0.45,
+        "published_at": "2026-05-08",
+        "date_label": "8 May 2026",
+        "source_date": "Fintech Repost · 8 May 2026"
+      }
+    ],
+    "article_ids": [
+      "a007",
+      "a008",
+      "a009"
+    ],
+    "deduped_titles": [
+      "Visa launches passkey-based checkout pilot for bank cards",
+      "Visa pilots passkeys for card checkout authentication"
+    ],
+    "freshness_days": 4,
+    "context_note": "Использован расширенный текст/snippet из входных данных."
+  },
+  {
+    "id": "s011",
+    "headline": "JPMorgan pilots palm biometric payments with stadium merchants",
+    "category": "payments",
+    "tags": [
+      "ai",
+      "bank",
+      "checkout",
+      "identity",
+      "merchant",
+      "payment",
+      "payments",
+      "wallet"
+    ],
+    "hotness": 5,
+    "score": 91.4,
+    "published_at": "2026-05-06",
+    "date_label": "6 May 2026",
+    "freshness_label": "8 дней назад",
+    "score_components": {
+      "relevance": 5.0,
+      "source_quality": 0.9,
+      "novelty": 3.4,
+      "impact": 4.92,
+      "evidence_count": 3,
+      "confidence": 4.93
+    },
+    "score_explanation": "Высокий score: много финтех-триггеров; сильный первоисточник; сигнал подтвержден несколькими ссылками; высокая потенциальная значимость для банка.",
+    "signal_level": "strong",
+    "why_now": "Сигнал затрагивает платежный сценарий: изменения в платежах быстро влияют на ожидания клиентов к скорости, удобству, комиссии и доступности операций. Сигнал не новый, но может оставаться актуальным; сигнал подтверждается несколькими источниками; источник выглядит надежным.",
+    "summary": "JPMorgan pilots palm biometric payments with stadium merchants. JPMorgan is piloting palm biometric payments at stadium merchants, combining identity, wallet enrollment and loyalty offers in one checkout flow.",
+    "suggested_action": "Передать владельцу платежного сценария. Сравнить механику с текущими переводами, оплатой, checkout/acquiring или merchant-сценариями и сформулировать гипотезу для discovery или A/B-теста.",
+    "sources": [
+      {
+        "source": "JPMorgan",
+        "url": "https://jpmorgan.com/payments/news/palm-biometric-stadium-pilot",
+        "quality": 0.9,
+        "published_at": "2026-05-06",
+        "date_label": "6 May 2026",
+        "source_date": "JPMorgan · 6 May 2026"
+      },
+      {
+        "source": "PYMNTS",
+        "url": "https://pymnts.com/biometrics/jpmorgan-palm-payments-stadium",
+        "quality": 0.8,
+        "published_at": "2026-05-05",
+        "date_label": "5 May 2026",
+        "source_date": "PYMNTS · 5 May 2026"
+      },
+      {
+        "source": "Fintech Repost",
+        "url": "https://fintechrepost.example/jpmorgan_biometrics",
+        "quality": 0.45,
+        "published_at": "2026-05-04",
+        "date_label": "4 May 2026",
+        "source_date": "Fintech Repost · 4 May 2026"
+      }
+    ],
+    "article_ids": [
+      "a017",
+      "a018",
+      "a019"
+    ],
+    "deduped_titles": [
+      "JPMorgan pilots palm biometric payments with stadium merchants",
+      "JPMorgan tests palm payments for stadium checkout"
+    ],
+    "freshness_days": 8,
+    "context_note": "Использован расширенный текст/snippet из входных данных."
+  },
+  {
+    "id": "s003",
+    "headline": "Российские банки проверяют кешбэк и повторные платежи в СБП",
+    "category": "payments",
+    "tags": [
+      "merchant",
+      "payment",
+      "payments",
+      "qr",
+      "банк",
+      "банки",
+      "кешбэк",
+      "мерчант"
+    ],
+    "hotness": 5,
+    "score": 91.2,
+    "published_at": "2026-05-11",
+    "date_label": "11.05.2026",
+    "freshness_label": "3 дня назад",
+    "score_components": {
+      "relevance": 5.0,
+      "source_quality": 1.0,
+      "novelty": 2.8,
+      "impact": 5.0,
       "evidence_count": 3,
       "confidence": 5.0
     },
     "score_explanation": "Высокий score: много финтех-триггеров; сильный первоисточник; сигнал подтвержден несколькими ссылками; высокая потенциальная значимость для банка.",
-    "why_now": "Это сигнал остается актуальным: конкурент меняет банковский сценарий, который можно проверить в продуктовой дорожной карте.",
-    "summary": "Результаты мониторинга максимальных процентных ставок кредитных организаций (05.05.2026). Результаты мониторинга в апреле 2026 года максимальных процентных ставок по вкладам 1 в российских рублях десяти кредитных организаций 2 , привлекающих наибольший объём депозитов физических лиц: I декада апреля – 13,43%; II декада апреля – 13,39%; III декада апреля – 13,06%. Сведения о динамике результатов мониторинга представлены на официальном сайте Банка России. Сведения о средних максимальных процентных ставках...",
-    "suggested_action": "Сравнить с текущей продуктовой линейкой и оценить, есть ли применимый сценарий для клиента банка.",
+    "signal_level": "strong",
+    "why_now": "Сигнал затрагивает платежный сценарий: изменения в платежах быстро влияют на ожидания клиентов к скорости, удобству, комиссии и доступности операций. Сигнал свежий; сигнал подтверждается несколькими источниками; источник выглядит надежным.",
+    "summary": "Российские банки проверяют кешбэк и повторные платежи в СБП. Несколько банков и платежных провайдеров тестируют механики лояльности в СБП: кешбэк, QR-оплату и повторные платежи для малого бизнеса и онлайн-мерчантов.",
+    "suggested_action": "Передать владельцу платежного сценария. Сравнить механику с текущими переводами, оплатой, checkout/acquiring или merchant-сценариями и сформулировать гипотезу для discovery или A/B-теста.",
     "sources": [
       {
-        "source": "Банк России — пресс-релизы",
-        "url": "https://cbr.ru/press/PR?file=639136022418984549BANK_SECTOR.htm",
+        "source": "Банк России — события",
+        "url": "https://cbr.ru/press/event?id=sbp-merchant-loyalty",
         "quality": 1.0,
-        "published_at": "2026-05-05",
-        "date_label": "05.05.2026",
-        "source_date": "Банк России — пресс-релизы · 05.05.2026"
+        "published_at": "2026-05-10",
+        "date_label": "10.05.2026",
+        "source_date": "Банк России — события · 10.05.2026"
       },
       {
-        "source": "Банк России — пресс-релизы",
-        "url": "https://cbr.ru/press/PR?file=639123797974313260BANK_SECTOR.htm",
-        "quality": 1.0,
-        "published_at": "2026-04-21",
-        "date_label": "21.04.2026",
-        "source_date": "Банк России — пресс-релизы · 21.04.2026"
+        "source": "Finextra",
+        "url": "https://finextra.com/newsarticle/sbp-merchant-loyalty-cashback",
+        "quality": 0.8,
+        "published_at": "2026-05-09",
+        "date_label": "9 May 2026",
+        "source_date": "Finextra · 9 May 2026"
       },
       {
-        "source": "Банк России — пресс-релизы",
-        "url": "https://cbr.ru/press/PR?file=639118568263020600BANK_SECTOR.htm",
-        "quality": 1.0,
-        "published_at": "2026-04-15",
-        "date_label": "15.04.2026",
-        "source_date": "Банк России — пресс-релизы · 15.04.2026"
+        "source": "РБК — новости",
+        "url": "https://rbc.ru/finances/2026/05/09/sbp-loyalty-merchant-payments",
+        "quality": 0.7,
+        "published_at": "2026-05-11",
+        "date_label": "11.05.2026",
+        "source_date": "РБК — новости · 11.05.2026"
       }
     ],
     "article_ids": [
-      "rss-банк-россии-—-пресс-релизы-1",
-      "rss-банк-россии-—-пресс-релизы-6",
-      "rss-банк-россии-—-пресс-релизы-7"
+      "a036",
+      "a037",
+      "a035"
     ],
     "deduped_titles": [
-      "Результаты мониторинга максимальных процентных ставок кредитных организаций (05.05.2026)",
-      "Результаты мониторинга максимальных процентных ставок кредитных организаций (15.04.2026)",
-      "Результаты мониторинга максимальных процентных ставок кредитных организаций (21.04.2026)"
+      "Банки тестируют кешбэк и подписки в СБП для merchant-сценариев",
+      "Российские банки проверяют кешбэк и повторные платежи в СБП",
+      "СБП тестирует новые сценарии лояльности для малого бизнеса"
     ],
-    "freshness_days": 9,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
+    "freshness_days": 3,
+    "context_note": "Использован расширенный текст/snippet из входных данных."
   },
   {
     "id": "s002",
-    "headline": "Банк России принял ряд решений по макропруденциальной политике (29.04.2026)",
-    "category": "banking_product",
+    "headline": "ECB publishes new digital euro wallet prototype findings",
+    "category": "regulation",
     "tags": [
-      "banking_product",
-      "банк",
-      "банк россии",
-      "банки",
-      "банковский",
-      "заем",
-      "карта",
-      "кредит"
+      "bank",
+      "central bank",
+      "digital euro",
+      "ecb",
+      "payment",
+      "payments",
+      "regulation",
+      "wallet"
     ],
-    "hotness": 4,
-    "score": 79.4,
-    "published_at": "2026-04-29",
-    "date_label": "29.04.2026",
-    "freshness_label": "старше двух недель",
+    "hotness": 5,
+    "score": 89.7,
+    "published_at": "2026-05-11",
+    "date_label": "11 May 2026",
+    "freshness_label": "3 дня назад",
     "score_components": {
-      "relevance": 5.0,
+      "relevance": 4.65,
       "source_quality": 1.0,
-      "novelty": 2.7,
-      "impact": 4.52,
-      "evidence_count": 1,
-      "confidence": 3.95
+      "novelty": 4.2,
+      "impact": 5.0,
+      "evidence_count": 2,
+      "confidence": 4.5
     },
-    "score_explanation": "Средний score: много финтех-триггеров; сильный первоисточник; высокая потенциальная значимость для банка.",
-    "why_now": "Это сигнал остается актуальным: конкурент меняет банковский сценарий, который можно проверить в продуктовой дорожной карте.",
-    "summary": "Банк России принял ряд решений по макропруденциальной политике (29.04.2026). 1. Банк России ужесточил на I II квартал 2026 года значения макропруденциальных лимитов (МПЛ) по ипотечным кредитам на приобретение строящегося и готового жилья в многоквартирных домах, а также не пересматривал макропруденциальные надбавки. По ипотеке на приобретение жилья в многоквартирных домах доля задолженности с просроченными платежами свыше 90 дней на 01.04.2026 составила 1,0% 1 (0,6% на 01.04.2025 и 0,9% на...",
-    "suggested_action": "Сравнить с текущей продуктовой линейкой и оценить, есть ли применимый сценарий для клиента банка.",
+    "score_explanation": "Высокий score: много финтех-триггеров; сильный первоисточник; есть признаки свежего запуска/пилота; есть больше одного подтверждения.",
+    "signal_level": "strong",
+    "why_now": "Сигнал затрагивает регуляторную повестку: такие изменения могут повлиять на документы, клиентские коммуникации, compliance-процессы или правила запуска продукта. Сигнал свежий; сигнал подтверждается несколькими источниками; источник выглядит надежным.",
+    "summary": "ECB publishes new digital euro wallet prototype findings. The European Central Bank shared findings from digital euro wallet prototype work, including offline payments, privacy controls and commercial bank roles.",
+    "suggested_action": "Передать сигнал compliance/legal и владельцу затронутого продукта. Проверить, нужны ли изменения в документах, клиентских сценариях, процессах идентификации, коммуникации или отчетности.",
     "sources": [
       {
-        "source": "Банк России — пресс-релизы",
-        "url": "https://cbr.ru/press/PR?file=639130820712099203FINSTAB.htm",
+        "source": "ECB",
+        "url": "https://ecb.europa.eu/paym/digital_euro/prototype-findings",
         "quality": 1.0,
-        "published_at": "2026-04-29",
-        "date_label": "29.04.2026",
-        "source_date": "Банк России — пресс-релизы · 29.04.2026"
+        "published_at": "2026-05-11",
+        "date_label": "11 May 2026",
+        "source_date": "ECB · 11 May 2026"
+      },
+      {
+        "source": "Finextra",
+        "url": "https://finextra.com/newsarticle/ecb-digital-euro-wallet-prototype",
+        "quality": 0.8,
+        "published_at": "2026-05-10",
+        "date_label": "10 May 2026",
+        "source_date": "Finextra · 10 May 2026"
       }
     ],
     "article_ids": [
-      "rss-банк-россии-—-пресс-релизы-3"
+      "a005",
+      "a068",
+      "a006",
+      "a069"
     ],
     "deduped_titles": [
-      "Банк России принял ряд решений по макропруденциальной политике (29.04.2026)"
+      "ECB publishes new digital euro wallet prototype findings",
+      "ECB updates banks on digital euro wallet prototype"
     ],
-    "freshness_days": 15,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
+    "freshness_days": 3,
+    "context_note": "Использован расширенный текст/snippet из входных данных."
   },
   {
-    "id": "s029",
-    "headline": "Revolut Mulls Private Banking as Trading Business Expands",
+    "id": "s015",
+    "headline": "Stripe expands Tap to Pay for small merchants across Europe",
+    "category": "payments",
+    "tags": [
+      "bank",
+      "card",
+      "merchant",
+      "payment",
+      "payments",
+      "sme",
+      "tap to pay"
+    ],
+    "hotness": 5,
+    "score": 87.5,
+    "published_at": "2026-05-12",
+    "date_label": "12 May 2026",
+    "freshness_label": "2 дня назад",
+    "score_components": {
+      "relevance": 4.7,
+      "source_quality": 0.8,
+      "novelty": 3.5,
+      "impact": 4.78,
+      "evidence_count": 3,
+      "confidence": 4.81
+    },
+    "score_explanation": "Высокий score: много финтех-триггеров; надежное отраслевое медиа; сигнал подтвержден несколькими ссылками; высокая потенциальная значимость для банка.",
+    "signal_level": "strong",
+    "why_now": "Сигнал затрагивает платежный сценарий: изменения в платежах быстро влияют на ожидания клиентов к скорости, удобству, комиссии и доступности операций. Сигнал свежий; сигнал подтверждается несколькими источниками; источник требует дополнительной проверки.",
+    "summary": "Stripe expands Tap to Pay for small merchants across Europe. Stripe is expanding Tap to Pay support for small merchants in several European markets, positioning phones as card acceptance terminals without extra hardware.",
+    "suggested_action": "Передать владельцу платежного сценария. Сравнить механику с текущими переводами, оплатой, checkout/acquiring или merchant-сценариями и сформулировать гипотезу для discovery или A/B-теста.",
+    "sources": [
+      {
+        "source": "Finextra",
+        "url": "https://finextra.com/newsarticle/stripe-tap-to-pay-europe",
+        "quality": 0.8,
+        "published_at": "2026-05-12",
+        "date_label": "12 May 2026",
+        "source_date": "Finextra · 12 May 2026"
+      },
+      {
+        "source": "The Paypers",
+        "url": "https://thepaypers.com/mobile-payments/stripe-expands-tap-to-pay-in-europe",
+        "quality": 0.8,
+        "published_at": "2026-05-11",
+        "date_label": "11 May 2026",
+        "source_date": "The Paypers · 11 May 2026"
+      },
+      {
+        "source": "PYMNTS",
+        "url": "https://pymnts.com/stripe-tap-to-pay-europe-rollout",
+        "quality": 0.8,
+        "published_at": "2026-05-10",
+        "date_label": "10 May 2026",
+        "source_date": "PYMNTS · 10 May 2026"
+      }
+    ],
+    "article_ids": [
+      "a001",
+      "a002",
+      "a064",
+      "a003",
+      "a065",
+      "a066"
+    ],
+    "deduped_titles": [
+      "Stripe Tap to Pay reaches more merchants in Europe",
+      "Stripe expands Tap to Pay for small merchants across Europe",
+      "Stripe rolls out Tap to Pay expansion for European SMEs"
+    ],
+    "freshness_days": 2,
+    "context_note": "Использован расширенный текст/snippet из входных данных."
+  },
+  {
+    "id": "s023",
+    "headline": "Klarna pushes further into everyday banking with savings features",
+    "category": "banking_product",
+    "tags": [
+      "account",
+      "ai",
+      "bank",
+      "banking",
+      "banking_product",
+      "checkout",
+      "debit",
+      "savings"
+    ],
+    "hotness": 5,
+    "score": 86.2,
+    "published_at": "2026-05-12",
+    "date_label": "12 May 2026",
+    "freshness_label": "2 дня назад",
+    "score_components": {
+      "relevance": 4.58,
+      "source_quality": 0.8,
+      "novelty": 3.5,
+      "impact": 4.56,
+      "evidence_count": 3,
+      "confidence": 4.81
+    },
+    "score_explanation": "Высокий score: много финтех-триггеров; надежное отраслевое медиа; сигнал подтвержден несколькими ссылками; высокая потенциальная значимость для банка.",
+    "signal_level": "strong",
+    "why_now": "Сигнал связан с банковским продуктом: он может указывать на изменение конкурентного предложения или ожиданий клиентов. Сигнал свежий; сигнал подтверждается несколькими источниками; источник требует дополнительной проверки.",
+    "summary": "Klarna pushes further into everyday banking with savings features. Klarna expanded savings account and debit features in Europe, deepening its move from checkout financing into everyday banking relationships.",
+    "suggested_action": "Передать продуктовой команде для discovery. Сравнить с текущим предложением, клиентским путем и конкурентными альтернативами.",
+    "sources": [
+      {
+        "source": "Finextra",
+        "url": "https://finextra.com/newsarticle/klarna-savings-debit-europe",
+        "quality": 0.8,
+        "published_at": "2026-05-01",
+        "date_label": "1 May 2026",
+        "source_date": "Finextra · 1 May 2026"
+      },
+      {
+        "source": "TechCrunch",
+        "url": "https://techcrunch.com/2026/05/06/klarna-savings-debit-europe",
+        "quality": 0.7,
+        "published_at": "2026-05-02",
+        "date_label": "2 May 2026",
+        "source_date": "TechCrunch · 2 May 2026"
+      },
+      {
+        "source": "Fintech Repost",
+        "url": "https://fintechrepost.example/klarna_bank_account",
+        "quality": 0.45,
+        "published_at": "2026-05-12",
+        "date_label": "12 May 2026",
+        "source_date": "Fintech Repost · 12 May 2026"
+      }
+    ],
+    "article_ids": [
+      "a028",
+      "a027",
+      "a029"
+    ],
+    "deduped_titles": [
+      "Klarna expands savings account and debit features in Europe",
+      "Klarna pushes further into everyday banking with savings features"
+    ],
+    "freshness_days": 2,
+    "context_note": "Использован расширенный текст/snippet из входных данных."
+  },
+  {
+    "id": "s020",
+    "headline": "Маркетплейс и банк тестируют рассрочку в checkout",
+    "category": "partnership",
+    "tags": [
+      "bnpl",
+      "checkout",
+      "partner",
+      "partners",
+      "partnership",
+      "банк",
+      "маркетплейс",
+      "партнер"
+    ],
+    "hotness": 5,
+    "score": 85.5,
+    "published_at": "2026-05-08",
+    "date_label": "8 May 2026",
+    "freshness_label": "6 дней назад",
+    "score_components": {
+      "relevance": 4.92,
+      "source_quality": 0.8,
+      "novelty": 3.1,
+      "impact": 4.21,
+      "evidence_count": 3,
+      "confidence": 4.81
+    },
+    "score_explanation": "Высокий score: много финтех-триггеров; надежное отраслевое медиа; сигнал подтвержден несколькими ссылками; высокая потенциальная значимость для банка.",
+    "signal_level": "strong",
+    "why_now": "Сигнал связан с партнерской моделью: такие новости могут показывать новый способ дистрибуции, монетизации или расширения банковской экосистемы. Сигнал свежий; сигнал подтверждается несколькими источниками; источник требует дополнительной проверки.",
+    "summary": "Маркетплейс и банк тестируют рассрочку в checkout. Банк и крупный маркетплейс тестируют партнерскую BNPL-механику: рассрочка показывается в checkout, а скоринг использует историю покупок и банковские данные.",
+    "suggested_action": "Разобрать партнерскую модель: кто участники, какая ценность для клиента, какой канал дистрибуции используется и можно ли воспроизвести аналогичный сценарий.",
+    "sources": [
+      {
+        "source": "The Paypers",
+        "url": "https://thepaypers.com/online-payments/russian-bank-marketplace-bnpl",
+        "quality": 0.8,
+        "published_at": "2026-05-07",
+        "date_label": "7 May 2026",
+        "source_date": "The Paypers · 7 May 2026"
+      },
+      {
+        "source": "РБК — новости",
+        "url": "https://rbc.ru/technology_and_media/2026/05/06/bank-marketplace-bnpl",
+        "quality": 0.7,
+        "published_at": "2026-05-08",
+        "date_label": "08.05.2026",
+        "source_date": "РБК — новости · 08.05.2026"
+      },
+      {
+        "source": "Fintech Repost",
+        "url": "https://fintechrepost.example/marketplace_bnpl_bank_partnership",
+        "quality": 0.45,
+        "published_at": "2026-05-06",
+        "date_label": "6 May 2026",
+        "source_date": "Fintech Repost · 6 May 2026"
+      }
+    ],
+    "article_ids": [
+      "a044",
+      "a043",
+      "a045"
+    ],
+    "deduped_titles": [
+      "Банк и маркетплейс запускают рассрочку BNPL для повторных покупок",
+      "Маркетплейс и банк тестируют рассрочку в checkout"
+    ],
+    "freshness_days": 6,
+    "context_note": "Использован расширенный текст/snippet из входных данных."
+  },
+  {
+    "id": "s010",
+    "headline": "UK banks test variable recurring payments for subscription commerce",
+    "category": "payments",
+    "tags": [
+      "account",
+      "bank",
+      "banking",
+      "open banking",
+      "payment",
+      "payments",
+      "vrp"
+    ],
+    "hotness": 5,
+    "score": 84.7,
+    "published_at": "2026-05-08",
+    "date_label": "8 May 2026",
+    "freshness_label": "6 дней назад",
+    "score_components": {
+      "relevance": 5.0,
+      "source_quality": 0.9,
+      "novelty": 3.1,
+      "impact": 4.77,
+      "evidence_count": 2,
+      "confidence": 4.38
+    },
+    "score_explanation": "Высокий score: много финтех-триггеров; сильный первоисточник; есть больше одного подтверждения; высокая потенциальная значимость для банка.",
+    "signal_level": "strong",
+    "why_now": "Сигнал затрагивает платежный сценарий: изменения в платежах быстро влияют на ожидания клиентов к скорости, удобству, комиссии и доступности операций. Сигнал свежий; сигнал подтверждается несколькими источниками; источник выглядит надежным.",
+    "summary": "UK banks test variable recurring payments for subscription commerce. A group of UK banks and payment providers started testing variable recurring payments for subscriptions and bill pay, expanding open banking beyond account access.",
+    "suggested_action": "Передать владельцу платежного сценария. Сравнить механику с текущими переводами, оплатой, checkout/acquiring или merchant-сценариями и сформулировать гипотезу для discovery или A/B-теста.",
+    "sources": [
+      {
+        "source": "Open Banking UK",
+        "url": "https://openbanking.org.uk/news/variable-recurring-payments-pilot",
+        "quality": 0.9,
+        "published_at": "2026-05-08",
+        "date_label": "8 May 2026",
+        "source_date": "Open Banking UK · 8 May 2026"
+      },
+      {
+        "source": "The Paypers",
+        "url": "https://thepaypers.com/online-payments/uk-vrp-subscription-commerce",
+        "quality": 0.8,
+        "published_at": "2026-05-07",
+        "date_label": "7 May 2026",
+        "source_date": "The Paypers · 7 May 2026"
+      }
+    ],
+    "article_ids": [
+      "a012",
+      "a013"
+    ],
+    "deduped_titles": [
+      "UK banks test variable recurring payments for subscription commerce",
+      "UK open banking pilots VRP for recurring commerce"
+    ],
+    "freshness_days": 6,
+    "context_note": "Использован расширенный текст/snippet из входных данных."
+  },
+  {
+    "id": "s004",
+    "headline": "Банк России усиливает требования к антифрод-мониторингу переводов",
+    "category": "fraud_risk",
+    "tags": [
+      "aml",
+      "fraud",
+      "fraud_risk",
+      "kyc",
+      "risk",
+      "антифрод",
+      "банк",
+      "банк россии"
+    ],
+    "hotness": 5,
+    "score": 84.6,
+    "published_at": "2026-05-10",
+    "date_label": "10.05.2026",
+    "freshness_label": "4 дня назад",
+    "score_components": {
+      "relevance": 5.0,
+      "source_quality": 1.0,
+      "novelty": 2.4,
+      "impact": 5.0,
+      "evidence_count": 2,
+      "confidence": 4.5
+    },
+    "score_explanation": "Высокий score: много финтех-триггеров; сильный первоисточник; есть больше одного подтверждения; высокая потенциальная значимость для банка.",
+    "signal_level": "strong",
+    "why_now": "Сигнал связан с fraud/security: такие изменения могут повлиять на потери, KYC/AML-процессы, авторизацию или баланс между безопасностью и UX. Сигнал свежий; сигнал подтверждается несколькими источниками; источник выглядит надежным.",
+    "summary": "Банк России усиливает требования к антифрод-мониторингу переводов. Регулятор описал новые подходы к борьбе с мошенничеством: проверка подозрительных операций, KYC/AML-сигналы, биометрия и уведомления клиентов при переводах.",
+    "suggested_action": "Передать risk/anti-fraud команде. Проверить, есть ли похожий риск в текущих операциях, KYC/AML, авторизации или мониторинге транзакций.",
+    "sources": [
+      {
+        "source": "Банк России — новости",
+        "url": "https://cbr.ru/press/event?id=antifraud-transfers-monitoring",
+        "quality": 1.0,
+        "published_at": "2026-05-10",
+        "date_label": "10.05.2026",
+        "source_date": "Банк России — новости · 10.05.2026"
+      },
+      {
+        "source": "РБК — новости",
+        "url": "https://rbc.ru/finances/2026/05/08/cbr-antifraud-transfers",
+        "quality": 0.7,
+        "published_at": "2026-05-09",
+        "date_label": "09.05.2026",
+        "source_date": "РБК — новости · 09.05.2026"
+      }
+    ],
+    "article_ids": [
+      "a038",
+      "a039"
+    ],
+    "deduped_titles": [
+      "Банк России усиливает требования к антифрод-мониторингу переводов",
+      "ЦБ обновляет подход к антифроду при переводах"
+    ],
+    "freshness_days": 4,
+    "context_note": "Использован расширенный текст/snippet из входных данных."
+  },
+  {
+    "id": "s014",
+    "headline": "Mastercard launches AI service for real-time mule account detection",
+    "category": "fraud_risk",
+    "tags": [
+      "account",
+      "ai",
+      "bank",
+      "banking",
+      "card",
+      "fraud",
+      "fraud_risk",
+      "mule"
+    ],
+    "hotness": 5,
+    "score": 83.7,
+    "published_at": "2026-05-03",
+    "date_label": "3 May 2026",
+    "freshness_label": "11 дней назад",
+    "score_components": {
+      "relevance": 5.0,
+      "source_quality": 0.9,
+      "novelty": 2.7,
+      "impact": 4.97,
+      "evidence_count": 2,
+      "confidence": 4.38
+    },
+    "score_explanation": "Высокий score: много финтех-триггеров; сильный первоисточник; есть больше одного подтверждения; высокая потенциальная значимость для банка.",
+    "signal_level": "strong",
+    "why_now": "Сигнал связан с fraud/security: такие изменения могут повлиять на потери, KYC/AML-процессы, авторизацию или баланс между безопасностью и UX. Сигнал не новый, но может оставаться актуальным; сигнал подтверждается несколькими источниками; источник выглядит надежным.",
+    "summary": "Mastercard launches AI service for real-time mule account detection. Mastercard launched an AI service that helps banks detect mule accounts and suspicious payment flows before funds leave the banking network.",
+    "suggested_action": "Передать risk/anti-fraud команде. Проверить, есть ли похожий риск в текущих операциях, KYC/AML, авторизации или мониторинге транзакций.",
+    "sources": [
+      {
+        "source": "Mastercard",
+        "url": "https://mastercard.com/news/press/ai-mule-account-detection",
+        "quality": 0.9,
+        "published_at": "2026-05-03",
+        "date_label": "3 May 2026",
+        "source_date": "Mastercard · 3 May 2026"
+      },
+      {
+        "source": "Finextra",
+        "url": "https://finextra.com/newsarticle/mastercard-ai-mule-account-detection",
+        "quality": 0.8,
+        "published_at": "2026-05-02",
+        "date_label": "2 May 2026",
+        "source_date": "Finextra · 2 May 2026"
+      }
+    ],
+    "article_ids": [
+      "a025",
+      "a026"
+    ],
+    "deduped_titles": [
+      "Mastercard launches AI service for real-time mule account detection",
+      "Mastercard uses AI to help banks detect mule accounts"
+    ],
+    "freshness_days": 11,
+    "context_note": "Использован расширенный текст/snippet из входных данных."
+  },
+  {
+    "id": "s007",
+    "headline": "BIS project tests tokenized deposits for cross-border settlement",
+    "category": "market_signal",
+    "tags": [
+      "ai",
+      "bank",
+      "bis",
+      "cross-border",
+      "deposit",
+      "market",
+      "market_signal",
+      "project"
+    ],
+    "hotness": 5,
+    "score": 82.8,
+    "published_at": "2026-05-04",
+    "date_label": "4 May 2026",
+    "freshness_label": "10 дней назад",
+    "score_components": {
+      "relevance": 4.13,
+      "source_quality": 1.0,
+      "novelty": 2.7,
+      "impact": 4.09,
+      "evidence_count": 3,
+      "confidence": 5.0
+    },
+    "score_explanation": "Высокий score: много финтех-триггеров; сильный первоисточник; сигнал подтвержден несколькими ссылками; высокая потенциальная значимость для банка.",
+    "signal_level": "strong",
+    "why_now": "Сигнал отражает рыночный тренд: он может быть ранним индикатором изменения поведения клиентов, конкурентов или финтех-инфраструктуры. Сигнал не новый, но может оставаться актуальным; сигнал подтверждается несколькими источниками; источник выглядит надежным.",
+    "summary": "BIS project tests tokenized deposits for cross-border settlement. A BIS innovation project tested tokenized deposits for cross-border settlement, focusing on interoperability between commercial bank money and central bank money.",
+    "suggested_action": "Добавить в аналитический обзор для продуктовой/стратегической команды. Проверить, влияет ли тренд на клиентский спрос, конкурентов или приоритеты roadmap.",
+    "sources": [
+      {
+        "source": "BIS",
+        "url": "https://bis.org/about/bisih/tokenized-deposits-cross-border-settlement.htm",
+        "quality": 1.0,
+        "published_at": "2026-05-04",
+        "date_label": "4 May 2026",
+        "source_date": "BIS · 4 May 2026"
+      },
+      {
+        "source": "Finextra",
+        "url": "https://finextra.com/newsarticle/bis-tokenized-deposits-cross-border",
+        "quality": 0.8,
+        "published_at": "2026-05-03",
+        "date_label": "3 May 2026",
+        "source_date": "Finextra · 3 May 2026"
+      },
+      {
+        "source": "Fintech Repost",
+        "url": "https://fintechrepost.example/tokenized_deposits",
+        "quality": 0.45,
+        "published_at": "2026-05-02",
+        "date_label": "2 May 2026",
+        "source_date": "Fintech Repost · 2 May 2026"
+      }
+    ],
+    "article_ids": [
+      "a022",
+      "a023",
+      "a024"
+    ],
+    "deduped_titles": [
+      "BIS project tests tokenized deposits for cross-border settlement",
+      "BIS tests tokenized commercial bank deposits for settlement"
+    ],
+    "freshness_days": 10,
+    "context_note": "Использован расширенный текст/snippet из входных данных."
+  },
+  {
+    "id": "s005",
+    "headline": "Consumer regulator proposes stricter disclosures for BNPL providers",
+    "category": "regulation",
+    "tags": [
+      "ai",
+      "bank",
+      "bnpl",
+      "card",
+      "disclosure",
+      "regulation",
+      "regulator",
+      "rules"
+    ],
+    "hotness": 5,
+    "score": 82.5,
+    "published_at": "2026-05-07",
+    "date_label": "7 May 2026",
+    "freshness_label": "7 дней назад",
+    "score_components": {
+      "relevance": 4.65,
+      "source_quality": 1.0,
+      "novelty": 2.4,
+      "impact": 5.0,
+      "evidence_count": 2,
+      "confidence": 4.5
+    },
+    "score_explanation": "Высокий score: много финтех-триггеров; сильный первоисточник; есть больше одного подтверждения; высокая потенциальная значимость для банка.",
+    "signal_level": "strong",
+    "why_now": "Сигнал затрагивает регуляторную повестку: такие изменения могут повлиять на документы, клиентские коммуникации, compliance-процессы или правила запуска продукта. Сигнал свежий; сигнал подтверждается несколькими источниками; источник выглядит надежным.",
+    "summary": "Consumer regulator proposes stricter disclosures for BNPL providers. A consumer regulator proposed clearer disclosures and complaint handling rules for buy-now-pay-later providers, bringing BNPL closer to card-like oversight.",
+    "suggested_action": "Передать сигнал compliance/legal и владельцу затронутого продукта. Проверить, нужны ли изменения в документах, клиентских сценариях, процессах идентификации, коммуникации или отчетности.",
+    "sources": [
+      {
+        "source": "CFPB",
+        "url": "https://consumerfinance.gov/about-us/newsroom/bnpl-disclosure-rules",
+        "quality": 1.0,
+        "published_at": "2026-05-07",
+        "date_label": "7 May 2026",
+        "source_date": "CFPB · 7 May 2026"
+      },
+      {
+        "source": "Finextra",
+        "url": "https://finextra.com/newsarticle/regulator-bnpl-disclosure-rules",
+        "quality": 0.8,
+        "published_at": "2026-05-06",
+        "date_label": "6 May 2026",
+        "source_date": "Finextra · 6 May 2026"
+      }
+    ],
+    "article_ids": [
+      "a015",
+      "a016"
+    ],
+    "deduped_titles": [
+      "Consumer regulator proposes stricter disclosures for BNPL providers",
+      "Regulator moves to tighten BNPL disclosure requirements"
+    ],
+    "freshness_days": 7,
+    "context_note": "Использован расширенный текст/snippet из входных данных."
+  },
+  {
+    "id": "s008",
+    "headline": "Central bank publishes guidance on AI model risk in financial services",
     "category": "regulation",
     "tags": [
       "ai",
       "bank",
       "banking",
+      "central bank",
+      "guidance",
+      "regulation",
+      "regulator"
+    ],
+    "hotness": 5,
+    "score": 80.3,
+    "published_at": "2026-05-12",
+    "date_label": "12 May 2026",
+    "freshness_label": "2 дня назад",
+    "score_components": {
+      "relevance": 3.55,
+      "source_quality": 1.0,
+      "novelty": 3.5,
+      "impact": 5.0,
+      "evidence_count": 2,
+      "confidence": 4.5
+    },
+    "score_explanation": "Высокий score: сильный первоисточник; есть больше одного подтверждения; высокая потенциальная значимость для банка.",
+    "signal_level": "strong",
+    "why_now": "Сигнал затрагивает регуляторную повестку: такие изменения могут повлиять на документы, клиентские коммуникации, compliance-процессы или правила запуска продукта. Сигнал свежий; сигнал подтверждается несколькими источниками; источник выглядит надежным.",
+    "summary": "Central bank publishes guidance on AI model risk in financial services. A central bank published guidance on AI model risk management for financial services, calling for governance, monitoring and explainability controls.",
+    "suggested_action": "Передать сигнал compliance/legal и владельцу затронутого продукта. Проверить, нужны ли изменения в документах, клиентских сценариях, процессах идентификации, коммуникации или отчетности.",
+    "sources": [
+      {
+        "source": "Bank of England",
+        "url": "https://bankofengland.co.uk/prudential-regulation/ai-model-risk-guidance",
+        "quality": 1.0,
+        "published_at": "2026-05-01",
+        "date_label": "1 May 2026",
+        "source_date": "Bank of England · 1 May 2026"
+      },
+      {
+        "source": "Finextra",
+        "url": "https://finextra.com/newsarticle/central-bank-ai-model-risk-guidance",
+        "quality": 0.8,
+        "published_at": "2026-05-12",
+        "date_label": "12 May 2026",
+        "source_date": "Finextra · 12 May 2026"
+      }
+    ],
+    "article_ids": [
+      "a030",
+      "a031"
+    ],
+    "deduped_titles": [
+      "Banking regulator issues AI model risk guidance",
+      "Central bank publishes guidance on AI model risk in financial services"
+    ],
+    "freshness_days": 2,
+    "context_note": "Использован расширенный текст/snippet из входных данных."
+  },
+  {
+    "id": "s017",
+    "headline": "Revolut targets SMEs with cash-flow based business loans",
+    "category": "banking_product",
+    "tags": [
+      "account",
+      "bank",
+      "banking",
+      "banking_product",
+      "loan",
+      "loans",
+      "sme"
+    ],
+    "hotness": 4,
+    "score": 74.0,
+    "published_at": "2026-05-09",
+    "date_label": "9 May 2026",
+    "freshness_label": "5 дней назад",
+    "score_components": {
+      "relevance": 4.22,
+      "source_quality": 0.8,
+      "novelty": 2.4,
+      "impact": 4.36,
+      "evidence_count": 2,
+      "confidence": 4.26
+    },
+    "score_explanation": "Средний score: много финтех-триггеров; надежное отраслевое медиа; есть больше одного подтверждения; высокая потенциальная значимость для банка.",
+    "signal_level": "medium",
+    "why_now": "Сигнал связан с банковским продуктом: он может указывать на изменение конкурентного предложения или ожиданий клиентов. Сигнал свежий; сигнал подтверждается несколькими источниками; источник требует дополнительной проверки.",
+    "summary": "Revolut targets SMEs with cash-flow based business loans. Revolut is introducing working capital loans for business accounts, using account activity and cash-flow data to pre-qualify small companies.",
+    "suggested_action": "Добавить в product discovery radar, сравнить с текущим клиентским сценарием и не превращать сразу в продуктовую инициативу.",
+    "sources": [
+      {
+        "source": "Finextra",
+        "url": "https://finextra.com/newsarticle/revolut-business-working-capital",
+        "quality": 0.8,
+        "published_at": "2026-05-08",
+        "date_label": "8 May 2026",
+        "source_date": "Finextra · 8 May 2026"
+      },
+      {
+        "source": "TechCrunch",
+        "url": "https://techcrunch.com/2026/05/08/revolut-working-capital-loans",
+        "quality": 0.7,
+        "published_at": "2026-05-09",
+        "date_label": "9 May 2026",
+        "source_date": "TechCrunch · 9 May 2026"
+      }
+    ],
+    "article_ids": [
+      "a011",
+      "a010"
+    ],
+    "deduped_titles": [
+      "Revolut adds working capital loans for business banking customers",
+      "Revolut targets SMEs with cash-flow based business loans"
+    ],
+    "freshness_days": 5,
+    "context_note": "Использован расширенный текст/snippet из входных данных."
+  },
+  {
+    "id": "s006",
+    "headline": "Regulator opens consultation on open finance consent dashboards",
+    "category": "regulation",
+    "tags": [
+      "consultation",
+      "finance",
+      "open finance",
       "regulation",
       "regulator"
     ],
     "hotness": 4,
-    "score": 77.4,
-    "published_at": "2026-05-14",
-    "date_label": "14 May 2026",
-    "freshness_label": "сегодня",
-    "score_components": {
-      "relevance": 3.96,
-      "source_quality": 0.76,
-      "novelty": 4.8,
-      "impact": 4.73,
-      "evidence_count": 1,
-      "confidence": 3.66
-    },
-    "score_explanation": "Средний score: надежное отраслевое медиа; есть признаки свежего запуска/пилота; высокая потенциальная значимость для банка.",
-    "why_now": "Это свежий сигнал: регуляторные изменения быстро превращаются в требования к продуктам и compliance.",
-    "summary": "Revolut Mulls Private Banking as Trading Business Expands. Revolut has received regulatory permission to expand the scope of its trading business. The approval from the U.K.’s Financial Conduct Authority (FCA) will allow Revolut Trading to bring “investment, advisory and portfolio management under one roof,” Victoria Laffey, the unit’s head of operations, said in a news release provided to PYMNTS on Thursday (May 14). The approval, the […] The post Revolut Mulls Private...",
-    "suggested_action": "Проверить, влияет ли изменение на документы, процессы, клиентские сценарии или compliance-требования.",
-    "sources": [
-      {
-        "source": "PYMNTS",
-        "url": "https://pymnts.com/news/banking/2026/revolut-mulls-private-banking-as-trading-business-expands",
-        "quality": 0.76,
-        "published_at": "2026-05-14",
-        "date_label": "14 May 2026",
-        "source_date": "PYMNTS · 14 May 2026"
-      }
-    ],
-    "article_ids": [
-      "rss-pymnts-1"
-    ],
-    "deduped_titles": [
-      "Revolut Mulls Private Banking as Trading Business Expands"
-    ],
-    "freshness_days": 0,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
-  },
-  {
-    "id": "s008",
-    "headline": "Giving agents the ability to pay",
-    "category": "payments",
-    "tags": [
-      "account",
-      "bank",
-      "card",
-      "payment",
-      "payments",
-      "wallet"
-    ],
-    "hotness": 4,
-    "score": 74.8,
-    "published_at": "2026-04-29",
-    "date_label": "29 Apr 2026",
-    "freshness_label": "старше двух недель",
-    "score_components": {
-      "relevance": 4.63,
-      "source_quality": 0.88,
-      "novelty": 2.7,
-      "impact": 4.55,
-      "evidence_count": 1,
-      "confidence": 3.81
-    },
-    "score_explanation": "Средний score: много финтех-триггеров; надежное отраслевое медиа; высокая потенциальная значимость для банка.",
-    "why_now": "Это сигнал остается актуальным: платежные механики быстро масштабируются через банки, сети и merchant-сценарии.",
-    "summary": "Giving agents the ability to pay. Link’s wallet for agents gives agents programmatic access to Link, including the ability to generate a one-time-use card or Shared Payment Token (SPT) backed by the cards and bank accounts already in your wallet. It’s built on Stripe’s new Issuing for agents.",
-    "suggested_action": "Сравнить механику с текущими платежными сценариями и оценить применимость для банковского продукта.",
-    "sources": [
-      {
-        "source": "Stripe Blog",
-        "url": "https://stripe.com/blog/giving-agents-the-ability-to-pay",
-        "quality": 0.88,
-        "published_at": "2026-04-29",
-        "date_label": "29 Apr 2026",
-        "source_date": "Stripe Blog · 29 Apr 2026"
-      }
-    ],
-    "article_ids": [
-      "rss-stripe-blog-3"
-    ],
-    "deduped_titles": [
-      "Giving agents the ability to pay"
-    ],
-    "freshness_days": 15,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
-  },
-  {
-    "id": "s036",
-    "headline": "35% of Firms Delay Embedded Finance Over Fraud Fears",
-    "category": "payments",
-    "tags": [
-      "embedded",
-      "finance",
-      "fraud",
-      "payment",
-      "payments"
-    ],
-    "hotness": 4,
-    "score": 74.5,
-    "published_at": "2026-05-14",
-    "date_label": "14 May 2026",
-    "freshness_label": "сегодня",
-    "score_components": {
-      "relevance": 4.51,
-      "source_quality": 0.76,
-      "novelty": 3.5,
-      "impact": 4.41,
-      "evidence_count": 1,
-      "confidence": 3.66
-    },
-    "score_explanation": "Средний score: много финтех-триггеров; надежное отраслевое медиа; высокая потенциальная значимость для банка.",
-    "why_now": "Это свежий сигнал: платежные механики быстро масштабируются через банки, сети и merchant-сценарии.",
-    "summary": "35% of Firms Delay Embedded Finance Over Fraud Fears. Embedded finance is giving businesses a faster way to move money, but its next stage of growth may depend on how well companies build security into the transaction before it begins. That is the central message of “Embedding Security: Designing Fraud Risk Out of Business Transactions,” a March Business Payments Tracker Series report from PYMNTS […] The post 35% of Firms Delay Embedded Finance Over Fraud Fears...",
-    "suggested_action": "Сравнить механику с текущими платежными сценариями и оценить применимость для банковского продукта.",
-    "sources": [
-      {
-        "source": "PYMNTS",
-        "url": "https://pymnts.com/fraud-prevention/2026/35-of-firms-delay-embedded-finance-over-fraud-fears",
-        "quality": 0.76,
-        "published_at": "2026-05-14",
-        "date_label": "14 May 2026",
-        "source_date": "PYMNTS · 14 May 2026"
-      }
-    ],
-    "article_ids": [
-      "rss-pymnts-8"
-    ],
-    "deduped_titles": [
-      "35% of Firms Delay Embedded Finance Over Fraud Fears"
-    ],
-    "freshness_days": 0,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
-  },
-  {
-    "id": "s037",
-    "headline": "Report Shows Real-Time Payments Promise CFOs More Than Speed",
-    "category": "payments",
-    "tags": [
-      "ai",
-      "card",
-      "finance",
-      "payment",
-      "payments"
-    ],
-    "hotness": 4,
-    "score": 74.5,
-    "published_at": "2026-05-14",
-    "date_label": "14 May 2026",
-    "freshness_label": "сегодня",
-    "score_components": {
-      "relevance": 4.51,
-      "source_quality": 0.76,
-      "novelty": 3.5,
-      "impact": 4.41,
-      "evidence_count": 1,
-      "confidence": 3.66
-    },
-    "score_explanation": "Средний score: много финтех-триггеров; надежное отраслевое медиа; высокая потенциальная значимость для банка.",
-    "why_now": "Это свежий сигнал: платежные механики быстро масштабируются через банки, сети и merchant-сценарии.",
-    "summary": "Report Shows Real-Time Payments Promise CFOs More Than Speed. “Ready and Willing: B2B Payments Are Headed for Real-Time Rails. Here’s How They’re Getting There” is a collaboration between PYMNTS Intelligence and The Clearing House. Real-time payments are steadily moving from the edge of B2B finance toward the center of how businesses manage suppliers, liquidity and operations. While checks, cards and ACH still dominate […] The post Report Shows Real-Time Payments Promise CFOs...",
-    "suggested_action": "Сравнить механику с текущими платежными сценариями и оценить применимость для банковского продукта.",
-    "sources": [
-      {
-        "source": "PYMNTS",
-        "url": "https://pymnts.com/real-time-payments/2026/report-shows-real-time-payments-promise-cfos-more-than-speed",
-        "quality": 0.76,
-        "published_at": "2026-05-14",
-        "date_label": "14 May 2026",
-        "source_date": "PYMNTS · 14 May 2026"
-      }
-    ],
-    "article_ids": [
-      "rss-pymnts-9"
-    ],
-    "deduped_titles": [
-      "Report Shows Real-Time Payments Promise CFOs More Than Speed"
-    ],
-    "freshness_days": 0,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
-  },
-  {
-    "id": "s019",
-    "headline": "US fintech Parker files for bankruptcy",
-    "category": "payments",
-    "tags": [
-      "ai",
-      "bank",
-      "fintech",
-      "payment",
-      "payments"
-    ],
-    "hotness": 4,
-    "score": 73.5,
-    "published_at": "2026-05-14",
-    "date_label": "14 May 2026",
-    "freshness_label": "сегодня",
-    "score_components": {
-      "relevance": 4.57,
-      "source_quality": 0.82,
-      "novelty": 2.8,
-      "impact": 4.48,
-      "evidence_count": 1,
-      "confidence": 3.73
-    },
-    "score_explanation": "Средний score: много финтех-триггеров; надежное отраслевое медиа; высокая потенциальная значимость для банка.",
-    "why_now": "Это свежий сигнал: платежные механики быстро масштабируются через банки, сети и merchant-сценарии.",
-    "summary": "US fintech Parker files for bankruptcy. US-based payments startup Parker has declared bankruptcy as questions remain over its future.",
-    "suggested_action": "Сравнить механику с текущими платежными сценариями и оценить применимость для банковского продукта.",
-    "sources": [
-      {
-        "source": "Finextra",
-        "url": "https://finextra.com/newsarticle/47750/us-fintech-parker-files-for-bankruptcy",
-        "quality": 0.82,
-        "published_at": "2026-05-14",
-        "date_label": "14 May 2026",
-        "source_date": "Finextra · 14 May 2026"
-      }
-    ],
-    "article_ids": [
-      "rss-finextra-5"
-    ],
-    "deduped_titles": [
-      "US fintech Parker files for bankruptcy"
-    ],
-    "freshness_days": 0,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
-  },
-  {
-    "id": "s026",
-    "headline": "Bank of England uncovers significant trade‑offs in use of DLT for wholesale settlement",
-    "category": "payments",
-    "tags": [
-      "ai",
-      "bank",
-      "payment",
-      "payments",
-      "settlement"
-    ],
-    "hotness": 4,
-    "score": 73.5,
-    "published_at": "2026-05-13",
-    "date_label": "13 May 2026",
-    "freshness_label": "1 день назад",
-    "score_components": {
-      "relevance": 4.57,
-      "source_quality": 0.82,
-      "novelty": 2.8,
-      "impact": 4.48,
-      "evidence_count": 1,
-      "confidence": 3.73
-    },
-    "score_explanation": "Средний score: много финтех-триггеров; надежное отраслевое медиа; высокая потенциальная значимость для банка.",
-    "why_now": "Это свежий сигнал: платежные механики быстро масштабируются через банки, сети и merchant-сценарии.",
-    "summary": "Bank of England uncovers significant trade‑offs in use of DLT for wholesale settlement. After months of trials the Bank of England remains no clearer about the applicability of distributed ledger technology in wholesale payments and settlement, uncovering critical trade-offs in governance, resilience and scalability.",
-    "suggested_action": "Сравнить механику с текущими платежными сценариями и оценить применимость для банковского продукта.",
-    "sources": [
-      {
-        "source": "Finextra",
-        "url": "https://finextra.com/newsarticle/47745/bank-of-england-uncovers--significant-tradeoffs-in-use-of-dlt-for-wholesale-settlement",
-        "quality": 0.82,
-        "published_at": "2026-05-13",
-        "date_label": "13 May 2026",
-        "source_date": "Finextra · 13 May 2026"
-      }
-    ],
-    "article_ids": [
-      "rss-finextra-10"
-    ],
-    "deduped_titles": [
-      "Bank of England uncovers significant trade‑offs in use of DLT for wholesale settlement"
-    ],
-    "freshness_days": 1,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
-  },
-  {
-    "id": "s004",
-    "headline": "Банк России уточнил требования к обеспечению по кредитам Банка России (22.04.2026)",
-    "category": "regulation",
-    "tags": [
-      "regulation",
-      "банк",
-      "банк россии",
-      "кредит",
-      "перевод"
-    ],
-    "hotness": 4,
-    "score": 73.2,
-    "published_at": "2026-04-22",
-    "date_label": "22.04.2026",
-    "freshness_label": "старше двух недель",
-    "score_components": {
-      "relevance": 4.2,
-      "source_quality": 1.0,
-      "novelty": 2.0,
-      "impact": 5.0,
-      "evidence_count": 1,
-      "confidence": 3.95
-    },
-    "score_explanation": "Средний score: много финтех-триггеров; сильный первоисточник; высокая потенциальная значимость для банка.",
-    "why_now": "Это сигнал остается актуальным: регуляторные изменения быстро превращаются в требования к продуктам и compliance.",
-    "summary": "Банк России уточнил требования к обеспечению по кредитам Банка России (22.04.2026). С 4 мая 2026 года Банк России сможет переводить нерыночные активы 1 между пулами обеспечения кредитных организаций в соответствии с установленной процедурой . На первом этапе перевод будет возможен только в рамках реорганизации кредитной организации. Минимальная сумма остатка основного долга по кредиту, передаваемому кредитной организацией в обеспечение по кредитам Банка России, увеличена с 2 до 5 млн рублей. Теперь...",
-    "suggested_action": "Проверить, влияет ли изменение на документы, процессы, клиентские сценарии или compliance-требования.",
-    "sources": [
-      {
-        "source": "Банк России — пресс-релизы",
-        "url": "https://cbr.ru/press/PR?file=639124659359828774OBR.htm",
-        "quality": 1.0,
-        "published_at": "2026-04-22",
-        "date_label": "22.04.2026",
-        "source_date": "Банк России — пресс-релизы · 22.04.2026"
-      }
-    ],
-    "article_ids": [
-      "rss-банк-россии-—-пресс-релизы-5"
-    ],
-    "deduped_titles": [
-      "Банк России уточнил требования к обеспечению по кредитам Банка России (22.04.2026)"
-    ],
-    "freshness_days": 22,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
-  },
-  {
-    "id": "s003",
-    "headline": "Банк России принял решение снизить ключевую ставку на 50 б.п., до 14,50% годовых (24.04.2026)",
-    "category": "banking_product",
-    "tags": [
-      "banking_product",
-      "банк",
-      "банк россии",
-      "кредит",
-      "риск",
-      "счет"
-    ],
-    "hotness": 4,
-    "score": 71.4,
-    "published_at": "2026-04-24",
-    "date_label": "24.04.2026",
-    "freshness_label": "старше двух недель",
-    "score_components": {
-      "relevance": 4.2,
-      "source_quality": 1.0,
-      "novelty": 2.0,
-      "impact": 4.41,
-      "evidence_count": 1,
-      "confidence": 3.95
-    },
-    "score_explanation": "Средний score: много финтех-триггеров; сильный первоисточник; высокая потенциальная значимость для банка.",
-    "why_now": "Это сигнал остается актуальным: конкурент меняет банковский сценарий, который можно проверить в продуктовой дорожной карте.",
-    "summary": "Банк России принял решение снизить ключевую ставку на 50 б.п., до 14,50% годовых (24.04.2026). Совет директоров Банка России 24 апреля 2026 года принял решение снизить ключевую ставку на 50 б.п., до 14,50% годовых. Динамика внутреннего спроса приблизилась к возможностям расширения предложения товаров и услуг. При этом показатели устойчивого роста цен пока не снижаются и, по оценке Банка России, остаются в диапазоне 4–5% в пересчете на год. Сохраняется существенная неопределенность со стороны внешних условий и...",
-    "suggested_action": "Сравнить с текущей продуктовой линейкой и оценить, есть ли применимый сценарий для клиента банка.",
-    "sources": [
-      {
-        "source": "Банк России — пресс-релизы",
-        "url": "https://cbr.ru/press/PR?file=24042026_133000key.htm",
-        "quality": 1.0,
-        "published_at": "2026-04-24",
-        "date_label": "24.04.2026",
-        "source_date": "Банк России — пресс-релизы · 24.04.2026"
-      }
-    ],
-    "article_ids": [
-      "rss-банк-россии-—-пресс-релизы-4"
-    ],
-    "deduped_titles": [
-      "Банк России принял решение снизить ключевую ставку на 50 б.п., до 14,50% годовых (24.04.2026)"
-    ],
-    "freshness_days": 20,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
-  },
-  {
-    "id": "s034",
-    "headline": "AI Shopping Agents Put New Pressure on Payments Companies",
-    "category": "payments",
-    "tags": [
-      "ai",
-      "payment",
-      "payments"
-    ],
-    "hotness": 4,
-    "score": 70.2,
-    "published_at": "2026-05-14",
-    "date_label": "14 May 2026",
-    "freshness_label": "сегодня",
-    "score_components": {
-      "relevance": 3.41,
-      "source_quality": 0.76,
-      "novelty": 4.2,
-      "impact": 4.26,
-      "evidence_count": 1,
-      "confidence": 3.66
-    },
-    "score_explanation": "Средний score: надежное отраслевое медиа; есть признаки свежего запуска/пилота; высокая потенциальная значимость для банка.",
-    "why_now": "Это свежий сигнал: платежные механики быстро масштабируются через банки, сети и merchant-сценарии.",
-    "summary": "AI Shopping Agents Put New Pressure on Payments Companies. Delegation is the name of the game for the next phase of digital commerce. New PYMNTS Intelligence research in the April 2026 Payments Innovation Tracker® Series, a collaboration with Paymentology, finds 48% of consumers are at least somewhat interested in artificial intelligence agents doing their grocery shopping or planning their meals for them, while the same […] The post AI Shopping Agents Put New Pressure on...",
-    "suggested_action": "Сравнить механику с текущими платежными сценариями и оценить применимость для банковского продукта.",
-    "sources": [
-      {
-        "source": "PYMNTS",
-        "url": "https://pymnts.com/artificial-intelligence-2/2026/ai-shopping-agents-put-new-pressure-on-payments-companies",
-        "quality": 0.76,
-        "published_at": "2026-05-14",
-        "date_label": "14 May 2026",
-        "source_date": "PYMNTS · 14 May 2026"
-      }
-    ],
-    "article_ids": [
-      "rss-pymnts-6"
-    ],
-    "deduped_titles": [
-      "AI Shopping Agents Put New Pressure on Payments Companies"
-    ],
-    "freshness_days": 0,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
-  },
-  {
-    "id": "s022",
-    "headline": "Endava teas up with Tyl by NatWest",
-    "category": "payments",
-    "tags": [
-      "ai",
-      "merchant",
-      "payment",
-      "payments"
-    ],
-    "hotness": 4,
-    "score": 69.9,
-    "published_at": "2026-05-14",
-    "date_label": "14 May 2026",
-    "freshness_label": "сегодня",
-    "score_components": {
-      "relevance": 4.02,
-      "source_quality": 0.82,
-      "novelty": 2.8,
-      "impact": 4.4,
-      "evidence_count": 1,
-      "confidence": 3.73
-    },
-    "score_explanation": "Средний score: много финтех-триггеров; надежное отраслевое медиа; высокая потенциальная значимость для банка.",
-    "why_now": "Это свежий сигнал: платежные механики быстро масштабируются через банки, сети и merchant-сценарии.",
-    "summary": "Endava teas up with Tyl by NatWest. Endava, the technology-driven business transformation group whose AI-native approach combines cutting-edge technology with deep industry expertise today announced a strategic partnership with Tyl by NatWest, NatWest Group’s merchant-payments arm, to accelerate the evolution of its offering.",
-    "suggested_action": "Сравнить механику с текущими платежными сценариями и оценить применимость для банковского продукта.",
-    "sources": [
-      {
-        "source": "Finextra",
-        "url": "https://finextra.com/pressarticle/109847/endava-teas-up-with-tyl-by-natwest",
-        "quality": 0.82,
-        "published_at": "2026-05-14",
-        "date_label": "14 May 2026",
-        "source_date": "Finextra · 14 May 2026"
-      }
-    ],
-    "article_ids": [
-      "rss-finextra-14"
-    ],
-    "deduped_titles": [
-      "Endava teas up with Tyl by NatWest"
-    ],
-    "freshness_days": 0,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
-  },
-  {
-    "id": "s005",
-    "headline": "Совет директоров Банка России принял решение о включении ценных бумаг в Ломбардный список (15.04.2026)",
-    "category": "regulation",
-    "tags": [
-      "regulation",
-      "банк",
-      "банк россии",
-      "кредит",
-      "раскрытие"
-    ],
-    "hotness": 4,
-    "score": 69.7,
-    "published_at": "2026-04-15",
-    "date_label": "15.04.2026",
-    "freshness_label": "старше двух недель",
+    "score": 72.5,
+    "published_at": "2026-05-05",
+    "date_label": "5 May 2026",
+    "freshness_label": "9 дней назад",
     "score_components": {
       "relevance": 3.65,
       "source_quality": 1.0,
-      "novelty": 2.0,
+      "novelty": 2.7,
       "impact": 4.92,
       "evidence_count": 1,
       "confidence": 3.95
     },
     "score_explanation": "Средний score: сильный первоисточник; высокая потенциальная значимость для банка.",
-    "why_now": "Это сигнал остается актуальным: регуляторные изменения быстро превращаются в требования к продуктам и compliance.",
-    "summary": "Совет директоров Банка России принял решение о включении ценных бумаг в Ломбардный список (15.04.2026). Совет директоров Банка России 10 апреля 2026 года принял решение включить в Ломбардный список следующие ценные бумаги: государственные облигации Нижегородской области, имеющие государственный регистрационный номер выпуска RU34017NJG0; государственные облигации Новосибирской области, имеющие государственные регистрационные номера выпусков RU34027ANO0, RU34028ANO0; государственные облигации Республики Башкортостан...",
-    "suggested_action": "Проверить, влияет ли изменение на документы, процессы, клиентские сценарии или compliance-требования.",
+    "signal_level": "medium",
+    "why_now": "Сигнал затрагивает регуляторную повестку: такие изменения могут повлиять на документы, клиентские коммуникации, compliance-процессы или правила запуска продукта. Сигнал не новый, но может оставаться актуальным; сигнал пока основан на ограниченном числе источников; источник выглядит надежным.",
+    "summary": "Regulator opens consultation on open finance consent dashboards. A regulator opened a consultation on consumer consent dashboards for open finance data sharing.",
+    "suggested_action": "Добавить в regulatory radar, проверить первоисточник вручную и оценить возможное влияние на процессы без запуска отдельной инициативы.",
     "sources": [
       {
-        "source": "Банк России — пресс-релизы",
-        "url": "https://cbr.ru/press/PR?file=639118405703397192DSD.htm",
+        "source": "Regulator",
+        "url": "https://regulator.example/open-finance-consent-dashboard-consultation",
         "quality": 1.0,
-        "published_at": "2026-04-15",
-        "date_label": "15.04.2026",
-        "source_date": "Банк России — пресс-релизы · 15.04.2026"
+        "published_at": "2026-05-05",
+        "date_label": "5 May 2026",
+        "source_date": "Regulator · 5 May 2026"
       }
     ],
     "article_ids": [
-      "rss-банк-россии-—-пресс-релизы-8"
+      "a062"
     ],
     "deduped_titles": [
-      "Совет директоров Банка России принял решение о включении ценных бумаг в Ломбардный список (15.04.2026)"
+      "Regulator opens consultation on open finance consent dashboards"
     ],
-    "freshness_days": 29,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
-  },
-  {
-    "id": "s028",
-    "headline": "Dark web traders selling stolen UK payment cards for just £9",
-    "category": "payments",
-    "tags": [
-      "ai",
-      "card",
-      "payment",
-      "payments"
-    ],
-    "hotness": 4,
-    "score": 69.2,
-    "published_at": "2026-05-13",
-    "date_label": "13 May 2026",
-    "freshness_label": "1 день назад",
-    "score_components": {
-      "relevance": 3.47,
-      "source_quality": 0.82,
-      "novelty": 3.5,
-      "impact": 4.32,
-      "evidence_count": 1,
-      "confidence": 3.73
-    },
-    "score_explanation": "Средний score: надежное отраслевое медиа; высокая потенциальная значимость для банка.",
-    "why_now": "Это свежий сигнал: платежные механики быстро масштабируются через банки, сети и merchant-сценарии.",
-    "summary": "Dark web traders selling stolen UK payment cards for just £9. Stolen forms of ID and payment details are being traded on the dark web for less than a tenner, according to new data published by the cybersecurity firm NordVPN.",
-    "suggested_action": "Сравнить механику с текущими платежными сценариями и оценить применимость для банковского продукта.",
-    "sources": [
-      {
-        "source": "Finextra",
-        "url": "https://finextra.com/newsarticle/47743/dark-web-traders-selling-stolen-uk-payment-cards-for-just-9",
-        "quality": 0.82,
-        "published_at": "2026-05-13",
-        "date_label": "13 May 2026",
-        "source_date": "Finextra · 13 May 2026"
-      }
-    ],
-    "article_ids": [
-      "rss-finextra-12"
-    ],
-    "deduped_titles": [
-      "Dark web traders selling stolen UK payment cards for just £9"
-    ],
-    "freshness_days": 1,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
-  },
-  {
-    "id": "s035",
-    "headline": "Issuers Chase Top of Wallet Through Better Apps",
-    "category": "UX",
-    "tags": [
-      "UX",
-      "ai",
-      "app",
-      "card",
-      "credit",
-      "wallet"
-    ],
-    "hotness": 4,
-    "score": 68.9,
-    "published_at": "2026-05-14",
-    "date_label": "14 May 2026",
-    "freshness_label": "сегодня",
-    "score_components": {
-      "relevance": 3.96,
-      "source_quality": 0.76,
-      "novelty": 3.5,
-      "impact": 3.63,
-      "evidence_count": 1,
-      "confidence": 3.66
-    },
-    "score_explanation": "Средний score: надежное отраслевое медиа.",
-    "why_now": "Это свежий сигнал: тема может быть ранним индикатором изменения клиентского поведения.",
-    "summary": "Issuers Chase Top of Wallet Through Better Apps. As credit card spending remains resilient across many consumer segments, issuers are confronting a more nuanced contest over where that spending ultimately lands: not simply in consumers’ wallets, but at the top of them. The latest PYMNTS Intelligence report done in collaboration with Elan, “Winning Top of Wallet: How Credit Card Apps Shape Choice,” […] The post Issuers Chase Top of Wallet Through Better Apps...",
-    "suggested_action": "Оценить, можно ли использовать механику в мобильном банке или клиентском onboarding.",
-    "sources": [
-      {
-        "source": "PYMNTS",
-        "url": "https://pymnts.com/credit-cards/2026/issuers-chase-top-of-wallet-through-better-apps",
-        "quality": 0.76,
-        "published_at": "2026-05-14",
-        "date_label": "14 May 2026",
-        "source_date": "PYMNTS · 14 May 2026"
-      }
-    ],
-    "article_ids": [
-      "rss-pymnts-7"
-    ],
-    "deduped_titles": [
-      "Issuers Chase Top of Wallet Through Better Apps"
-    ],
-    "freshness_days": 0,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
-  },
-  {
-    "id": "s006",
-    "headline": "Five vertical SaaS insights from Sessions 2026",
-    "category": "payments",
-    "tags": [
-      "ai",
-      "payment",
-      "payments"
-    ],
-    "hotness": 4,
-    "score": 68.1,
-    "published_at": "2026-05-11",
-    "date_label": "11 May 2026",
-    "freshness_label": "3 дня назад",
-    "score_components": {
-      "relevance": 3.53,
-      "source_quality": 0.88,
-      "novelty": 2.8,
-      "impact": 4.38,
-      "evidence_count": 1,
-      "confidence": 3.81
-    },
-    "score_explanation": "Средний score: надежное отраслевое медиа; высокая потенциальная значимость для банка.",
-    "why_now": "Это свежий сигнал: платежные механики быстро масштабируются через банки, сети и merchant-сценарии.",
-    "summary": "Five vertical SaaS insights from Sessions 2026. AI is forcing platforms to expand beyond pure software. See how vertical SaaS platforms are using payments, financial services, and agentic commerce to build more durable businesses.",
-    "suggested_action": "Сравнить механику с текущими платежными сценариями и оценить применимость для банковского продукта.",
-    "sources": [
-      {
-        "source": "Stripe Blog",
-        "url": "https://stripe.com/blog/vertical-saas-insights-sessions-2026",
-        "quality": 0.88,
-        "published_at": "2026-05-11",
-        "date_label": "11 May 2026",
-        "source_date": "Stripe Blog · 11 May 2026"
-      }
-    ],
-    "article_ids": [
-      "rss-stripe-blog-1"
-    ],
-    "deduped_titles": [
-      "Five vertical SaaS insights from Sessions 2026"
-    ],
-    "freshness_days": 3,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
-  },
-  {
-    "id": "s033",
-    "headline": "Why the DIY KYC Model Is Facing a Fraud Reality Check",
-    "category": "fraud_risk",
-    "tags": [
-      "fraud",
-      "fraud_risk",
-      "identity",
-      "kyc",
-      "risk"
-    ],
-    "hotness": 4,
-    "score": 68.0,
-    "published_at": "2026-05-14",
-    "date_label": "14 May 2026",
-    "freshness_label": "сегодня",
-    "score_components": {
-      "relevance": 3.41,
-      "source_quality": 0.76,
-      "novelty": 3.5,
-      "impact": 4.46,
-      "evidence_count": 1,
-      "confidence": 3.66
-    },
-    "score_explanation": "Средний score: надежное отраслевое медиа; высокая потенциальная значимость для банка.",
-    "why_now": "Это свежий сигнал: fraud/authentication механики стоит оценивать до роста потерь и давления на UX.",
-    "summary": "Why the DIY KYC Model Is Facing a Fraud Reality Check. A collaboration between PYMNTS Intelligence and Trulioo, “Built or Bought: How KYC/KYB Ownership Shapes Risk, Cost and Growth” examines how companies’ choices about identity verification ownership shape fraud risk, operating costs and growth. The report is based on a survey of 350 global firms conducted from Aug. 1-Sept. 10, 2025, and explores how firms manage […] The post Why the DIY KYC Model Is Facing a Fraud...",
-    "suggested_action": "Передать risk/anti-fraud команде и оценить применимость к мониторингу операций, KYC/AML или авторизации.",
-    "sources": [
-      {
-        "source": "PYMNTS",
-        "url": "https://pymnts.com/digital-identity/2026/why-the-diy-kyc-model-is-facing-a-fraud-reality-check",
-        "quality": 0.76,
-        "published_at": "2026-05-14",
-        "date_label": "14 May 2026",
-        "source_date": "PYMNTS · 14 May 2026"
-      }
-    ],
-    "article_ids": [
-      "rss-pymnts-5"
-    ],
-    "deduped_titles": [
-      "Why the DIY KYC Model Is Facing a Fraud Reality Check"
-    ],
-    "freshness_days": 0,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
-  },
-  {
-    "id": "s025",
-    "headline": "London fintech Adfin raises $18 million",
-    "category": "fraud_risk",
-    "tags": [
-      "ai",
-      "fintech",
-      "fraud_risk",
-      "sme"
-    ],
-    "hotness": 4,
-    "score": 67.0,
-    "published_at": "2026-05-13",
-    "date_label": "13 May 2026",
-    "freshness_label": "1 день назад",
-    "score_components": {
-      "relevance": 3.47,
-      "source_quality": 0.82,
-      "novelty": 2.8,
-      "impact": 4.52,
-      "evidence_count": 1,
-      "confidence": 3.73
-    },
-    "score_explanation": "Средний score: надежное отраслевое медиа; высокая потенциальная значимость для банка.",
-    "why_now": "Это свежий сигнал: fraud/authentication механики стоит оценивать до роста потерь и давления на UX.",
-    "summary": "London fintech Adfin raises $18 million. London fintech Adfin has raised $18 million in Series A funding to help SME's get paid on time.",
-    "suggested_action": "Передать risk/anti-fraud команде и оценить применимость к мониторингу операций, KYC/AML или авторизации.",
-    "sources": [
-      {
-        "source": "Finextra",
-        "url": "https://finextra.com/newsarticle/47746/london-fintech-adfin-raises-18-million",
-        "quality": 0.82,
-        "published_at": "2026-05-13",
-        "date_label": "13 May 2026",
-        "source_date": "Finextra · 13 May 2026"
-      }
-    ],
-    "article_ids": [
-      "rss-finextra-9"
-    ],
-    "deduped_titles": [
-      "London fintech Adfin raises $18 million"
-    ],
-    "freshness_days": 1,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
-  },
-  {
-    "id": "s017",
-    "headline": "UK fintech funding falls by 43% in Q1",
-    "category": "fraud_risk",
-    "tags": [
-      "ai",
-      "fintech",
-      "fraud_risk"
-    ],
-    "hotness": 4,
-    "score": 66.5,
-    "published_at": "2026-05-14",
-    "date_label": "14 May 2026",
-    "freshness_label": "сегодня",
-    "score_components": {
-      "relevance": 2.92,
-      "source_quality": 0.82,
-      "novelty": 3.5,
-      "impact": 4.52,
-      "evidence_count": 1,
-      "confidence": 3.73
-    },
-    "score_explanation": "Средний score: надежное отраслевое медиа; высокая потенциальная значимость для банка.",
-    "why_now": "Это свежий сигнал: fraud/authentication механики стоит оценивать до роста потерь и давления на UX.",
-    "summary": "UK fintech funding falls by 43% in Q1. Fintechs in the UK raised close to three-quarters of a billion dollars in the first three months of the year, according to recently-released research.",
-    "suggested_action": "Оставить в мониторинге и не выносить в продуктовые действия без дополнительных подтверждений.",
-    "sources": [
-      {
-        "source": "Finextra",
-        "url": "https://finextra.com/newsarticle/47753/uk-fintech-funding-falls-by-43-in-q1",
-        "quality": 0.82,
-        "published_at": "2026-05-14",
-        "date_label": "14 May 2026",
-        "source_date": "Finextra · 14 May 2026"
-      }
-    ],
-    "article_ids": [
-      "rss-finextra-3"
-    ],
-    "deduped_titles": [
-      "UK fintech funding falls by 43% in Q1"
-    ],
-    "freshness_days": 0,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
-  },
-  {
-    "id": "s027",
-    "headline": "BBVA and Goldman Sachs back new OpenAI company",
-    "category": "fraud_risk",
-    "tags": [
-      "ai",
-      "fraud_risk"
-    ],
-    "hotness": 4,
-    "score": 66.0,
-    "published_at": "2026-05-13",
-    "date_label": "13 May 2026",
-    "freshness_label": "1 день назад",
-    "score_components": {
-      "relevance": 2.37,
-      "source_quality": 0.82,
-      "novelty": 4.2,
-      "impact": 4.52,
-      "evidence_count": 1,
-      "confidence": 3.73
-    },
-    "score_explanation": "Средний score: надежное отраслевое медиа; есть признаки свежего запуска/пилота; высокая потенциальная значимость для банка.",
-    "why_now": "Это свежий сигнал: fraud/authentication механики стоит оценивать до роста потерь и давления на UX.",
-    "summary": "BBVA and Goldman Sachs back new OpenAI company. OpenAI has secured the backing of 19 investment firms to launch the OpenAI Deployment Company, a new standalone venture designed to help organizations build and deploy AI systems for complex workflows.",
-    "suggested_action": "Оставить в мониторинге и не выносить в продуктовые действия без дополнительных подтверждений.",
-    "sources": [
-      {
-        "source": "Finextra",
-        "url": "https://finextra.com/newsarticle/47744/bbva-and-goldman-sachs-back-new-openai-company",
-        "quality": 0.82,
-        "published_at": "2026-05-13",
-        "date_label": "13 May 2026",
-        "source_date": "Finextra · 13 May 2026"
-      }
-    ],
-    "article_ids": [
-      "rss-finextra-11"
-    ],
-    "deduped_titles": [
-      "BBVA and Goldman Sachs back new OpenAI company"
-    ],
-    "freshness_days": 1,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
-  },
-  {
-    "id": "s021",
-    "headline": "Bunq applies for Mexican banking license",
-    "category": "banking_product",
-    "tags": [
-      "bank",
-      "banking",
-      "banking_product",
-      "neobank"
-    ],
-    "hotness": 4,
-    "score": 65.8,
-    "published_at": "2026-05-14",
-    "date_label": "14 May 2026",
-    "freshness_label": "сегодня",
-    "score_components": {
-      "relevance": 3.47,
-      "source_quality": 0.82,
-      "novelty": 2.8,
-      "impact": 4.12,
-      "evidence_count": 1,
-      "confidence": 3.73
-    },
-    "score_explanation": "Средний score: надежное отраслевое медиа; высокая потенциальная значимость для банка.",
-    "why_now": "Это свежий сигнал: конкурент меняет банковский сценарий, который можно проверить в продуктовой дорожной карте.",
-    "summary": "Bunq applies for Mexican banking license. Bunq, the European neobank for \"global citizens\", has applied for a Mexican banking license.",
-    "suggested_action": "Сравнить с текущей продуктовой линейкой и оценить, есть ли применимый сценарий для клиента банка.",
-    "sources": [
-      {
-        "source": "Finextra",
-        "url": "https://finextra.com/newsarticle/47749/bunq-applies-for-mexican-banking-license",
-        "quality": 0.82,
-        "published_at": "2026-05-14",
-        "date_label": "14 May 2026",
-        "source_date": "Finextra · 14 May 2026"
-      }
-    ],
-    "article_ids": [
-      "rss-finextra-7"
-    ],
-    "deduped_titles": [
-      "Bunq applies for Mexican banking license"
-    ],
-    "freshness_days": 0,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
-  },
-  {
-    "id": "s011",
-    "headline": "Three of the biggest fraud trends from MRC Vegas 2026",
-    "category": "fraud_risk",
-    "tags": [
-      "ai",
-      "fraud",
-      "fraud_risk",
-      "identity"
-    ],
-    "hotness": 4,
-    "score": 65.5,
-    "published_at": "2026-03-20",
-    "date_label": "20 Mar 2026",
-    "freshness_label": "старше двух недель",
-    "score_components": {
-      "relevance": 3.53,
-      "source_quality": 0.88,
-      "novelty": 2.0,
-      "impact": 4.58,
-      "evidence_count": 1,
-      "confidence": 3.81
-    },
-    "score_explanation": "Средний score: надежное отраслевое медиа; высокая потенциальная значимость для банка.",
-    "why_now": "Это сигнал остается актуальным: fraud/authentication механики стоит оценивать до роста потерь и давления на UX.",
-    "summary": "Three of the biggest fraud trends from MRC Vegas 2026. The most sophisticated fraud teams are shifting from one-size-fits-all fraud approaches to more dynamic, tailored interventions. They are removing friction for trusted users, embedding fraud detection directly into agentic transactions, and investing in multilayered identity verification to combat deepfakes.",
-    "suggested_action": "Передать risk/anti-fraud команде и оценить применимость к мониторингу операций, KYC/AML или авторизации.",
-    "sources": [
-      {
-        "source": "Stripe Blog",
-        "url": "https://stripe.com/blog/three-fraud-trends-from-mrc-vegas-2026",
-        "quality": 0.88,
-        "published_at": "2026-03-20",
-        "date_label": "20 Mar 2026",
-        "source_date": "Stripe Blog · 20 Mar 2026"
-      }
-    ],
-    "article_ids": [
-      "rss-stripe-blog-7"
-    ],
-    "deduped_titles": [
-      "Three of the biggest fraud trends from MRC Vegas 2026"
-    ],
-    "freshness_days": 55,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
-  },
-  {
-    "id": "s031",
-    "headline": "UK Central Bank Plans to Relax Stablecoin Restrictions",
-    "category": "regulation",
-    "tags": [
-      "ai",
-      "bank",
-      "central bank",
-      "regulation"
-    ],
-    "hotness": 4,
-    "score": 65.3,
-    "published_at": "2026-05-14",
-    "date_label": "14 May 2026",
-    "freshness_label": "сегодня",
-    "score_components": {
-      "relevance": 2.86,
-      "source_quality": 0.76,
-      "novelty": 3.5,
-      "impact": 4.66,
-      "evidence_count": 1,
-      "confidence": 3.66
-    },
-    "score_explanation": "Средний score: надежное отраслевое медиа; высокая потенциальная значимость для банка.",
-    "why_now": "Это свежий сигнал: регуляторные изменения быстро превращаются в требования к продуктам и compliance.",
-    "summary": "UK Central Bank Plans to Relax Stablecoin Restrictions. The Bank of England will reportedly relax its restrictions on stablecoins following pushback from cryptocurrency companies. This move comes after one of the central bank’s top officials said its earlier proposals might have been “overly conservative,” the Financial Times (FT) reported Thursday (May 14). Sarah Breeden, the bank’s deputy governor for financial stability, said in an interview […] The post UK Central...",
-    "suggested_action": "Оставить в мониторинге и не выносить в продуктовые действия без дополнительных подтверждений.",
-    "sources": [
-      {
-        "source": "PYMNTS",
-        "url": "https://pymnts.com/cryptocurrency/2026/uk-central-bank-plans-to-relax-stablecoin-restrictions",
-        "quality": 0.76,
-        "published_at": "2026-05-14",
-        "date_label": "14 May 2026",
-        "source_date": "PYMNTS · 14 May 2026"
-      }
-    ],
-    "article_ids": [
-      "rss-pymnts-3"
-    ],
-    "deduped_titles": [
-      "UK Central Bank Plans to Relax Stablecoin Restrictions"
-    ],
-    "freshness_days": 0,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
-  },
-  {
-    "id": "s010",
-    "headline": "Insights from Shoptalk 2026: How agents are changing retail",
-    "category": "payments",
-    "tags": [
-      "ai",
-      "checkout",
-      "embedded",
-      "payments"
-    ],
-    "hotness": 4,
-    "score": 64.9,
-    "published_at": "2026-04-02",
-    "date_label": "2 Apr 2026",
-    "freshness_label": "старше двух недель",
-    "score_components": {
-      "relevance": 3.53,
-      "source_quality": 0.88,
-      "novelty": 2.0,
-      "impact": 4.38,
-      "evidence_count": 1,
-      "confidence": 3.81
-    },
-    "score_explanation": "Средний score: надежное отраслевое медиа; высокая потенциальная значимость для банка.",
-    "why_now": "Это сигнал остается актуальным: платежные механики быстро масштабируются через банки, сети и merchant-сценарии.",
-    "summary": "Insights from Shoptalk 2026: How agents are changing retail. Retailers know search and discovery have already shifted. What comes next is less settled. From embedded checkout to emerging third-party surfaces, here’s how ecommerce and AI leaders are integrating agentic commerce.",
-    "suggested_action": "Сравнить механику с текущими платежными сценариями и оценить применимость для банковского продукта.",
-    "sources": [
-      {
-        "source": "Stripe Blog",
-        "url": "https://stripe.com/blog/shoptalk-2026",
-        "quality": 0.88,
-        "published_at": "2026-04-02",
-        "date_label": "2 Apr 2026",
-        "source_date": "Stripe Blog · 2 Apr 2026"
-      }
-    ],
-    "article_ids": [
-      "rss-stripe-blog-5"
-    ],
-    "deduped_titles": [
-      "Insights from Shoptalk 2026: How agents are changing retail"
-    ],
-    "freshness_days": 42,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
-  },
-  {
-    "id": "s038",
-    "headline": "Alibaba Sacrifices Profits to Fuel AI Growth",
-    "category": "fraud_risk",
-    "tags": [
-      "account",
-      "ai",
-      "fraud_risk"
-    ],
-    "hotness": 4,
-    "score": 64.7,
-    "published_at": "2026-05-14",
-    "date_label": "14 May 2026",
-    "freshness_label": "сегодня",
-    "score_components": {
-      "relevance": 2.86,
-      "source_quality": 0.76,
-      "novelty": 3.5,
-      "impact": 4.46,
-      "evidence_count": 1,
-      "confidence": 3.66
-    },
-    "score_explanation": "Средний score: надежное отраслевое медиа; высокая потенциальная значимость для банка.",
-    "why_now": "Это свежий сигнал: fraud/authentication механики стоит оценивать до роста потерь и давления на UX.",
-    "summary": "Alibaba Sacrifices Profits to Fuel AI Growth. Artificial intelligence accounts for a rapidly growing share of Alibaba Group’s revenue, and it will deliver a return on the substantial investment the company is making in AI infrastructure, CEO Eddie Wu said Wednesday (May 13). Speaking during the company’s earnings call for the quarter ended March 31, Wu said that AI-related product revenue […] The post Alibaba Sacrifices Profits to Fuel AI Growth appeared first...",
-    "suggested_action": "Оставить в мониторинге и не выносить в продуктовые действия без дополнительных подтверждений.",
-    "sources": [
-      {
-        "source": "PYMNTS",
-        "url": "https://pymnts.com/earnings/2026/alibaba-sacrifices-profits-to-fuel-ai-growth",
-        "quality": 0.76,
-        "published_at": "2026-05-14",
-        "date_label": "14 May 2026",
-        "source_date": "PYMNTS · 14 May 2026"
-      }
-    ],
-    "article_ids": [
-      "rss-pymnts-10"
-    ],
-    "deduped_titles": [
-      "Alibaba Sacrifices Profits to Fuel AI Growth"
-    ],
-    "freshness_days": 0,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
-  },
-  {
-    "id": "s013",
-    "headline": "Introducing the Machine Payments Protocol",
-    "category": "payments",
-    "tags": [
-      "payment",
-      "payments"
-    ],
-    "hotness": 4,
-    "score": 64.4,
-    "published_at": "2026-03-18",
-    "date_label": "18 Mar 2026",
-    "freshness_label": "старше двух недель",
-    "score_components": {
-      "relevance": 2.98,
-      "source_quality": 0.88,
-      "novelty": 2.7,
-      "impact": 4.38,
-      "evidence_count": 1,
-      "confidence": 3.81
-    },
-    "score_explanation": "Средний score: надежное отраслевое медиа; высокая потенциальная значимость для банка.",
-    "why_now": "Это сигнал остается актуальным: платежные механики быстро масштабируются через банки, сети и merchant-сценарии.",
-    "summary": "Introducing the Machine Payments Protocol. We’re launching the Machine Payments Protocol (MPP), an open standard, internet-native way for agents to pay—co-authored by Tempo and Stripe. Businesses on Stripe can accept payments over MPP in a few lines of code using our PaymentIntents API.",
-    "suggested_action": "Оставить в мониторинге и не выносить в продуктовые действия без дополнительных подтверждений.",
-    "sources": [
-      {
-        "source": "Stripe Blog",
-        "url": "https://stripe.com/blog/machine-payments-protocol",
-        "quality": 0.88,
-        "published_at": "2026-03-18",
-        "date_label": "18 Mar 2026",
-        "source_date": "Stripe Blog · 18 Mar 2026"
-      }
-    ],
-    "article_ids": [
-      "rss-stripe-blog-9"
-    ],
-    "deduped_titles": [
-      "Introducing the Machine Payments Protocol"
-    ],
-    "freshness_days": 57,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
-  },
-  {
-    "id": "s015",
-    "headline": "NYC Mayor Mamdani calls on regulator to block Western Union takeover of rival",
-    "category": "regulation",
-    "tags": [
-      "regulation",
-      "regulator"
-    ],
-    "hotness": 4,
-    "score": 63.8,
-    "published_at": "2026-05-14",
-    "date_label": "14 May 2026",
-    "freshness_label": "сегодня",
-    "score_components": {
-      "relevance": 2.37,
-      "source_quality": 0.82,
-      "novelty": 3.5,
-      "impact": 4.72,
-      "evidence_count": 1,
-      "confidence": 3.73
-    },
-    "score_explanation": "Средний score: надежное отраслевое медиа; высокая потенциальная значимость для банка.",
-    "why_now": "Это свежий сигнал: регуляторные изменения быстро превращаются в требования к продуктам и compliance.",
-    "summary": "NYC Mayor Mamdani calls on regulator to block Western Union takeover of rival. New York City Mayor Zohran Mamdani has asked regulators to block Western Union's proposed acquisition of Intermex, arguing that the money transfer giant wants to buy its rival to \"jack up remittance fees\".",
-    "suggested_action": "Оставить в мониторинге и не выносить в продуктовые действия без дополнительных подтверждений.",
-    "sources": [
-      {
-        "source": "Finextra",
-        "url": "https://finextra.com/newsarticle/47756/nyc-mayor-mamdani-calls-on-regulator-to-block-western-union-takeover-of-rival",
-        "quality": 0.82,
-        "published_at": "2026-05-14",
-        "date_label": "14 May 2026",
-        "source_date": "Finextra · 14 May 2026"
-      }
-    ],
-    "article_ids": [
-      "rss-finextra-1"
-    ],
-    "deduped_titles": [
-      "NYC Mayor Mamdani calls on regulator to block Western Union takeover of rival"
-    ],
-    "freshness_days": 0,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
-  },
-  {
-    "id": "s020",
-    "headline": "US banks hurry to patch vulnerabilities uncovered by Mythos",
-    "category": "fraud_risk",
-    "tags": [
-      "ai",
-      "bank",
-      "fraud_risk"
-    ],
-    "hotness": 4,
-    "score": 63.7,
-    "published_at": "2026-05-14",
-    "date_label": "14 May 2026",
-    "freshness_label": "сегодня",
-    "score_components": {
-      "relevance": 2.92,
-      "source_quality": 0.82,
-      "novelty": 2.8,
-      "impact": 4.52,
-      "evidence_count": 1,
-      "confidence": 3.73
-    },
-    "score_explanation": "Средний score: надежное отраслевое медиа; высокая потенциальная значимость для банка.",
-    "why_now": "Это свежий сигнал: fraud/authentication механики стоит оценивать до роста потерь и давления на UX.",
-    "summary": "US banks hurry to patch vulnerabilities uncovered by Mythos. US banks have been scrambling to fix IT issues uncovered by Anthropic's Mythos AI tool, according to Reuters.",
-    "suggested_action": "Оставить в мониторинге и не выносить в продуктовые действия без дополнительных подтверждений.",
-    "sources": [
-      {
-        "source": "Finextra",
-        "url": "https://finextra.com/newsarticle/47748/us-banks-hurry-to-patch-vulnerabilities-uncovered-by-mythos",
-        "quality": 0.82,
-        "published_at": "2026-05-14",
-        "date_label": "14 May 2026",
-        "source_date": "Finextra · 14 May 2026"
-      }
-    ],
-    "article_ids": [
-      "rss-finextra-6"
-    ],
-    "deduped_titles": [
-      "US banks hurry to patch vulnerabilities uncovered by Mythos"
-    ],
-    "freshness_days": 0,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
-  },
-  {
-    "id": "s024",
-    "headline": "Deutsche Bank joins $120m funding round for crypto analytics firm Elliptic",
-    "category": "fraud_risk",
-    "tags": [
-      "ai",
-      "bank",
-      "fraud_risk"
-    ],
-    "hotness": 4,
-    "score": 63.7,
-    "published_at": "2026-05-13",
-    "date_label": "13 May 2026",
-    "freshness_label": "1 день назад",
-    "score_components": {
-      "relevance": 2.92,
-      "source_quality": 0.82,
-      "novelty": 2.8,
-      "impact": 4.52,
-      "evidence_count": 1,
-      "confidence": 3.73
-    },
-    "score_explanation": "Средний score: надежное отраслевое медиа; высокая потенциальная значимость для банка.",
-    "why_now": "Это свежий сигнал: fraud/authentication механики стоит оценивать до роста потерь и давления на UX.",
-    "summary": "Deutsche Bank joins $120m funding round for crypto analytics firm Elliptic. Cryptocurrency and blockchain surveillance and analytics specialist Elliptic has raised $120 million in a Series D funding round led by One Peak, with participation from Nasdaq Ventures, Deutsche Bank and the British Business Bank.",
-    "suggested_action": "Оставить в мониторинге и не выносить в продуктовые действия без дополнительных подтверждений.",
-    "sources": [
-      {
-        "source": "Finextra",
-        "url": "https://finextra.com/newsarticle/47747/deutsche-bank-joins-120m-funding-round-for-crypto-analytics-firm-elliptic",
-        "quality": 0.82,
-        "published_at": "2026-05-13",
-        "date_label": "13 May 2026",
-        "source_date": "Finextra · 13 May 2026"
-      }
-    ],
-    "article_ids": [
-      "rss-finextra-8"
-    ],
-    "deduped_titles": [
-      "Deutsche Bank joins $120m funding round for crypto analytics firm Elliptic"
-    ],
-    "freshness_days": 1,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
-  },
-  {
-    "id": "s030",
-    "headline": "RTP Network Logs Record Single-Day Transactions of $8.6 Billion",
-    "category": "payments",
-    "tags": [
-      "payment",
-      "payments"
-    ],
-    "hotness": 4,
-    "score": 63.6,
-    "published_at": "2026-05-14",
-    "date_label": "14 May 2026",
-    "freshness_label": "сегодня",
-    "score_components": {
-      "relevance": 2.31,
-      "source_quality": 0.76,
-      "novelty": 4.2,
-      "impact": 4.26,
-      "evidence_count": 1,
-      "confidence": 3.66
-    },
-    "score_explanation": "Средний score: надежное отраслевое медиа; есть признаки свежего запуска/пилота; высокая потенциальная значимость для банка.",
-    "why_now": "Это свежий сигнал: платежные механики быстро масштабируются через банки, сети и merchant-сценарии.",
-    "summary": "RTP Network Logs Record Single-Day Transactions of $8.6 Billion. The Clearing House’s RTP network has recorded new single-day payment records. The records were set on May 1, when the network processes 2.27 million transactions worth $8.62 billion, The Clearing House (TCH) announced Thursday (May 14). This volume growth, “is driven by consumers looking for instant access to their funds to help balance household […] The post RTP Network Logs Record Single-Day Transactions of $8.6...",
-    "suggested_action": "Оставить в мониторинге и не выносить в продуктовые действия без дополнительных подтверждений.",
-    "sources": [
-      {
-        "source": "PYMNTS",
-        "url": "https://pymnts.com/real-time-payments/2026/rtp-network-logs-record-single-day-transactions-of-8-6-billion",
-        "quality": 0.76,
-        "published_at": "2026-05-14",
-        "date_label": "14 May 2026",
-        "source_date": "PYMNTS · 14 May 2026"
-      }
-    ],
-    "article_ids": [
-      "rss-pymnts-2"
-    ],
-    "deduped_titles": [
-      "RTP Network Logs Record Single-Day Transactions of $8.6 Billion"
-    ],
-    "freshness_days": 0,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
-  },
-  {
-    "id": "s051",
-    "headline": "Fintech firm Marquis alerts dozens of US banks and credit unions of a data breach after ransomware attack",
-    "category": "fraud_risk",
-    "tags": [
-      "ai",
-      "bank",
-      "banking",
-      "credit",
-      "fintech",
-      "fraud_risk"
-    ],
-    "hotness": 4,
-    "score": 63.2,
-    "published_at": "2025-12-03",
-    "date_label": "3 Dec 2025",
-    "freshness_label": "старше двух недель",
-    "score_components": {
-      "relevance": 4.3,
-      "source_quality": 0.55,
-      "novelty": 2.0,
-      "impact": 4.47,
-      "evidence_count": 1,
-      "confidence": 3.41
-    },
-    "score_explanation": "Средний score: много финтех-триггеров; высокая потенциальная значимость для банка.",
-    "why_now": "Это сигнал остается актуальным: fraud/authentication механики стоит оценивать до роста потерь и давления на UX.",
-    "summary": "Fintech firm Marquis alerts dozens of US banks and credit unions of a data breach after ransomware attack. Marquis said ransomware hackers stole reams of banking customer data, containing personal information and financial records, as well as Social Security numbers, belonging to hundreds of thousands of people. The number of affected people is expected to rise.",
-    "suggested_action": "Оставить в мониторинге и не выносить в продуктовые действия без дополнительных подтверждений.",
-    "sources": [
-      {
-        "source": "TechCrunch Fintech",
-        "url": "https://techcrunch.com/2025/12/03/fintech-firm-marquis-alerts-dozens-of-us-banks-and-credit-unions-of-a-data-breach-after-ransomware-attack",
-        "quality": 0.55,
-        "published_at": "2025-12-03",
-        "date_label": "3 Dec 2025",
-        "source_date": "TechCrunch Fintech · 3 Dec 2025"
-      }
-    ],
-    "article_ids": [
-      "rss-techcrunch-fintech-9"
-    ],
-    "deduped_titles": [
-      "Fintech firm Marquis alerts dozens of US banks and credit unions of a data breach after ransomware attack"
-    ],
-    "freshness_days": 162,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
-  },
-  {
-    "id": "s016",
-    "headline": "UK Payments Association names CEO",
-    "category": "payments",
-    "tags": [
-      "payment",
-      "payments"
-    ],
-    "hotness": 4,
-    "score": 63.1,
-    "published_at": "2026-05-14",
-    "date_label": "14 May 2026",
-    "freshness_label": "сегодня",
-    "score_components": {
-      "relevance": 2.92,
-      "source_quality": 0.82,
-      "novelty": 2.8,
-      "impact": 4.32,
-      "evidence_count": 1,
-      "confidence": 3.73
-    },
-    "score_explanation": "Средний score: надежное отраслевое медиа; высокая потенциальная значимость для банка.",
-    "why_now": "Это свежий сигнал: платежные механики быстро масштабируются через банки, сети и merchant-сценарии.",
-    "summary": "UK Payments Association names CEO. The Payments Association, the trade body for UK-based payment providers, has appointed Emma Banymandhub, as chief executive.",
-    "suggested_action": "Оставить в мониторинге и не выносить в продуктовые действия без дополнительных подтверждений.",
-    "sources": [
-      {
-        "source": "Finextra",
-        "url": "https://finextra.com/newsarticle/47754/uk-payments-association-names-ceo",
-        "quality": 0.82,
-        "published_at": "2026-05-14",
-        "date_label": "14 May 2026",
-        "source_date": "Finextra · 14 May 2026"
-      }
-    ],
-    "article_ids": [
-      "rss-finextra-2"
-    ],
-    "deduped_titles": [
-      "UK Payments Association names CEO"
-    ],
-    "freshness_days": 0,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
-  },
-  {
-    "id": "s014",
-    "headline": "10 things we learned building for the first generation of agentic commerce",
-    "category": "fraud_risk",
-    "tags": [
-      "ai",
-      "fraud_risk"
-    ],
-    "hotness": 4,
-    "score": 61.7,
-    "published_at": "2026-03-12",
-    "date_label": "12 Mar 2026",
-    "freshness_label": "старше двух недель",
-    "score_components": {
-      "relevance": 2.43,
-      "source_quality": 0.88,
-      "novelty": 2.7,
-      "impact": 4.58,
-      "evidence_count": 1,
-      "confidence": 3.81
-    },
-    "score_explanation": "Средний score: надежное отраслевое медиа; высокая потенциальная значимость для банка.",
-    "why_now": "Это сигнал остается актуальным: fraud/authentication механики стоит оценивать до роста потерь и давления на UX.",
-    "summary": "10 things we learned building for the first generation of agentic commerce. A future where we buy with AI agents feels inevitable. Making it actually work is harder. These lessons from the first wave of agentic commerce are meant to help sellers decide what to tackle, avoid common bottlenecks, and get ahead of what’s coming.",
-    "suggested_action": "Оставить в мониторинге и не выносить в продуктовые действия без дополнительных подтверждений.",
-    "sources": [
-      {
-        "source": "Stripe Blog",
-        "url": "https://stripe.com/blog/10-lessons",
-        "quality": 0.88,
-        "published_at": "2026-03-12",
-        "date_label": "12 Mar 2026",
-        "source_date": "Stripe Blog · 12 Mar 2026"
-      }
-    ],
-    "article_ids": [
-      "rss-stripe-blog-10"
-    ],
-    "deduped_titles": [
-      "10 things we learned building for the first generation of agentic commerce"
-    ],
-    "freshness_days": 63,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
-  },
-  {
-    "id": "s009",
-    "headline": "How agents, digital wallets, and trust are rewriting checkout",
-    "category": "payments",
-    "tags": [
-      "checkout",
-      "payments",
-      "wallet"
-    ],
-    "hotness": 4,
-    "score": 61.6,
-    "published_at": "2026-04-07",
-    "date_label": "7 Apr 2026",
-    "freshness_label": "старше двух недель",
-    "score_components": {
-      "relevance": 2.98,
-      "source_quality": 0.88,
-      "novelty": 2.0,
-      "impact": 4.38,
-      "evidence_count": 1,
-      "confidence": 3.81
-    },
-    "score_explanation": "Средний score: надежное отраслевое медиа; высокая потенциальная значимость для банка.",
-    "why_now": "Это сигнал остается актуальным: платежные механики быстро масштабируются через банки, сети и merchant-сценарии.",
-    "summary": "How agents, digital wallets, and trust are rewriting checkout. We analyzed checkout activity across more than 20K businesses, surveyed shoppers and ecommerce leaders, and gathered insights from businesses on the Stripe network to understand what’s changing in online conversion.",
-    "suggested_action": "Оставить в мониторинге и не выносить в продуктовые действия без дополнительных подтверждений.",
-    "sources": [
-      {
-        "source": "Stripe Blog",
-        "url": "https://stripe.com/blog/global-checkout-trends",
-        "quality": 0.88,
-        "published_at": "2026-04-07",
-        "date_label": "7 Apr 2026",
-        "source_date": "Stripe Blog · 7 Apr 2026"
-      }
-    ],
-    "article_ids": [
-      "rss-stripe-blog-4"
-    ],
-    "deduped_titles": [
-      "How agents, digital wallets, and trust are rewriting checkout"
-    ],
-    "freshness_days": 37,
+    "freshness_days": 9,
     "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
   },
   {
     "id": "s012",
-    "headline": "Testing the impact of Adaptive Pricing across 1.5M subscription checkout sessions",
-    "category": "payments",
-    "tags": [
-      "ai",
-      "checkout",
-      "payments"
-    ],
-    "hotness": 4,
-    "score": 61.6,
-    "published_at": "2026-03-19",
-    "date_label": "19 Mar 2026",
-    "freshness_label": "старше двух недель",
-    "score_components": {
-      "relevance": 2.98,
-      "source_quality": 0.88,
-      "novelty": 2.0,
-      "impact": 4.38,
-      "evidence_count": 1,
-      "confidence": 3.81
-    },
-    "score_explanation": "Средний score: надежное отраслевое медиа; высокая потенциальная значимость для банка.",
-    "why_now": "Это сигнал остается актуальным: платежные механики быстро масштабируются через банки, сети и merchant-сценарии.",
-    "summary": "Testing the impact of Adaptive Pricing across 1.5M subscription checkout sessions. Adaptive Pricing is now available for subscriptions, allowing businesses to automatically localize prices in 150+ countries while Stripe handles currency conversion. In an A/B test across 1.5 million subscription checkouts, businesses saw 4.7% higher conversion and 5.4% higher LTV per session, on average.",
-    "suggested_action": "Оставить в мониторинге и не выносить в продуктовые действия без дополнительных подтверждений.",
-    "sources": [
-      {
-        "source": "Stripe Blog",
-        "url": "https://stripe.com/blog/adaptive-pricing-for-subscriptions",
-        "quality": 0.88,
-        "published_at": "2026-03-19",
-        "date_label": "19 Mar 2026",
-        "source_date": "Stripe Blog · 19 Mar 2026"
-      }
-    ],
-    "article_ids": [
-      "rss-stripe-blog-8"
-    ],
-    "deduped_titles": [
-      "Testing the impact of Adaptive Pricing across 1.5M subscription checkout sessions"
-    ],
-    "freshness_days": 56,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
-  },
-  {
-    "id": "s041",
-    "headline": "В Госдуме озвучили неопубликованные данные ЦБ по ущербу от мошенников",
-    "category": "regulation",
-    "tags": [
-      "regulation",
-      "мошенничество",
-      "цб"
-    ],
-    "hotness": 4,
-    "score": 61.4,
-    "published_at": "2026-05-14",
-    "date_label": "14.05.2026",
-    "freshness_label": "сегодня",
-    "score_components": {
-      "relevance": 2.82,
-      "source_quality": 0.72,
-      "novelty": 2.8,
-      "impact": 4.62,
-      "evidence_count": 1,
-      "confidence": 3.61
-    },
-    "score_explanation": "Средний score: высокая потенциальная значимость для банка.",
-    "why_now": "Это свежий сигнал: регуляторные изменения быстро превращаются в требования к продуктам и compliance.",
-    "summary": "В Госдуме озвучили неопубликованные данные ЦБ по ущербу от мошенников. Депутат Госдумы Константин Бахарев на заседании представил еще не опубликованную статистику ЦБ связанных с кибермошенничеством хищений: за первый квартал текущего года совокупный объем средств, похищенных у граждан, составил 6,8 млрд руб.",
-    "suggested_action": "Оставить в мониторинге и не выносить в продуктовые действия без дополнительных подтверждений.",
-    "sources": [
-      {
-        "source": "РБК — новости",
-        "url": "https://rbc.ru/rbcfreenews/6a05d3229a794712dd963bd7",
-        "quality": 0.72,
-        "published_at": "2026-05-14",
-        "date_label": "14.05.2026",
-        "source_date": "РБК — новости · 14.05.2026"
-      }
-    ],
-    "article_ids": [
-      "rss-рбк-—-новости-9"
-    ],
-    "deduped_titles": [
-      "В Госдуме озвучили неопубликованные данные ЦБ по ущербу от мошенников"
-    ],
-    "freshness_days": 0,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
-  },
-  {
-    "id": "s023",
-    "headline": "Rato integrates iDenfy ID verification tech into onboarding flow",
+    "headline": "PayPal partners with insurer to add embedded purchase protection offers",
     "category": "partnership",
     "tags": [
+      "account",
       "bank",
-      "fraud",
+      "checkout",
+      "embedded",
+      "embedded insurance",
       "partner",
       "partners",
       "partnership"
     ],
     "hotness": 4,
-    "score": 61.3,
-    "published_at": "2026-05-14",
-    "date_label": "14 May 2026",
-    "freshness_label": "сегодня",
+    "score": 72.4,
+    "published_at": "2026-05-05",
+    "date_label": "5 May 2026",
+    "freshness_label": "9 дней назад",
     "score_components": {
-      "relevance": 2.92,
-      "source_quality": 0.82,
-      "novelty": 2.8,
-      "impact": 3.72,
-      "evidence_count": 1,
-      "confidence": 3.73
+      "relevance": 4.05,
+      "source_quality": 0.9,
+      "novelty": 2.0,
+      "impact": 4.03,
+      "evidence_count": 2,
+      "confidence": 4.38
     },
-    "score_explanation": "Средний score: надежное отраслевое медиа.",
-    "why_now": "Это свежий сигнал: тема может быть ранним индикатором изменения клиентского поведения.",
-    "summary": "Rato integrates iDenfy ID verification tech into onboarding flow. IDenfy, a RegTech company offering ID verification and fraud prevention solutions, has announced a partnership with RATO, a licensed bank with nearly 30 years of financial heritage in Lithuania.",
-    "suggested_action": "Оставить в мониторинге и не выносить в продуктовые действия без дополнительных подтверждений.",
+    "score_explanation": "Средний score: много финтех-триггеров; сильный первоисточник; есть больше одного подтверждения; высокая потенциальная значимость для банка.",
+    "signal_level": "medium",
+    "why_now": "Сигнал связан с партнерской моделью: такие новости могут показывать новый способ дистрибуции, монетизации или расширения банковской экосистемы. Сигнал не новый, но может оставаться актуальным; сигнал подтверждается несколькими источниками; источник выглядит надежным.",
+    "summary": "PayPal partners with insurer to add embedded purchase protection offers. PayPal announced an embedded insurance partnership that lets shoppers add purchase protection offers inside checkout and post-purchase account flows.",
+    "suggested_action": "Добавить в партнерский radar, проверить участников модели и дождаться подтверждений от первоисточников.",
     "sources": [
       {
-        "source": "Finextra",
-        "url": "https://finextra.com/pressarticle/109846/rato-integrates-idenfy-id-verification-tech-into-onboarding-flow",
-        "quality": 0.82,
-        "published_at": "2026-05-14",
-        "date_label": "14 May 2026",
-        "source_date": "Finextra · 14 May 2026"
+        "source": "PayPal",
+        "url": "https://newsroom.paypal-corp.com/embedded-insurance-purchase-protection",
+        "quality": 0.9,
+        "published_at": "2026-05-05",
+        "date_label": "5 May 2026",
+        "source_date": "PayPal · 5 May 2026"
+      },
+      {
+        "source": "The Paypers",
+        "url": "https://thepaypers.com/online-payments/paypal-embedded-insurance-checkout",
+        "quality": 0.8,
+        "published_at": "2026-05-04",
+        "date_label": "4 May 2026",
+        "source_date": "The Paypers · 4 May 2026"
       }
     ],
     "article_ids": [
-      "rss-finextra-15"
+      "a020",
+      "a021"
     ],
     "deduped_titles": [
-      "Rato integrates iDenfy ID verification tech into onboarding flow"
+      "PayPal adds embedded protection offers through insurance partner",
+      "PayPal partners with insurer to add embedded purchase protection offers"
     ],
-    "freshness_days": 0,
+    "freshness_days": 9,
+    "context_note": "Использован расширенный текст/snippet из входных данных."
+  },
+  {
+    "id": "s019",
+    "headline": "Payments startup launches instant refunds API for marketplaces",
+    "category": "payments",
+    "tags": [
+      "card",
+      "payment",
+      "payments",
+      "refunds",
+      "wallet"
+    ],
+    "hotness": 4,
+    "score": 70.5,
+    "published_at": "2026-05-08",
+    "date_label": "8 May 2026",
+    "freshness_label": "6 дней назад",
+    "score_components": {
+      "relevance": 4.0,
+      "source_quality": 0.8,
+      "novelty": 3.1,
+      "impact": 4.38,
+      "evidence_count": 1,
+      "confidence": 3.71
+    },
+    "score_explanation": "Средний score: много финтех-триггеров; надежное отраслевое медиа; высокая потенциальная значимость для банка.",
+    "signal_level": "medium",
+    "why_now": "Сигнал затрагивает платежный сценарий: изменения в платежах быстро влияют на ожидания клиентов к скорости, удобству, комиссии и доступности операций. Сигнал свежий; сигнал пока основан на ограниченном числе источников; источник требует дополнительной проверки.",
+    "summary": "Payments startup launches instant refunds API for marketplaces. A payments startup launched an API that lets marketplaces issue instant refunds to cards and wallets.",
+    "suggested_action": "Добавить в payments radar, вручную сравнить с текущими переводами, оплатой или acquiring-сценариями и собрать дополнительные подтверждения.",
+    "sources": [
+      {
+        "source": "The Paypers",
+        "url": "https://thepaypers.com/online-payments/instant-refunds-api-marketplaces",
+        "quality": 0.8,
+        "published_at": "2026-05-08",
+        "date_label": "8 May 2026",
+        "source_date": "The Paypers · 8 May 2026"
+      }
+    ],
+    "article_ids": [
+      "a059"
+    ],
+    "deduped_titles": [
+      "Payments startup launches instant refunds API for marketplaces"
+    ],
+    "freshness_days": 6,
     "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
   },
   {
-    "id": "s056",
-    "headline": "Karat Financial is bringing business banking to creators",
-    "category": "banking_product",
+    "id": "s013",
+    "headline": "Card network tests merchant-funded loyalty inside banking apps",
+    "category": "partnership",
     "tags": [
       "bank",
       "banking",
-      "banking_product",
       "card",
-      "credit"
+      "merchant",
+      "merchant-funded",
+      "partner",
+      "partners",
+      "partnership"
     ],
     "hotness": 4,
-    "score": 61.3,
-    "published_at": "2025-05-28",
-    "date_label": "28 May 2025",
-    "freshness_label": "старше двух недель",
+    "score": 70.1,
+    "published_at": "2026-05-04",
+    "date_label": "4 May 2026",
+    "freshness_label": "10 дней назад",
     "score_components": {
-      "relevance": 3.75,
-      "source_quality": 0.55,
+      "relevance": 4.1,
+      "source_quality": 0.9,
       "novelty": 2.7,
-      "impact": 3.99,
+      "impact": 3.89,
       "evidence_count": 1,
-      "confidence": 3.41
+      "confidence": 3.83
     },
-    "score_explanation": "Средний score: тема релевантна, но подтверждений и новизны пока немного.",
-    "why_now": "Это сигнал остается актуальным: конкурент меняет банковский сценарий, который можно проверить в продуктовой дорожной карте.",
-    "summary": "Karat Financial is bringing business banking to creators. Karat Financial, the company known for its credit cards for creators, is launching a creator-focused business banking product.",
-    "suggested_action": "Оставить в мониторинге и не выносить в продуктовые действия без дополнительных подтверждений.",
+    "score_explanation": "Средний score: много финтех-триггеров; сильный первоисточник.",
+    "signal_level": "medium",
+    "why_now": "Сигнал связан с партнерской моделью: такие новости могут показывать новый способ дистрибуции, монетизации или расширения банковской экосистемы. Сигнал не новый, но может оставаться актуальным; сигнал пока основан на ограниченном числе источников; источник выглядит надежным.",
+    "summary": "Card network tests merchant-funded loyalty inside banking apps. A card network is testing merchant-funded offers delivered through issuer banking apps.",
+    "suggested_action": "Добавить в партнерский radar, проверить участников модели и дождаться подтверждений от первоисточников.",
     "sources": [
       {
-        "source": "TechCrunch Fintech",
-        "url": "https://techcrunch.com/2025/05/28/karat-financial-is-bringing-business-banking-to-creators",
-        "quality": 0.55,
-        "published_at": "2025-05-28",
-        "date_label": "28 May 2025",
-        "source_date": "TechCrunch Fintech · 28 May 2025"
+        "source": "Visa",
+        "url": "https://usa.visa.com/about-visa/newsroom/merchant-funded-loyalty-banking-apps.html",
+        "quality": 0.9,
+        "published_at": "2026-05-04",
+        "date_label": "4 May 2026",
+        "source_date": "Visa · 4 May 2026"
       }
     ],
     "article_ids": [
-      "rss-techcrunch-fintech-14"
+      "a063"
     ],
     "deduped_titles": [
-      "Karat Financial is bringing business banking to creators"
+      "Card network tests merchant-funded loyalty inside banking apps"
     ],
-    "freshness_days": 351,
+    "freshness_days": 10,
     "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
   },
   {
-    "id": "s007",
-    "headline": "Everything we announced at Sessions 2026",
+    "id": "s026",
+    "headline": "UK open banking pilots VRP for recurring commerce",
+    "category": "payments",
+    "tags": [
+      "account",
+      "ai",
+      "bank",
+      "banking",
+      "open banking",
+      "payment",
+      "payments",
+      "vrp"
+    ],
+    "hotness": 4,
+    "score": 67.9,
+    "published_at": "2026-05-06",
+    "date_label": "6 May 2026",
+    "freshness_label": "8 дней назад",
+    "score_components": {
+      "relevance": 5.0,
+      "source_quality": 0.45,
+      "novelty": 2.7,
+      "impact": 4.38,
+      "evidence_count": 1,
+      "confidence": 3.29
+    },
+    "score_explanation": "Средний score: много финтех-триггеров; высокая потенциальная значимость для банка.",
+    "signal_level": "medium",
+    "why_now": "Сигнал затрагивает платежный сценарий: изменения в платежах быстро влияют на ожидания клиентов к скорости, удобству, комиссии и доступности операций. Сигнал не новый, но может оставаться актуальным; сигнал пока основан на ограниченном числе источников; источник требует дополнительной проверки.",
+    "summary": "UK open banking pilots VRP for recurring commerce. A group of UK banks and payment providers started testing variable recurring payments for subscriptions and bill pay, expanding open banking beyond account access. The article republishes details from another industry source.",
+    "suggested_action": "Добавить в payments radar, вручную сравнить с текущими переводами, оплатой или acquiring-сценариями и собрать дополнительные подтверждения.",
+    "sources": [
+      {
+        "source": "Fintech Repost",
+        "url": "https://fintechrepost.example/open_banking_payments",
+        "quality": 0.45,
+        "published_at": "2026-05-06",
+        "date_label": "6 May 2026",
+        "source_date": "Fintech Repost · 6 May 2026"
+      }
+    ],
+    "article_ids": [
+      "a014"
+    ],
+    "deduped_titles": [
+      "UK open banking pilots VRP for recurring commerce"
+    ],
+    "freshness_days": 8,
+    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
+  },
+  {
+    "id": "s025",
+    "headline": "ЦБ обновляет подход к антифроду при переводах",
     "category": "fraud_risk",
     "tags": [
-      "ai",
-      "fraud_risk"
+      "aml",
+      "fraud_risk",
+      "kyc",
+      "антифрод",
+      "биометрия",
+      "мошенничество",
+      "перевод",
+      "регулятор"
     ],
-    "hotness": 3,
-    "score": 58.9,
-    "published_at": "2026-04-29",
-    "date_label": "29 Apr 2026",
-    "freshness_label": "старше двух недель",
+    "hotness": 4,
+    "score": 67.3,
+    "published_at": "2026-05-08",
+    "date_label": "8 May 2026",
+    "freshness_label": "6 дней назад",
     "score_components": {
-      "relevance": 2.43,
-      "source_quality": 0.88,
-      "novelty": 2.0,
+      "relevance": 5.0,
+      "source_quality": 0.45,
+      "novelty": 2.4,
       "impact": 4.58,
       "evidence_count": 1,
-      "confidence": 3.81
+      "confidence": 3.29
     },
-    "score_explanation": "Наблюдательный score: надежное отраслевое медиа; высокая потенциальная значимость для банка.",
-    "why_now": "Это сигнал остается актуальным: fraud/authentication механики стоит оценивать до роста потерь и давления на UX.",
-    "summary": "Everything we announced at Sessions 2026. We’re making Stripe even more programmable; protecting and propelling your business with the strength of the Stripe network; and building economic infrastructure for AI.",
-    "suggested_action": "Оставить в мониторинге и не выносить в продуктовые действия без дополнительных подтверждений.",
+    "score_explanation": "Средний score: много финтех-триггеров; высокая потенциальная значимость для банка.",
+    "signal_level": "medium",
+    "why_now": "Сигнал связан с fraud/security: такие изменения могут повлиять на потери, KYC/AML-процессы, авторизацию или баланс между безопасностью и UX. Сигнал свежий; сигнал пока основан на ограниченном числе источников; источник требует дополнительной проверки.",
+    "summary": "ЦБ обновляет подход к антифроду при переводах. Регулятор описал новые подходы к борьбе с мошенничеством: проверка подозрительных операций, KYC/AML-сигналы, биометрия и уведомления клиентов при переводах. Материал пересказывает детали из другого отраслевого источника.",
+    "suggested_action": "Добавить в risk/anti-fraud radar, вручную проверить применимость к текущим операциям, KYC/AML или авторизации.",
     "sources": [
       {
-        "source": "Stripe Blog",
-        "url": "https://stripe.com/blog/everything-we-announced-at-sessions-2026",
-        "quality": 0.88,
-        "published_at": "2026-04-29",
-        "date_label": "29 Apr 2026",
-        "source_date": "Stripe Blog · 29 Apr 2026"
+        "source": "Fintech Repost",
+        "url": "https://fintechrepost.example/cbr_antifraud_transfers",
+        "quality": 0.45,
+        "published_at": "2026-05-08",
+        "date_label": "8 May 2026",
+        "source_date": "Fintech Repost · 8 May 2026"
       }
     ],
     "article_ids": [
-      "rss-stripe-blog-2"
+      "a040"
     ],
     "deduped_titles": [
-      "Everything we announced at Sessions 2026"
+      "ЦБ обновляет подход к антифроду при переводах"
     ],
-    "freshness_days": 15,
+    "freshness_days": 6,
     "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
   },
   {
-    "id": "s032",
-    "headline": "NYC Mayor Pushes State to Quash Western Union-Intermex Deal",
-    "category": "UX",
+    "id": "s021",
+    "headline": "Bank rolls out carbon insights for SME transaction accounts",
+    "category": "banking_product",
     "tags": [
-      "UX",
-      "app"
+      "account",
+      "bank",
+      "banking",
+      "banking_product",
+      "sme"
     ],
-    "hotness": 3,
-    "score": 58.2,
-    "published_at": "2026-05-14",
-    "date_label": "14 May 2026",
-    "freshness_label": "сегодня",
+    "hotness": 4,
+    "score": 67.1,
+    "published_at": "2026-05-07",
+    "date_label": "7 May 2026",
+    "freshness_label": "7 дней назад",
     "score_components": {
-      "relevance": 1.76,
-      "source_quality": 0.76,
-      "novelty": 4.2,
-      "impact": 3.56,
+      "relevance": 4.0,
+      "source_quality": 0.8,
+      "novelty": 2.4,
+      "impact": 4.17,
       "evidence_count": 1,
-      "confidence": 3.66
+      "confidence": 3.71
     },
-    "score_explanation": "Наблюдательный score: надежное отраслевое медиа; есть признаки свежего запуска/пилота.",
-    "why_now": "Это свежий сигнал: тема может быть ранним индикатором изменения клиентского поведения.",
-    "summary": "NYC Mayor Pushes State to Quash Western Union-Intermex Deal. Last year, Western Union announced plans to purchase money transfer service International Money Express (Intermex). That $500 million deal is now facing pushback from New York City Mayor Zohran Mamdami, who argues the acquisition would put financial pressure on the city’s immigrants. “Every month, thousands of working class New Yorkers use Western Union to […] The post NYC Mayor Pushes State to Quash Western...",
-    "suggested_action": "Оставить в мониторинге и не выносить в продуктовые действия без дополнительных подтверждений.",
+    "score_explanation": "Средний score: много финтех-триггеров; надежное отраслевое медиа; высокая потенциальная значимость для банка.",
+    "signal_level": "medium",
+    "why_now": "Сигнал связан с банковским продуктом: он может указывать на изменение конкурентного предложения или ожиданий клиентов. Сигнал свежий; сигнал пока основан на ограниченном числе источников; источник требует дополнительной проверки.",
+    "summary": "Bank rolls out carbon insights for SME transaction accounts. A bank added carbon insight estimates to SME account dashboards and supplier analytics.",
+    "suggested_action": "Добавить в product discovery radar, сравнить с текущим клиентским сценарием и не превращать сразу в продуктовую инициативу.",
+    "sources": [
+      {
+        "source": "Finextra",
+        "url": "https://finextra.com/newsarticle/bank-carbon-insights-sme-accounts",
+        "quality": 0.8,
+        "published_at": "2026-05-07",
+        "date_label": "7 May 2026",
+        "source_date": "Finextra · 7 May 2026"
+      }
+    ],
+    "article_ids": [
+      "a060"
+    ],
+    "deduped_titles": [
+      "Bank rolls out carbon insights for SME transaction accounts"
+    ],
+    "freshness_days": 7,
+    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
+  },
+  {
+    "id": "s022",
+    "headline": "Fraud network data-sharing pilot expands to more banks",
+    "category": "fraud_risk",
+    "tags": [
+      "bank",
+      "fraud",
+      "fraud_risk",
+      "mule",
+      "risk"
+    ],
+    "hotness": 4,
+    "score": 65.5,
+    "published_at": "2026-05-06",
+    "date_label": "6 May 2026",
+    "freshness_label": "8 дней назад",
+    "score_components": {
+      "relevance": 2.9,
+      "source_quality": 0.8,
+      "novelty": 3.4,
+      "impact": 4.5,
+      "evidence_count": 1,
+      "confidence": 3.71
+    },
+    "score_explanation": "Средний score: надежное отраслевое медиа; высокая потенциальная значимость для банка.",
+    "signal_level": "medium",
+    "why_now": "Сигнал связан с fraud/security: такие изменения могут повлиять на потери, KYC/AML-процессы, авторизацию или баланс между безопасностью и UX. Сигнал не новый, но может оставаться актуальным; сигнал пока основан на ограниченном числе источников; источник требует дополнительной проверки.",
+    "summary": "Fraud network data-sharing pilot expands to more banks. A fraud intelligence pilot expanded to additional banks to improve detection of mule networks.",
+    "suggested_action": "Добавить в risk/anti-fraud radar, вручную проверить применимость к текущим операциям, KYC/AML или авторизации.",
     "sources": [
       {
         "source": "PYMNTS",
-        "url": "https://pymnts.com/acquisitions/2026/nyc-mayor-pushes-state-to-quash-western-union-intermex-deal",
-        "quality": 0.76,
-        "published_at": "2026-05-14",
-        "date_label": "14 May 2026",
-        "source_date": "PYMNTS · 14 May 2026"
+        "url": "https://pymnts.com/fraud-data-sharing-pilot-banks",
+        "quality": 0.8,
+        "published_at": "2026-05-06",
+        "date_label": "6 May 2026",
+        "source_date": "PYMNTS · 6 May 2026"
       }
     ],
     "article_ids": [
-      "rss-pymnts-4"
+      "a061"
     ],
     "deduped_titles": [
-      "NYC Mayor Pushes State to Quash Western Union-Intermex Deal"
+      "Fraud network data-sharing pilot expands to more banks"
     ],
-    "freshness_days": 0,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
-  },
-  {
-    "id": "s053",
-    "headline": "Venmo launches cash back rewards program for debit cards",
-    "category": "banking_product",
-    "tags": [
-      "banking_product",
-      "card",
-      "credit",
-      "debit"
-    ],
-    "hotness": 3,
-    "score": 57.9,
-    "published_at": "2025-11-10",
-    "date_label": "10 Nov 2025",
-    "freshness_label": "старше двух недель",
-    "score_components": {
-      "relevance": 3.2,
-      "source_quality": 0.55,
-      "novelty": 2.7,
-      "impact": 3.95,
-      "evidence_count": 1,
-      "confidence": 3.41
-    },
-    "score_explanation": "Наблюдательный score: тема релевантна, но подтверждений и новизны пока немного.",
-    "why_now": "Это сигнал остается актуальным: конкурент меняет банковский сценарий, который можно проверить в продуктовой дорожной карте.",
-    "summary": "Venmo launches cash back rewards program for debit cards. Venmo launches a cash back program for debit card users, as credit card use declines among Gen Z.",
-    "suggested_action": "Оставить в мониторинге и не выносить в продуктовые действия без дополнительных подтверждений.",
-    "sources": [
-      {
-        "source": "TechCrunch Fintech",
-        "url": "https://techcrunch.com/2025/11/10/venmo-launches-cash-back-rewards-program-for-debit-cards",
-        "quality": 0.55,
-        "published_at": "2025-11-10",
-        "date_label": "10 Nov 2025",
-        "source_date": "TechCrunch Fintech · 10 Nov 2025"
-      }
-    ],
-    "article_ids": [
-      "rss-techcrunch-fintech-11"
-    ],
-    "deduped_titles": [
-      "Venmo launches cash back rewards program for debit cards"
-    ],
-    "freshness_days": 185,
+    "freshness_days": 8,
     "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
   },
   {
     "id": "s018",
-    "headline": "Revolut primed for wealth management push after FCA approval",
+    "headline": "Банк тестирует биометрический onboarding для новых клиентов",
+    "category": "market_signal",
+    "tags": [
+      "market_signal",
+      "банк",
+      "запуск"
+    ],
+    "hotness": 4,
+    "score": 63.2,
+    "published_at": "2026-05-09",
+    "date_label": "9 May 2026",
+    "freshness_label": "5 дней назад",
+    "score_components": {
+      "relevance": 2.3,
+      "source_quality": 0.8,
+      "novelty": 3.1,
+      "impact": 3.65,
+      "evidence_count": 2,
+      "confidence": 4.26
+    },
+    "score_explanation": "Средний score: надежное отраслевое медиа; есть больше одного подтверждения.",
+    "signal_level": "weak",
+    "why_now": "Сигнал отражает рыночный тренд: он может быть ранним индикатором изменения поведения клиентов, конкурентов или финтех-инфраструктуры. Сигнал свежий; сигнал подтверждается несколькими источниками; источник требует дополнительной проверки. Уровень сигнала слабый, поэтому это аналитическая подсказка, а не основание для решения.",
+    "summary": "Банк тестирует биометрический onboarding для новых клиентов. Российский банк запускает сценарий удаленной идентификации и биометрического онбординга в мобильном приложении, чтобы быстрее открывать счет и подключать карту.",
+    "suggested_action": "Оставить сигнал в мониторинге: проверить первоисточник, дождаться дополнительных подтверждений и не выносить в продуктовые решения без ручной валидации.",
+    "sources": [
+      {
+        "source": "Finextra",
+        "url": "https://finextra.com/newsarticle/russian-bank-biometric-onboarding",
+        "quality": 0.8,
+        "published_at": "2026-05-08",
+        "date_label": "8 May 2026",
+        "source_date": "Finextra · 8 May 2026"
+      },
+      {
+        "source": "РБК — новости",
+        "url": "https://rbc.ru/finances/2026/05/07/mobile-bank-biometric-onboarding",
+        "quality": 0.7,
+        "published_at": "2026-05-09",
+        "date_label": "09.05.2026",
+        "source_date": "РБК — новости · 09.05.2026"
+      }
+    ],
+    "article_ids": [
+      "a042",
+      "a041"
+    ],
+    "deduped_titles": [
+      "Банк тестирует биометрический onboarding для новых клиентов",
+      "Российский банк запускает биометрический онбординг в мобильном приложении"
+    ],
+    "freshness_days": 5,
+    "context_note": "Использован расширенный текст/snippet из входных данных."
+  },
+  {
+    "id": "s016",
+    "headline": "Neobank adds family budgeting spaces to mobile app",
     "category": "UX",
     "tags": [
       "UX",
       "app",
-      "bank"
+      "bank",
+      "mobile",
+      "mobile app",
+      "neobank"
     ],
-    "hotness": 3,
-    "score": 57.7,
-    "published_at": "2026-05-14",
-    "date_label": "14 May 2026",
-    "freshness_label": "сегодня",
+    "hotness": 4,
+    "score": 62.1,
+    "published_at": "2026-05-09",
+    "date_label": "9 May 2026",
+    "freshness_label": "5 дней назад",
     "score_components": {
-      "relevance": 2.37,
-      "source_quality": 0.82,
-      "novelty": 2.8,
-      "impact": 3.62,
+      "relevance": 3.45,
+      "source_quality": 0.8,
+      "novelty": 2.4,
+      "impact": 3.6,
       "evidence_count": 1,
-      "confidence": 3.73
+      "confidence": 3.71
     },
-    "score_explanation": "Наблюдательный score: надежное отраслевое медиа.",
-    "why_now": "Это свежий сигнал: тема может быть ранним индикатором изменения клиентского поведения.",
-    "summary": "Revolut primed for wealth management push after FCA approval. Challenger bank Revolut is set to expand its investment services in the UK after securing a series of permissions from the Financial Conduct Authority (FCA).",
-    "suggested_action": "Оставить в мониторинге и не выносить в продуктовые действия без дополнительных подтверждений.",
+    "score_explanation": "Средний score: надежное отраслевое медиа.",
+    "signal_level": "weak",
+    "why_now": "Сигнал затрагивает клиентский опыт: UX-механики в финтехе могут быстро становиться новым стандартом удобства в мобильном банке или onboarding. Сигнал свежий; сигнал пока основан на ограниченном числе источников; источник требует дополнительной проверки. Уровень сигнала слабый, поэтому это аналитическая подсказка, а не основание для решения.",
+    "summary": "Neobank adds family budgeting spaces to mobile app. A neobank added shared budgeting spaces and spending controls for families inside its mobile app.",
+    "suggested_action": "Оставить сигнал в мониторинге: проверить первоисточник, дождаться дополнительных подтверждений и не выносить в продуктовые решения без ручной валидации.",
     "sources": [
       {
         "source": "Finextra",
-        "url": "https://finextra.com/newsarticle/47752/revolut-primed-for-wealth-management-push-after-fca-approval",
-        "quality": 0.82,
-        "published_at": "2026-05-14",
-        "date_label": "14 May 2026",
-        "source_date": "Finextra · 14 May 2026"
+        "url": "https://finextra.com/newsarticle/neobank-family-budgeting-spaces",
+        "quality": 0.8,
+        "published_at": "2026-05-09",
+        "date_label": "9 May 2026",
+        "source_date": "Finextra · 9 May 2026"
       }
     ],
     "article_ids": [
-      "rss-finextra-4"
+      "a058"
     ],
     "deduped_titles": [
-      "Revolut primed for wealth management push after FCA approval"
+      "Neobank adds family budgeting spaces to mobile app"
     ],
-    "freshness_days": 0,
+    "freshness_days": 5,
     "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
   },
   {
-    "id": "s050",
-    "headline": "These 21-year-old dropouts raised $2M to build Givefront, a fintech for nonprofits",
-    "category": "fraud_risk",
-    "tags": [
-      "ai",
-      "bank",
-      "fintech",
-      "fraud_risk"
-    ],
-    "hotness": 3,
-    "score": 56.3,
-    "published_at": "2025-12-18",
-    "date_label": "18 Dec 2025",
-    "freshness_label": "старше двух недель",
-    "score_components": {
-      "relevance": 3.2,
-      "source_quality": 0.55,
-      "novelty": 2.0,
-      "impact": 4.35,
-      "evidence_count": 1,
-      "confidence": 3.41
-    },
-    "score_explanation": "Наблюдательный score: высокая потенциальная значимость для банка.",
-    "why_now": "Это сигнал остается актуальным: fraud/authentication механики стоит оценивать до роста потерь и давления на UX.",
-    "summary": "These 21-year-old dropouts raised $2M to build Givefront, a fintech for nonprofits. YC-backed Givefront is building a fintech designed specifically for nonprofits, including food banks, churches, and homeowner associations.",
-    "suggested_action": "Оставить в мониторинге и не выносить в продуктовые действия без дополнительных подтверждений.",
-    "sources": [
-      {
-        "source": "TechCrunch Fintech",
-        "url": "https://techcrunch.com/2025/12/18/these-21-year-old-dropouts-raised-2m-to-build-givefront-a-fintech-for-nonprofits",
-        "quality": 0.55,
-        "published_at": "2025-12-18",
-        "date_label": "18 Dec 2025",
-        "source_date": "TechCrunch Fintech · 18 Dec 2025"
-      }
-    ],
-    "article_ids": [
-      "rss-techcrunch-fintech-8"
-    ],
-    "deduped_titles": [
-      "These 21-year-old dropouts raised $2M to build Givefront, a fintech for nonprofits"
-    ],
-    "freshness_days": 147,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
-  },
-  {
-    "id": "s042",
-    "headline": "Президент Литвы потребовал сбивать все залетающие в страну дроны",
-    "category": "market_signal",
-    "tags": [
-      "market_signal",
-      "пилот"
-    ],
-    "hotness": 3,
-    "score": 54.0,
-    "published_at": "2026-05-14",
-    "date_label": "14.05.2026",
-    "freshness_label": "сегодня",
-    "score_components": {
-      "relevance": 1.72,
-      "source_quality": 0.72,
-      "novelty": 3.5,
-      "impact": 3.42,
-      "evidence_count": 1,
-      "confidence": 3.61
-    },
-    "score_explanation": "Наблюдательный score: тема релевантна, но подтверждений и новизны пока немного.",
-    "why_now": "Это свежий сигнал: тема может быть ранним индикатором изменения клиентского поведения.",
-    "summary": "Президент Литвы потребовал сбивать все залетающие в страну дроны. Любой беспилотник, который влетает на территорию Литвы, представляет угрозу, все дроны необходимо сбивать военными средствами, подчеркнул Науседа",
-    "suggested_action": "Оставить в мониторинге и не выносить в продуктовые действия без дополнительных подтверждений.",
-    "sources": [
-      {
-        "source": "РБК — новости",
-        "url": "https://rbc.ru/politics/14/05/2026/6a05d00b9a794702c0ea4eae",
-        "quality": 0.72,
-        "published_at": "2026-05-14",
-        "date_label": "14.05.2026",
-        "source_date": "РБК — новости · 14.05.2026"
-      }
-    ],
-    "article_ids": [
-      "rss-рбк-—-новости-13"
-    ],
-    "deduped_titles": [
-      "Президент Литвы потребовал сбивать все залетающие в страну дроны"
-    ],
-    "freshness_days": 0,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
-  },
-  {
-    "id": "s043",
-    "headline": "АвтоВАЗ не исключил возможность создания беспилотного автомобиля",
-    "category": "market_signal",
-    "tags": [
-      "market_signal",
-      "пилот"
-    ],
-    "hotness": 3,
-    "score": 54.0,
-    "published_at": "2026-05-14",
-    "date_label": "14.05.2026",
-    "freshness_label": "сегодня",
-    "score_components": {
-      "relevance": 1.72,
-      "source_quality": 0.72,
-      "novelty": 3.5,
-      "impact": 3.42,
-      "evidence_count": 1,
-      "confidence": 3.61
-    },
-    "score_explanation": "Наблюдательный score: тема релевантна, но подтверждений и новизны пока немного.",
-    "why_now": "Это свежий сигнал: тема может быть ранним индикатором изменения клиентского поведения.",
-    "summary": "АвтоВАЗ не исключил возможность создания беспилотного автомобиля. Глава компании Максим Соколов заявил, что весь мир движется в сторону беспилотных автомобилей и АвтоВАЗ в данном случае не исключение",
-    "suggested_action": "Оставить в мониторинге и не выносить в продуктовые действия без дополнительных подтверждений.",
-    "sources": [
-      {
-        "source": "РБК — новости",
-        "url": "https://rbc.ru/technology_and_media/14/05/2026/6a05d11f9a7947effa1ac205",
-        "quality": 0.72,
-        "published_at": "2026-05-14",
-        "date_label": "14.05.2026",
-        "source_date": "РБК — новости · 14.05.2026"
-      }
-    ],
-    "article_ids": [
-      "rss-рбк-—-новости-15"
-    ],
-    "deduped_titles": [
-      "АвтоВАЗ не исключил возможность создания беспилотного автомобиля"
-    ],
-    "freshness_days": 0,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
-  },
-  {
-    "id": "s057",
-    "headline": "Brex partners with former competitor Zip, with an eye on reducing cash burn to get to an IPO",
-    "category": "partnership",
-    "tags": [
-      "ai",
-      "fintech",
-      "partner",
-      "partners",
-      "partnership"
-    ],
-    "hotness": 3,
-    "score": 53.3,
-    "published_at": "2025-05-20",
-    "date_label": "20 May 2025",
-    "freshness_label": "старше двух недель",
-    "score_components": {
-      "relevance": 2.65,
-      "source_quality": 0.55,
-      "novelty": 2.7,
-      "impact": 3.55,
-      "evidence_count": 1,
-      "confidence": 3.41
-    },
-    "score_explanation": "Наблюдательный score: тема релевантна, но подтверждений и новизны пока немного.",
-    "why_now": "Это сигнал остается актуальным: тема может быть ранним индикатором изменения клиентского поведения.",
-    "summary": "Brex partners with former competitor Zip, with an eye on reducing cash burn to get to an IPO. Brex has once again made the surprising, but perhaps realistic, decision to partner with another one-time competitor. This time Zip, the CEOs of both companies told TechCrunch exclusively. In April 2022, fintech Brex announced it was making “a big push” into both the enterprise and software. The news was notable considering that Brex originally was […]",
-    "suggested_action": "Оставить в мониторинге и не выносить в продуктовые действия без дополнительных подтверждений.",
-    "sources": [
-      {
-        "source": "TechCrunch Fintech",
-        "url": "https://techcrunch.com/2025/05/20/brex-partners-with-former-competitor-zip-with-an-eye-on-reducing-cash-burn-to-get-to-an-ipo",
-        "quality": 0.55,
-        "published_at": "2025-05-20",
-        "date_label": "20 May 2025",
-        "source_date": "TechCrunch Fintech · 20 May 2025"
-      }
-    ],
-    "article_ids": [
-      "rss-techcrunch-fintech-15"
-    ],
-    "deduped_titles": [
-      "Brex partners with former competitor Zip, with an eye on reducing cash burn to get to an IPO"
-    ],
-    "freshness_days": 359,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
-  },
-  {
-    "id": "s039",
-    "headline": "Андреева и Шнайдер второй год подряд вышли в полуфинал турнира в Риме",
-    "category": "banking_product",
-    "tags": [
-      "banking_product",
-      "счет"
-    ],
-    "hotness": 3,
-    "score": 53.0,
-    "published_at": "2026-05-14",
-    "date_label": "14.05.2026",
-    "freshness_label": "сегодня",
-    "score_components": {
-      "relevance": 1.72,
-      "source_quality": 0.72,
-      "novelty": 2.8,
-      "impact": 4.02,
-      "evidence_count": 1,
-      "confidence": 3.61
-    },
-    "score_explanation": "Наблюдательный score: высокая потенциальная значимость для банка.",
-    "why_now": "Это свежий сигнал: конкурент меняет банковский сценарий, который можно проверить в продуктовой дорожной карте.",
-    "summary": "Андреева и Шнайдер второй год подряд вышли в полуфинал турнира в Риме. В 1/4 финала россиянки обыграли Анну Данилину (Казахстан) и Эйжу Мухаммад (США) со счетом 4:6, 6:3, 11:9",
-    "suggested_action": "Оставить в мониторинге и не выносить в продуктовые действия без дополнительных подтверждений.",
-    "sources": [
-      {
-        "source": "РБК — новости",
-        "url": "https://rbc.ru/sport/14/05/2026/6a05d9869a79471b107ae44f",
-        "quality": 0.72,
-        "published_at": "2026-05-14",
-        "date_label": "14.05.2026",
-        "source_date": "РБК — новости · 14.05.2026"
-      }
-    ],
-    "article_ids": [
-      "rss-рбк-—-новости-3"
-    ],
-    "deduped_titles": [
-      "Андреева и Шнайдер второй год подряд вышли в полуфинал турнира в Риме"
-    ],
-    "freshness_days": 0,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
-  },
-  {
-    "id": "s040",
-    "headline": "Синнер заявил, что Рублева на пике формы сложно обыграть",
-    "category": "banking_product",
-    "tags": [
-      "banking_product",
-      "счет"
-    ],
-    "hotness": 3,
-    "score": 53.0,
-    "published_at": "2026-05-14",
-    "date_label": "14.05.2026",
-    "freshness_label": "сегодня",
-    "score_components": {
-      "relevance": 1.72,
-      "source_quality": 0.72,
-      "novelty": 2.8,
-      "impact": 4.02,
-      "evidence_count": 1,
-      "confidence": 3.61
-    },
-    "score_explanation": "Наблюдательный score: высокая потенциальная значимость для банка.",
-    "why_now": "Это свежий сигнал: конкурент меняет банковский сценарий, который можно проверить в продуктовой дорожной карте.",
-    "summary": "Синнер заявил, что Рублева на пике формы сложно обыграть. Синнер в четвертьфинале «Мастерса» в Риме обыграл Андрея Рублева со счетом 6:2, 6:4. Счет личных встреч теперь составляет 8-3 в пользу итальянца",
-    "suggested_action": "Оставить в мониторинге и не выносить в продуктовые действия без дополнительных подтверждений.",
-    "sources": [
-      {
-        "source": "РБК — новости",
-        "url": "https://rbc.ru/sport/14/05/2026/6a05d3389a79470186084125",
-        "quality": 0.72,
-        "published_at": "2026-05-14",
-        "date_label": "14.05.2026",
-        "source_date": "РБК — новости · 14.05.2026"
-      }
-    ],
-    "article_ids": [
-      "rss-рбк-—-новости-8"
-    ],
-    "deduped_titles": [
-      "Синнер заявил, что Рублева на пике формы сложно обыграть"
-    ],
-    "freshness_days": 0,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
-  },
-  {
-    "id": "s045",
-    "headline": "Collide Capital raises $95M fund to back fintech, future-of-work startups",
-    "category": "fraud_risk",
-    "tags": [
-      "ai",
-      "fintech",
-      "fraud_risk"
-    ],
-    "hotness": 3,
-    "score": 53.0,
-    "published_at": "2026-04-09",
-    "date_label": "9 Apr 2026",
-    "freshness_label": "старше двух недель",
-    "score_components": {
-      "relevance": 2.65,
-      "source_quality": 0.55,
-      "novelty": 2.0,
-      "impact": 4.35,
-      "evidence_count": 1,
-      "confidence": 3.41
-    },
-    "score_explanation": "Наблюдательный score: высокая потенциальная значимость для банка.",
-    "why_now": "Это сигнал остается актуальным: fraud/authentication механики стоит оценивать до роста потерь и давления на UX.",
-    "summary": "Collide Capital raises $95M fund to back fintech, future-of-work startups. Collide Capital, founded by Brian Hollins and Aaron Samuels, announced the close of a $95 million Fund II.",
-    "suggested_action": "Оставить в мониторинге и не выносить в продуктовые действия без дополнительных подтверждений.",
-    "sources": [
-      {
-        "source": "TechCrunch Fintech",
-        "url": "https://techcrunch.com/2026/04/09/collide-capital-raises-95m-fund-to-back-fintech-future-of-work-startups",
-        "quality": 0.55,
-        "published_at": "2026-04-09",
-        "date_label": "9 Apr 2026",
-        "source_date": "TechCrunch Fintech · 9 Apr 2026"
-      }
-    ],
-    "article_ids": [
-      "rss-techcrunch-fintech-3"
-    ],
-    "deduped_titles": [
-      "Collide Capital raises $95M fund to back fintech, future-of-work startups"
-    ],
-    "freshness_days": 35,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
-  },
-  {
-    "id": "s049",
-    "headline": "Data breach at fintech giant Figure affects close to a million customers",
-    "category": "fraud_risk",
-    "tags": [
-      "ai",
-      "fintech",
-      "fraud_risk"
-    ],
-    "hotness": 3,
-    "score": 53.0,
-    "published_at": "2026-02-18",
-    "date_label": "18 Feb 2026",
-    "freshness_label": "старше двух недель",
-    "score_components": {
-      "relevance": 2.65,
-      "source_quality": 0.55,
-      "novelty": 2.0,
-      "impact": 4.35,
-      "evidence_count": 1,
-      "confidence": 3.41
-    },
-    "score_explanation": "Наблюдательный score: высокая потенциальная значимость для банка.",
-    "why_now": "Это сигнал остается актуальным: fraud/authentication механики стоит оценивать до роста потерь и давления на UX.",
-    "summary": "Data breach at fintech giant Figure affects close to a million customers. The Figure data breach allowed hackers to steal customer names, dates of birth, physical addresses, phone numbers, and email addresses.",
-    "suggested_action": "Оставить в мониторинге и не выносить в продуктовые действия без дополнительных подтверждений.",
-    "sources": [
-      {
-        "source": "TechCrunch Fintech",
-        "url": "https://techcrunch.com/2026/02/18/data-breach-at-fintech-giant-figure-affects-close-to-a-million-customers",
-        "quality": 0.55,
-        "published_at": "2026-02-18",
-        "date_label": "18 Feb 2026",
-        "source_date": "TechCrunch Fintech · 18 Feb 2026"
-      }
-    ],
-    "article_ids": [
-      "rss-techcrunch-fintech-7"
-    ],
-    "deduped_titles": [
-      "Data breach at fintech giant Figure affects close to a million customers"
-    ],
-    "freshness_days": 85,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
-  },
-  {
-    "id": "s048",
-    "headline": "X taps William Shatner to give out invites to its payments service, X Money",
+    "id": "s024",
+    "headline": "Stripe rolls out Tap to Pay expansion for European SMEs",
     "category": "payments",
-    "tags": [
-      "payment",
-      "payments"
-    ],
-    "hotness": 3,
-    "score": 52.4,
-    "published_at": "2026-03-04",
-    "date_label": "4 Mar 2026",
-    "freshness_label": "старше двух недель",
-    "score_components": {
-      "relevance": 2.65,
-      "source_quality": 0.55,
-      "novelty": 2.0,
-      "impact": 4.15,
-      "evidence_count": 1,
-      "confidence": 3.41
-    },
-    "score_explanation": "Наблюдательный score: высокая потенциальная значимость для банка.",
-    "why_now": "Это сигнал остается актуальным: платежные механики быстро масштабируются через банки, сети и merchant-сценарии.",
-    "summary": "X taps William Shatner to give out invites to its payments service, X Money. 42 X users donated to William Shatner's charity in exchange for an early invite to X Money beta.",
-    "suggested_action": "Оставить в мониторинге и не выносить в продуктовые действия без дополнительных подтверждений.",
-    "sources": [
-      {
-        "source": "TechCrunch Fintech",
-        "url": "https://techcrunch.com/2026/03/04/x-taps-william-shatner-to-give-out-invites-to-its-payments-service-x-money",
-        "quality": 0.55,
-        "published_at": "2026-03-04",
-        "date_label": "4 Mar 2026",
-        "source_date": "TechCrunch Fintech · 4 Mar 2026"
-      }
-    ],
-    "article_ids": [
-      "rss-techcrunch-fintech-6"
-    ],
-    "deduped_titles": [
-      "X taps William Shatner to give out invites to its payments service, X Money"
-    ],
-    "freshness_days": 71,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
-  },
-  {
-    "id": "s044",
-    "headline": "Apple’s new CEO, and why Elon Musk wants to buy Cursor for $60B",
-    "category": "UX",
-    "tags": [
-      "UX",
-      "app"
-    ],
-    "hotness": 3,
-    "score": 51.9,
-    "published_at": "2026-04-24",
-    "date_label": "24 Apr 2026",
-    "freshness_label": "старше двух недель",
-    "score_components": {
-      "relevance": 1.55,
-      "source_quality": 0.55,
-      "novelty": 2.7,
-      "impact": 3.6,
-      "evidence_count": 2,
-      "confidence": 3.96
-    },
-    "score_explanation": "Наблюдательный score: есть больше одного подтверждения.",
-    "why_now": "Это сигнал остается актуальным: сигнал подтверждается несколькими источниками, значит это не единичный инфоповод.",
-    "summary": "Apple’s new CEO, and why Elon Musk wants to buy Cursor for $60B. A new era is on the way for Apple as Tim Cook plans to step down from his CEO role in September, handing the reins to hardware chief John Ternus. Ternus may be inheriting one of the most durable businesses in tech, but he’s also stepping into a very different ecosystem than the one Cook spent decades shaping. The App […]",
-    "suggested_action": "Оставить в мониторинге и не выносить в продуктовые действия без дополнительных подтверждений.",
-    "sources": [
-      {
-        "source": "TechCrunch Fintech",
-        "url": "https://techcrunch.com/podcast/apples-new-ceo-and-why-elon-musk-wants-to-buy-cursor-for-60b",
-        "quality": 0.55,
-        "published_at": "2026-04-24",
-        "date_label": "24 Apr 2026",
-        "source_date": "TechCrunch Fintech · 24 Apr 2026"
-      },
-      {
-        "source": "TechCrunch Fintech",
-        "url": "https://techcrunch.com/video/tim-cook-is-stepping-down-what-happens-to-apple-now",
-        "quality": 0.55,
-        "published_at": "2026-04-24",
-        "date_label": "24 Apr 2026",
-        "source_date": "TechCrunch Fintech · 24 Apr 2026"
-      }
-    ],
-    "article_ids": [
-      "rss-techcrunch-fintech-1",
-      "rss-techcrunch-fintech-2"
-    ],
-    "deduped_titles": [
-      "Apple’s new CEO, and why Elon Musk wants to buy Cursor for $60B",
-      "Tim Cook is stepping down. What happens to Apple now?"
-    ],
-    "freshness_days": 20,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
-  },
-  {
-    "id": "s052",
-    "headline": "Pine Labs gets warm market welcome on $440M India IPO despite a valuation trim",
-    "category": "market_signal",
     "tags": [
       "ai",
       "card",
-      "market",
-      "market_signal"
+      "merchant",
+      "payments",
+      "sme",
+      "tap to pay"
     ],
     "hotness": 3,
-    "score": 50.0,
-    "published_at": "2025-11-14",
-    "date_label": "14 Nov 2025",
-    "freshness_label": "старше двух недель",
+    "score": 58.0,
+    "published_at": "2026-05-10",
+    "date_label": "10 May 2026",
+    "freshness_label": "4 дня назад",
     "score_components": {
-      "relevance": 2.65,
-      "source_quality": 0.55,
-      "novelty": 2.0,
-      "impact": 3.35,
+      "relevance": 3.65,
+      "source_quality": 0.45,
+      "novelty": 2.4,
+      "impact": 4.17,
       "evidence_count": 1,
-      "confidence": 3.41
-    },
-    "score_explanation": "Наблюдательный score: тема релевантна, но подтверждений и новизны пока немного.",
-    "why_now": "Это сигнал остается актуальным: тема может быть ранним индикатором изменения клиентского поведения.",
-    "summary": "Pine Labs gets warm market welcome on $440M India IPO despite a valuation trim. Pine Labs, backed by PayPal and Mastercard, gained 14% on its market debut.",
-    "suggested_action": "Оставить в мониторинге и не выносить в продуктовые действия без дополнительных подтверждений.",
-    "sources": [
-      {
-        "source": "TechCrunch Fintech",
-        "url": "https://techcrunch.com/2025/11/14/pine-labs-gets-warm-market-welcome-on-440m-india-ipo-despite-a-valuation-trim",
-        "quality": 0.55,
-        "published_at": "2025-11-14",
-        "date_label": "14 Nov 2025",
-        "source_date": "TechCrunch Fintech · 14 Nov 2025"
-      }
-    ],
-    "article_ids": [
-      "rss-techcrunch-fintech-10"
-    ],
-    "deduped_titles": [
-      "Pine Labs gets warm market welcome on $440M India IPO despite a valuation trim"
-    ],
-    "freshness_days": 181,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
-  },
-  {
-    "id": "s054",
-    "headline": "With its latest acqui-hire, OpenAI is doubling down on personalized consumer AI",
-    "category": "fraud_risk",
-    "tags": [
-      "ai",
-      "fraud_risk"
-    ],
-    "hotness": 3,
-    "score": 49.6,
-    "published_at": "2025-10-03",
-    "date_label": "3 Oct 2025",
-    "freshness_label": "старше двух недель",
-    "score_components": {
-      "relevance": 2.1,
-      "source_quality": 0.55,
-      "novelty": 2.0,
-      "impact": 4.35,
-      "evidence_count": 1,
-      "confidence": 3.41
+      "confidence": 3.29
     },
     "score_explanation": "Наблюдательный score: высокая потенциальная значимость для банка.",
-    "why_now": "Это сигнал остается актуальным: fraud/authentication механики стоит оценивать до роста потерь и давления на UX.",
-    "summary": "With its latest acqui-hire, OpenAI is doubling down on personalized consumer AI. OpenAI is acquiring the CEO of Roi, an AI financial companion. Roi will sunset its service as its talent heads to OpenAI, ostensibly to help boost revenue in consumer apps.",
-    "suggested_action": "Оставить в мониторинге и не выносить в продуктовые действия без дополнительных подтверждений.",
+    "signal_level": "weak",
+    "why_now": "Сигнал затрагивает платежный сценарий: изменения в платежах быстро влияют на ожидания клиентов к скорости, удобству, комиссии и доступности операций. Сигнал свежий; сигнал пока основан на ограниченном числе источников; источник требует дополнительной проверки. Уровень сигнала слабый, поэтому это аналитическая подсказка, а не основание для решения.",
+    "summary": "Stripe rolls out Tap to Pay expansion for European SMEs. Stripe is expanding Tap to Pay support for small merchants in several European markets, positioning phones as card acceptance terminals without extra hardware. The article republishes details from another industry source.",
+    "suggested_action": "Оставить сигнал в мониторинге: проверить первоисточник, дождаться дополнительных подтверждений и не выносить в продуктовые решения без ручной валидации.",
     "sources": [
       {
-        "source": "TechCrunch Fintech",
-        "url": "https://techcrunch.com/2025/10/03/with-its-latest-acqui-hire-openai-is-doubling-down-on-personalized-consumer-ai",
-        "quality": 0.55,
-        "published_at": "2025-10-03",
-        "date_label": "3 Oct 2025",
-        "source_date": "TechCrunch Fintech · 3 Oct 2025"
+        "source": "Fintech Repost",
+        "url": "https://fintechrepost.example/stripe_tap_to_pay",
+        "quality": 0.45,
+        "published_at": "2026-05-10",
+        "date_label": "10 May 2026",
+        "source_date": "Fintech Repost · 10 May 2026"
       }
     ],
     "article_ids": [
-      "rss-techcrunch-fintech-12"
+      "a004",
+      "a067"
     ],
     "deduped_titles": [
-      "With its latest acqui-hire, OpenAI is doubling down on personalized consumer AI"
+      "Stripe rolls out Tap to Pay expansion for European SMEs"
     ],
-    "freshness_days": 223,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
-  },
-  {
-    "id": "s055",
-    "headline": "Numeral raises $35M to automate sales tax with AI",
-    "category": "fraud_risk",
-    "tags": [
-      "ai",
-      "fraud_risk"
-    ],
-    "hotness": 3,
-    "score": 49.6,
-    "published_at": "2025-09-18",
-    "date_label": "18 Sep 2025",
-    "freshness_label": "старше двух недель",
-    "score_components": {
-      "relevance": 2.1,
-      "source_quality": 0.55,
-      "novelty": 2.0,
-      "impact": 4.35,
-      "evidence_count": 1,
-      "confidence": 3.41
-    },
-    "score_explanation": "Наблюдательный score: высокая потенциальная значимость для банка.",
-    "why_now": "Это сигнал остается актуальным: fraud/authentication механики стоит оценивать до роста потерь и давления на UX.",
-    "summary": "Numeral raises $35M to automate sales tax with AI. The two-year-old sales tax startup Numeral is now valued at $350 million.",
-    "suggested_action": "Оставить в мониторинге и не выносить в продуктовые действия без дополнительных подтверждений.",
-    "sources": [
-      {
-        "source": "TechCrunch Fintech",
-        "url": "https://techcrunch.com/2025/09/18/numeral-raises-35m-to-automate-sales-tax-with-ai",
-        "quality": 0.55,
-        "published_at": "2025-09-18",
-        "date_label": "18 Sep 2025",
-        "source_date": "TechCrunch Fintech · 18 Sep 2025"
-      }
-    ],
-    "article_ids": [
-      "rss-techcrunch-fintech-13"
-    ],
-    "deduped_titles": [
-      "Numeral raises $35M to automate sales tax with AI"
-    ],
-    "freshness_days": 238,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
-  },
-  {
-    "id": "s047",
-    "headline": "Polymarket continues its partnership spree with a Major League Baseball deal",
-    "category": "partnership",
-    "tags": [
-      "partner",
-      "partners",
-      "partnership"
-    ],
-    "hotness": 3,
-    "score": 44.0,
-    "published_at": "2026-03-19",
-    "date_label": "19 Mar 2026",
-    "freshness_label": "старше двух недель",
-    "score_components": {
-      "relevance": 1.55,
-      "source_quality": 0.55,
-      "novelty": 2.0,
-      "impact": 3.55,
-      "evidence_count": 1,
-      "confidence": 3.41
-    },
-    "score_explanation": "Наблюдательный score: тема релевантна, но подтверждений и новизны пока немного.",
-    "why_now": "Это сигнал остается актуальным: тема может быть ранним индикатором изменения клиентского поведения.",
-    "summary": "Polymarket continues its partnership spree with a Major League Baseball deal. MLB is only the latest in a string of recently announced partnerships involving the prediction market.",
-    "suggested_action": "Оставить в мониторинге и не выносить в продуктовые действия без дополнительных подтверждений.",
-    "sources": [
-      {
-        "source": "TechCrunch Fintech",
-        "url": "https://techcrunch.com/2026/03/19/polymarket-continues-its-partnership-spree-with-a-major-league-baseball-deal",
-        "quality": 0.55,
-        "published_at": "2026-03-19",
-        "date_label": "19 Mar 2026",
-        "source_date": "TechCrunch Fintech · 19 Mar 2026"
-      }
-    ],
-    "article_ids": [
-      "rss-techcrunch-fintech-5"
-    ],
-    "deduped_titles": [
-      "Polymarket continues its partnership spree with a Major League Baseball deal"
-    ],
-    "freshness_days": 56,
-    "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
-  },
-  {
-    "id": "s046",
-    "headline": "Money transfer app Duc exposed thousands of driver’s licenses and passports to the open web",
-    "category": "UX",
-    "tags": [
-      "UX",
-      "app"
-    ],
-    "hotness": 3,
-    "score": 43.7,
-    "published_at": "2026-04-02",
-    "date_label": "2 Apr 2026",
-    "freshness_label": "старше двух недель",
-    "score_components": {
-      "relevance": 1.55,
-      "source_quality": 0.55,
-      "novelty": 2.0,
-      "impact": 3.45,
-      "evidence_count": 1,
-      "confidence": 3.41
-    },
-    "score_explanation": "Наблюдательный score: тема релевантна, но подтверждений и новизны пока немного.",
-    "why_now": "Это сигнал остается актуальным: тема может быть ранним индикатором изменения клиентского поведения.",
-    "summary": "Money transfer app Duc exposed thousands of driver’s licenses and passports to the open web. An exposed Amazon-hosted server allowed anyone to access reams of customer data without needing a password.",
-    "suggested_action": "Оставить в мониторинге и не выносить в продуктовые действия без дополнительных подтверждений.",
-    "sources": [
-      {
-        "source": "TechCrunch Fintech",
-        "url": "https://techcrunch.com/2026/04/02/canadian-money-transfer-app-duc-expose-drivers-licenses-passports-amazon-server",
-        "quality": 0.55,
-        "published_at": "2026-04-02",
-        "date_label": "2 Apr 2026",
-        "source_date": "TechCrunch Fintech · 2 Apr 2026"
-      }
-    ],
-    "article_ids": [
-      "rss-techcrunch-fintech-4"
-    ],
-    "deduped_titles": [
-      "Money transfer app Duc exposed thousands of driver’s licenses and passports to the open web"
-    ],
-    "freshness_days": 42,
+    "freshness_days": 4,
     "context_note": "Полный текст не загружался, анализ основан на RSS snippet."
   }
 ]

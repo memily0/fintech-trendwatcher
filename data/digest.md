@@ -1,93 +1,82 @@
 # Дайджест Fintech TrendWatcher
 
-_Сформировано: 2026-05-14 14:55 UTC_
+_Сформировано: 2026-05-14 17:05 UTC_
 
 Короткий дайджест для продуктовой, стратегической или команды конкурентной аналитики банка.
 
-## 1. Результаты мониторинга максимальных процентных ставок кредитных организаций (05.05.2026)
+## 1. Банк России расширяет пилот цифрового рубля для банков и торговых сценариев
 
-- Дата сигнала: 05.05.2026 · свежесть: 9 дней назад
-- Важность: 5/5 (85.9/100)
-- Категория/теги: banking_product | bank, banking_product, банк, вклад, депозит, кредит
+- Дата сигнала: 12.05.2026 · свежесть: 2 дня назад
+- Важность: 5/5 (96.8/100)
+- Категория/теги: payments | payments, qr, банк, банк россии, банки, перевод
+- Почему score такой: Высокий score: много финтех-триггеров; сильный первоисточник; есть признаки свежего запуска/пилота; сигнал подтвержден несколькими ссылками.
+- Почему это может быть важно: Сигнал затрагивает платежный сценарий: изменения в платежах быстро влияют на ожидания клиентов к скорости, удобству, комиссии и доступности операций. Сигнал свежий; сигнал подтверждается несколькими источниками; источник выглядит надежным.
+- Кратко: Банк России расширяет пилот цифрового рубля для банков и торговых сценариев. Банк России сообщил о расширении пилота цифрового рубля: банки подключают новые клиентские сценарии, переводы и оплату через QR, включая тестирование операций для бизнеса.
+- Следующий шаг для команды: Передать владельцу платежного сценария. Сравнить механику с текущими переводами, оплатой, checkout/acquiring или merchant-сценариями и сформулировать гипотезу для discovery или A/B-теста.
+- Источники: Банк России — пресс-релизы · 12.05.2026 (https://cbr.ru/press/event?id=digital-ruble-pilot); РБК — новости · 11.05.2026 (https://rbc.ru/finances/2026/05/10/digital-ruble-pilot-banks); Fintech Repost · 10 May 2026 (https://fintechrepost.example/cbr_digital_ruble_pilot)
+
+## 2. Visa launches passkey-based checkout pilot for bank cards
+
+- Дата сигнала: 10 May 2026 · свежесть: 4 дня назад
+- Важность: 5/5 (93.2/100)
+- Категория/теги: fraud_risk | ai, authentication, bank, card, checkout, fraud
 - Почему score такой: Высокий score: много финтех-триггеров; сильный первоисточник; сигнал подтвержден несколькими ссылками; высокая потенциальная значимость для банка.
-- Почему сейчас: Это сигнал остается актуальным: конкурент меняет банковский сценарий, который можно проверить в продуктовой дорожной карте.
-- Кратко: Результаты мониторинга максимальных процентных ставок кредитных организаций (05.05.2026). Результаты мониторинга в апреле 2026 года максимальных процентных ставок по вкладам 1 в российских рублях десяти кредитных организаций 2 , привлекающих наибольший объём депозитов физических лиц: I декада апреля – 13,43%; II декада апреля – 13,39%; III декада апреля – 13,06%. Сведения о динамике результатов мониторинга представлены на официальном сайте Банка России. Сведения о средних максимальных процентных ставках...
-- Что сделать: Сравнить с текущей продуктовой линейкой и оценить, есть ли применимый сценарий для клиента банка.
-- Источники: Банк России — пресс-релизы · 05.05.2026 (https://cbr.ru/press/PR?file=639136022418984549BANK_SECTOR.htm); Банк России — пресс-релизы · 21.04.2026 (https://cbr.ru/press/PR?file=639123797974313260BANK_SECTOR.htm); Банк России — пресс-релизы · 15.04.2026 (https://cbr.ru/press/PR?file=639118568263020600BANK_SECTOR.htm)
+- Почему это может быть важно: Сигнал связан с fraud/security: такие изменения могут повлиять на потери, KYC/AML-процессы, авторизацию или баланс между безопасностью и UX. Сигнал свежий; сигнал подтверждается несколькими источниками; источник выглядит надежным.
+- Кратко: Visa launches passkey-based checkout pilot for bank cards. Visa announced a passkey checkout pilot designed to reduce card-not-present fraud and simplify authentication for issuers and merchants.
+- Следующий шаг для команды: Передать risk/anti-fraud команде. Проверить, есть ли похожий риск в текущих операциях, KYC/AML, авторизации или мониторинге транзакций.
+- Источники: Visa · 10 May 2026 (https://usa.visa.com/about-visa/newsroom/press-releases/passkey-checkout-pilot.html); PYMNTS · 9 May 2026 (https://pymnts.com/visa-passkey-checkout-pilot); Fintech Repost · 8 May 2026 (https://fintechrepost.example/visa_passkeys)
 
-## 2. Банк России принял ряд решений по макропруденциальной политике (29.04.2026)
+## 3. JPMorgan pilots palm biometric payments with stadium merchants
 
-- Дата сигнала: 29.04.2026 · свежесть: старше двух недель
-- Важность: 4/5 (79.4/100)
-- Категория/теги: banking_product | banking_product, банк, банк россии, банки, банковский, заем
-- Почему score такой: Средний score: много финтех-триггеров; сильный первоисточник; высокая потенциальная значимость для банка.
-- Почему сейчас: Это сигнал остается актуальным: конкурент меняет банковский сценарий, который можно проверить в продуктовой дорожной карте.
-- Кратко: Банк России принял ряд решений по макропруденциальной политике (29.04.2026). 1. Банк России ужесточил на I II квартал 2026 года значения макропруденциальных лимитов (МПЛ) по ипотечным кредитам на приобретение строящегося и готового жилья в многоквартирных домах, а также не пересматривал макропруденциальные надбавки. По ипотеке на приобретение жилья в многоквартирных домах доля задолженности с просроченными платежами свыше 90 дней на 01.04.2026 составила 1,0% 1 (0,6% на 01.04.2025 и 0,9% на...
-- Что сделать: Сравнить с текущей продуктовой линейкой и оценить, есть ли применимый сценарий для клиента банка.
-- Источники: Банк России — пресс-релизы · 29.04.2026 (https://cbr.ru/press/PR?file=639130820712099203FINSTAB.htm)
+- Дата сигнала: 6 May 2026 · свежесть: 8 дней назад
+- Важность: 5/5 (91.4/100)
+- Категория/теги: payments | ai, bank, checkout, identity, merchant, payment
+- Почему score такой: Высокий score: много финтех-триггеров; сильный первоисточник; сигнал подтвержден несколькими ссылками; высокая потенциальная значимость для банка.
+- Почему это может быть важно: Сигнал затрагивает платежный сценарий: изменения в платежах быстро влияют на ожидания клиентов к скорости, удобству, комиссии и доступности операций. Сигнал не новый, но может оставаться актуальным; сигнал подтверждается несколькими источниками; источник выглядит надежным.
+- Кратко: JPMorgan pilots palm biometric payments with stadium merchants. JPMorgan is piloting palm biometric payments at stadium merchants, combining identity, wallet enrollment and loyalty offers in one checkout flow.
+- Следующий шаг для команды: Передать владельцу платежного сценария. Сравнить механику с текущими переводами, оплатой, checkout/acquiring или merchant-сценариями и сформулировать гипотезу для discovery или A/B-теста.
+- Источники: JPMorgan · 6 May 2026 (https://jpmorgan.com/payments/news/palm-biometric-stadium-pilot); PYMNTS · 5 May 2026 (https://pymnts.com/biometrics/jpmorgan-palm-payments-stadium); Fintech Repost · 4 May 2026 (https://fintechrepost.example/jpmorgan_biometrics)
 
-## 3. Revolut Mulls Private Banking as Trading Business Expands
+## 4. Российские банки проверяют кешбэк и повторные платежи в СБП
 
-- Дата сигнала: 14 May 2026 · свежесть: сегодня
-- Важность: 4/5 (77.4/100)
-- Категория/теги: regulation | ai, bank, banking, regulation, regulator
-- Почему score такой: Средний score: надежное отраслевое медиа; есть признаки свежего запуска/пилота; высокая потенциальная значимость для банка.
-- Почему сейчас: Это свежий сигнал: регуляторные изменения быстро превращаются в требования к продуктам и compliance.
-- Кратко: Revolut Mulls Private Banking as Trading Business Expands. Revolut has received regulatory permission to expand the scope of its trading business. The approval from the U.K.’s Financial Conduct Authority (FCA) will allow Revolut Trading to bring “investment, advisory and portfolio management under one roof,” Victoria Laffey, the unit’s head of operations, said in a news release provided to PYMNTS on Thursday (May 14). The approval, the […] The post Revolut Mulls Private...
-- Что сделать: Проверить, влияет ли изменение на документы, процессы, клиентские сценарии или compliance-требования.
-- Источники: PYMNTS · 14 May 2026 (https://pymnts.com/news/banking/2026/revolut-mulls-private-banking-as-trading-business-expands)
+- Дата сигнала: 11.05.2026 · свежесть: 3 дня назад
+- Важность: 5/5 (91.2/100)
+- Категория/теги: payments | merchant, payment, payments, qr, банк, банки
+- Почему score такой: Высокий score: много финтех-триггеров; сильный первоисточник; сигнал подтвержден несколькими ссылками; высокая потенциальная значимость для банка.
+- Почему это может быть важно: Сигнал затрагивает платежный сценарий: изменения в платежах быстро влияют на ожидания клиентов к скорости, удобству, комиссии и доступности операций. Сигнал свежий; сигнал подтверждается несколькими источниками; источник выглядит надежным.
+- Кратко: Российские банки проверяют кешбэк и повторные платежи в СБП. Несколько банков и платежных провайдеров тестируют механики лояльности в СБП: кешбэк, QR-оплату и повторные платежи для малого бизнеса и онлайн-мерчантов.
+- Следующий шаг для команды: Передать владельцу платежного сценария. Сравнить механику с текущими переводами, оплатой, checkout/acquiring или merchant-сценариями и сформулировать гипотезу для discovery или A/B-теста.
+- Источники: Банк России — события · 10.05.2026 (https://cbr.ru/press/event?id=sbp-merchant-loyalty); Finextra · 9 May 2026 (https://finextra.com/newsarticle/sbp-merchant-loyalty-cashback); РБК — новости · 11.05.2026 (https://rbc.ru/finances/2026/05/09/sbp-loyalty-merchant-payments)
 
-## 4. Giving agents the ability to pay
+## 5. ECB publishes new digital euro wallet prototype findings
 
-- Дата сигнала: 29 Apr 2026 · свежесть: старше двух недель
-- Важность: 4/5 (74.8/100)
-- Категория/теги: payments | account, bank, card, payment, payments, wallet
-- Почему score такой: Средний score: много финтех-триггеров; надежное отраслевое медиа; высокая потенциальная значимость для банка.
-- Почему сейчас: Это сигнал остается актуальным: платежные механики быстро масштабируются через банки, сети и merchant-сценарии.
-- Кратко: Giving agents the ability to pay. Link’s wallet for agents gives agents programmatic access to Link, including the ability to generate a one-time-use card or Shared Payment Token (SPT) backed by the cards and bank accounts already in your wallet. It’s built on Stripe’s new Issuing for agents.
-- Что сделать: Сравнить механику с текущими платежными сценариями и оценить применимость для банковского продукта.
-- Источники: Stripe Blog · 29 Apr 2026 (https://stripe.com/blog/giving-agents-the-ability-to-pay)
+- Дата сигнала: 11 May 2026 · свежесть: 3 дня назад
+- Важность: 5/5 (89.7/100)
+- Категория/теги: regulation | bank, central bank, digital euro, ecb, payment, payments
+- Почему score такой: Высокий score: много финтех-триггеров; сильный первоисточник; есть признаки свежего запуска/пилота; есть больше одного подтверждения.
+- Почему это может быть важно: Сигнал затрагивает регуляторную повестку: такие изменения могут повлиять на документы, клиентские коммуникации, compliance-процессы или правила запуска продукта. Сигнал свежий; сигнал подтверждается несколькими источниками; источник выглядит надежным.
+- Кратко: ECB publishes new digital euro wallet prototype findings. The European Central Bank shared findings from digital euro wallet prototype work, including offline payments, privacy controls and commercial bank roles.
+- Следующий шаг для команды: Передать сигнал compliance/legal и владельцу затронутого продукта. Проверить, нужны ли изменения в документах, клиентских сценариях, процессах идентификации, коммуникации или отчетности.
+- Источники: ECB · 11 May 2026 (https://ecb.europa.eu/paym/digital_euro/prototype-findings); Finextra · 10 May 2026 (https://finextra.com/newsarticle/ecb-digital-euro-wallet-prototype)
 
-## 5. 35% of Firms Delay Embedded Finance Over Fraud Fears
+## 6. Stripe expands Tap to Pay for small merchants across Europe
 
-- Дата сигнала: 14 May 2026 · свежесть: сегодня
-- Важность: 4/5 (74.5/100)
-- Категория/теги: payments | embedded, finance, fraud, payment, payments
-- Почему score такой: Средний score: много финтех-триггеров; надежное отраслевое медиа; высокая потенциальная значимость для банка.
-- Почему сейчас: Это свежий сигнал: платежные механики быстро масштабируются через банки, сети и merchant-сценарии.
-- Кратко: 35% of Firms Delay Embedded Finance Over Fraud Fears. Embedded finance is giving businesses a faster way to move money, but its next stage of growth may depend on how well companies build security into the transaction before it begins. That is the central message of “Embedding Security: Designing Fraud Risk Out of Business Transactions,” a March Business Payments Tracker Series report from PYMNTS […] The post 35% of Firms Delay Embedded Finance Over Fraud Fears...
-- Что сделать: Сравнить механику с текущими платежными сценариями и оценить применимость для банковского продукта.
-- Источники: PYMNTS · 14 May 2026 (https://pymnts.com/fraud-prevention/2026/35-of-firms-delay-embedded-finance-over-fraud-fears)
+- Дата сигнала: 12 May 2026 · свежесть: 2 дня назад
+- Важность: 5/5 (87.5/100)
+- Категория/теги: payments | bank, card, merchant, payment, payments, sme
+- Почему score такой: Высокий score: много финтех-триггеров; надежное отраслевое медиа; сигнал подтвержден несколькими ссылками; высокая потенциальная значимость для банка.
+- Почему это может быть важно: Сигнал затрагивает платежный сценарий: изменения в платежах быстро влияют на ожидания клиентов к скорости, удобству, комиссии и доступности операций. Сигнал свежий; сигнал подтверждается несколькими источниками; источник требует дополнительной проверки.
+- Кратко: Stripe expands Tap to Pay for small merchants across Europe. Stripe is expanding Tap to Pay support for small merchants in several European markets, positioning phones as card acceptance terminals without extra hardware.
+- Следующий шаг для команды: Передать владельцу платежного сценария. Сравнить механику с текущими переводами, оплатой, checkout/acquiring или merchant-сценариями и сформулировать гипотезу для discovery или A/B-теста.
+- Источники: Finextra · 12 May 2026 (https://finextra.com/newsarticle/stripe-tap-to-pay-europe); The Paypers · 11 May 2026 (https://thepaypers.com/mobile-payments/stripe-expands-tap-to-pay-in-europe); PYMNTS · 10 May 2026 (https://pymnts.com/stripe-tap-to-pay-europe-rollout)
 
-## 6. Report Shows Real-Time Payments Promise CFOs More Than Speed
+## 7. Klarna pushes further into everyday banking with savings features
 
-- Дата сигнала: 14 May 2026 · свежесть: сегодня
-- Важность: 4/5 (74.5/100)
-- Категория/теги: payments | ai, card, finance, payment, payments
-- Почему score такой: Средний score: много финтех-триггеров; надежное отраслевое медиа; высокая потенциальная значимость для банка.
-- Почему сейчас: Это свежий сигнал: платежные механики быстро масштабируются через банки, сети и merchant-сценарии.
-- Кратко: Report Shows Real-Time Payments Promise CFOs More Than Speed. “Ready and Willing: B2B Payments Are Headed for Real-Time Rails. Here’s How They’re Getting There” is a collaboration between PYMNTS Intelligence and The Clearing House. Real-time payments are steadily moving from the edge of B2B finance toward the center of how businesses manage suppliers, liquidity and operations. While checks, cards and ACH still dominate […] The post Report Shows Real-Time Payments Promise CFOs...
-- Что сделать: Сравнить механику с текущими платежными сценариями и оценить применимость для банковского продукта.
-- Источники: PYMNTS · 14 May 2026 (https://pymnts.com/real-time-payments/2026/report-shows-real-time-payments-promise-cfos-more-than-speed)
-
-## 7. US fintech Parker files for bankruptcy
-
-- Дата сигнала: 14 May 2026 · свежесть: сегодня
-- Важность: 4/5 (73.5/100)
-- Категория/теги: payments | ai, bank, fintech, payment, payments
-- Почему score такой: Средний score: много финтех-триггеров; надежное отраслевое медиа; высокая потенциальная значимость для банка.
-- Почему сейчас: Это свежий сигнал: платежные механики быстро масштабируются через банки, сети и merchant-сценарии.
-- Кратко: US fintech Parker files for bankruptcy. US-based payments startup Parker has declared bankruptcy as questions remain over its future.
-- Что сделать: Сравнить механику с текущими платежными сценариями и оценить применимость для банковского продукта.
-- Источники: Finextra · 14 May 2026 (https://finextra.com/newsarticle/47750/us-fintech-parker-files-for-bankruptcy)
-
-## 8. Bank of England uncovers significant trade‑offs in use of DLT for wholesale settlement
-
-- Дата сигнала: 13 May 2026 · свежесть: 1 день назад
-- Важность: 4/5 (73.5/100)
-- Категория/теги: payments | ai, bank, payment, payments, settlement
-- Почему score такой: Средний score: много финтех-триггеров; надежное отраслевое медиа; высокая потенциальная значимость для банка.
-- Почему сейчас: Это свежий сигнал: платежные механики быстро масштабируются через банки, сети и merchant-сценарии.
-- Кратко: Bank of England uncovers significant trade‑offs in use of DLT for wholesale settlement. After months of trials the Bank of England remains no clearer about the applicability of distributed ledger technology in wholesale payments and settlement, uncovering critical trade-offs in governance, resilience and scalability.
-- Что сделать: Сравнить механику с текущими платежными сценариями и оценить применимость для банковского продукта.
-- Источники: Finextra · 13 May 2026 (https://finextra.com/newsarticle/47745/bank-of-england-uncovers--significant-tradeoffs-in-use-of-dlt-for-wholesale-settlement)
+- Дата сигнала: 12 May 2026 · свежесть: 2 дня назад
+- Важность: 5/5 (86.2/100)
+- Категория/теги: banking_product | account, ai, bank, banking, banking_product, checkout
+- Почему score такой: Высокий score: много финтех-триггеров; надежное отраслевое медиа; сигнал подтвержден несколькими ссылками; высокая потенциальная значимость для банка.
+- Почему это может быть важно: Сигнал связан с банковским продуктом: он может указывать на изменение конкурентного предложения или ожиданий клиентов. Сигнал свежий; сигнал подтверждается несколькими источниками; источник требует дополнительной проверки.
+- Кратко: Klarna pushes further into everyday banking with savings features. Klarna expanded savings account and debit features in Europe, deepening its move from checkout financing into everyday banking relationships.
+- Следующий шаг для команды: Передать продуктовой команде для discovery. Сравнить с текущим предложением, клиентским путем и конкурентными альтернативами.
+- Источники: Finextra · 1 May 2026 (https://finextra.com/newsarticle/klarna-savings-debit-europe); TechCrunch · 2 May 2026 (https://techcrunch.com/2026/05/06/klarna-savings-debit-europe); Fintech Repost · 12 May 2026 (https://fintechrepost.example/klarna_bank_account)

@@ -9,7 +9,7 @@ import pandas as pd
 import streamlit as st
 
 from trendwatcher.demo_data import demo_articles
-from trendwatcher.pipeline import format_publication_date, run_pipeline, save_outputs
+from trendwatcher.pipeline import SOURCE_TIERS, format_publication_date, run_pipeline, save_outputs
 from trendwatcher.rss import DEFAULT_RSS_SOURCES, fetch_rss_articles_with_status
 
 
@@ -113,6 +113,24 @@ st.markdown(
       font-size: 0.88rem;
       line-height: 1.45;
     }
+    .formula-card {
+      border: 1px solid var(--tw-border);
+      border-radius: 8px;
+      background: var(--tw-card);
+      color: var(--tw-text);
+      padding: 14px 16px;
+      margin: 10px 0 14px 0;
+    }
+    .formula {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      background: var(--tw-card-strong);
+      border: 1px solid var(--tw-border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      line-height: 1.65;
+      margin-top: 8px;
+      white-space: pre-wrap;
+    }
     </style>
     """,
     unsafe_allow_html=True,
@@ -162,8 +180,8 @@ def render_signal_card(signal: dict) -> None:
           </div>
           <div style="margin-top:8px;">{tags}</div>
           <p><b>Что произошло?</b><br>{esc(signal["summary"])}</p>
-          <p><b>Почему это важно для банка?</b><br>{esc(signal["why_now"])}</p>
-          <p><b>Рекомендуемое действие:</b> {esc(signal["suggested_action"])}</p>
+          <p><b>Почему это может быть важно</b><br>{esc(signal["why_now"])}</p>
+          <p><b>Следующий шаг для команды:</b> {esc(signal["suggested_action"])}</p>
           <p class="small-muted"><b>Проверяемые источники</b><br>{sources}</p>
           <div class="score-line"><b>Важность:</b> {esc(signal["hotness"])}/5 · score {esc(signal["score"])}/100</div>
         </div>
@@ -177,7 +195,8 @@ def render_signal_card(signal: dict) -> None:
         st.write(f"Новизна: {components['novelty']}")
         st.write(f"Impact: {components['impact']}")
         st.write(f"Количество подтверждений: {components['evidence_count']}")
-        st.write(f"Confidence: {components['confidence']}")
+        st.write(f"Confidence: {components['confidence']} / 5")
+        st.write(f"Уровень сигнала: {signal.get('signal_level', 'не рассчитан')}")
         st.caption(signal.get("context_note", "Полный текст не загружался, анализ основан на RSS snippet."))
 
 
@@ -194,14 +213,33 @@ with st.sidebar:
     st.header("Настройки запуска")
     data_source = st.radio("Источник данных", ["Демо-набор", "CSV-файл", "Live RSS"], index=0)
     uploaded = st.file_uploader("CSV: title, url, source, published_at, snippet, text", type=["csv"])
+    st.caption(
+        "CSV-режим нужен для проверки pipeline на заранее собранном наборе публикаций или данных "
+        "Обязательные поля: title, url, source, published_at, snippet, text"
+    )
     top_n = st.slider("Сигналов в дайджесте", 3, 10, 7)
 
     st.divider()
     st.subheader("Дедупликация")
     dedup_label = st.radio("Метод дедупликации", ["Fuzzy", "TF-IDF"], index=0, horizontal=True)
     dedup_method = "tfidf" if dedup_label == "TF-IDF" else "fuzzy"
+    st.caption(
+        "Порог дедупликации управляет тем, насколько похожими должны быть две публикации, чтобы система объединила их в один сигнал "
+        "Ниже порог - больше объединений и выше риск склеить разные события. Выше порог - осторожнее, но часть дублей может остаться"
+    )
     fuzzy_threshold = st.slider("Порог Fuzzy", 0.55, 0.95, 0.72, 0.01, disabled=dedup_label != "Fuzzy")
+    if dedup_label == "Fuzzy":
+        st.caption("Активен Fuzzy. Он сравнивает тексты напрямую и лучше работает для почти одинаковых заголовков. Рекомендуемый стартовый порог: 0.72")
+    else:
+        st.caption("Порог Fuzzy сейчас не используется, потому что выбран TF-IDF.")
     tfidf_threshold = st.slider("Порог TF-IDF", 0.35, 0.85, 0.58, 0.01, disabled=dedup_label != "TF-IDF")
+    if dedup_label == "TF-IDF":
+        st.caption(
+            "Активен TF-IDF. Он сравнивает публикации как векторы слов и n-грамм. "
+            "Порог ниже, потому что cosine similarity на коротких title/snippet часто дает умеренные значения. Рекомендуемый стартовый порог: 0.58"
+        )
+    else:
+        st.caption("Порог TF-IDF сейчас не используется. Для стабильного демо можно оставить дефолтные значения и показать trade-off при переключении метода")
 
     st.divider()
     st.subheader("LLM-обогащение")
@@ -213,9 +251,9 @@ with st.sidebar:
 
     st.divider()
     st.caption(
-        "Live RSS mode использует российские и международные источники. "
+        "Live RSS mode использует российские и международные источники "
         "Российские источники нужны для локальной применимости сигналов, международные — "
-        "для отслеживания глобальных финтех-трендов."
+        "для отслеживания глобальных финтех-трендов"
     )
 
 
@@ -244,16 +282,16 @@ if "result" not in st.session_state or run_clicked or st.session_state.get("conf
     if data_source == "CSV-файл":
         articles = load_uploaded_csv(uploaded)
         if articles is None:
-            st.info("Загрузите CSV-файл или выберите демо-набор.")
+            st.info("Загрузите CSV-файл или выберите демо-набор")
             st.stop()
     elif data_source == "Live RSS":
         with st.spinner("Загружаем российские и международные RSS-источники..."):
             rss_articles, rss_warnings = fetch_rss_articles_with_status(DEFAULT_RSS_SOURCES, limit_per_source=15)
             articles = pd.DataFrame(rss_articles)
         if rss_warnings:
-            st.warning("Часть RSS-источников не загрузилась. Pipeline продолжит работу с доступными публикациями.")
+            st.warning("Часть RSS-источников не загрузилась. Pipeline продолжит работу с доступными публикациями")
         if articles.empty:
-            st.warning("RSS не вернул публикации. Для стабильного демо включен встроенный демо-набор.")
+            st.warning("RSS не вернул публикации. Для стабильного демо включен встроенный демо-набор")
             articles = pd.DataFrame(demo_articles())
     else:
         articles = pd.DataFrame(demo_articles())
@@ -302,6 +340,18 @@ if data_source == "Live RSS":
         "Для демонстрации механики dedup можно использовать demo fallback dataset."
     )
 
+with st.expander("Что означают метрики?"):
+    st.markdown(
+        """
+        - **Исходные публикации** — все материалы, полученные из demo dataset / CSV / RSS до фильтрации
+        - **Кандидаты** — публикации, которые прошли фильтр релевантности и не были признаны шумом
+        - **Отфильтрованный шум** — материалы, отброшенные как нерелевантные, рекламные, слишком короткие или слабые
+        - **Сигналы** — итоговые группы публикаций после удаления дублей. Один сигнал может объединять несколько похожих публикаций
+        - **Средний score** — средний score найденных сигналов
+        - **Объединено дублей** — сколько публикаций было объединено с похожими материалами
+        """
+    )
+
 pipeline_tab, signals_tab, rejected_tab, prompts_tab = st.tabs(
     ["Pipeline", "Сигналы", "Отфильтрованный шум", "LLM-промпты"]
 )
@@ -310,23 +360,133 @@ with pipeline_tab:
     st.subheader("Этапы обработки")
     st.write(
         "Pipeline показывает, как из открытых публикаций получается короткий проверяемый дайджест: "
-        "сначала дешевые и объяснимые правила, затем дедупликация и score, LLM — только опционально."
+        "сначала дешевые и объяснимые правила, затем дедупликация и score, LLM — только опционально"
     )
     steps = [
-        ("RSS / CSV", "Получаем публикации из демо-набора, CSV или live RSS."),
-        ("Очистка", "Нормализуем URL, даты, источники и текстовые поля."),
-        ("Удаление дублей", f"Метод: {result.dedup_method_used.upper()}. Группируем перепечатки одного события."),
-        ("Оценка важности", "Считаем relevance, source quality, novelty, impact и evidence count."),
-        ("Финальный дайджест", "Оставляем top-сигналы с why now, источниками и действием для команды."),
+        ("RSS / CSV", "Получаем публикации из демо-набора, CSV или live RSS"),
+        ("Очистка", "Нормализуем URL, даты, источники и текстовые поля"),
+        ("Удаление дублей", f"Метод: {result.dedup_method_used.upper()}. Группируем перепечатки одного события"),
+        ("Оценка важности", "Считаем relevance, source quality, novelty, impact и evidence count"),
+        ("Финальный дайджест", "Оставляем top-сигналы с why now, источниками и действием для команды"),
     ]
     cols = st.columns(len(steps))
     for col, (title, note) in zip(cols, steps):
         col.markdown(flow_card(title, note), unsafe_allow_html=True)
     st.markdown("**Формула оценки**")
-    st.code(
-        "score = 0.30*релевантность + 0.20*качество_источника + 0.20*новизна + 0.15*impact + 0.15*подтверждения",
-        language="text",
+    st.markdown(
+        """
+        <div class="formula-card">
+          <div><b>score</b> — это эвристическая оценка важности сигнала в draft-MVP. Она нужна,
+          чтобы прозрачно ранжировать публикации, а не заменить ручное решение аналитика.</div>
+          <div class="formula">score =
+  0.30 × relevance
++ 0.20 × source_quality
++ 0.20 × novelty
++ 0.15 × impact
++ 0.15 × evidence_count</div>
+          <div class="flow-note">Веса заданы экспертно и могут быть откалиброваны позже по ручной разметке аналитиков
+          useful / not useful. Это прозрачный baseline, а не обученная ML-модель.</div>
+        </div>
+        """,
+        unsafe_allow_html=True,
     )
+    score_table = pd.DataFrame(
+        [
+            {
+                "Компонент": "relevance",
+                "Вес": "0.30",
+                "Что означает": "насколько публикация похожа на финтех/банковский сигнал",
+                "Почему нужен": "главный вклад, потому что прежде всего фильтруется шум",
+            },
+            {
+                "Компонент": "source_quality",
+                "Вес": "0.20",
+                "Что означает": "насколько надежен тип источника",
+                "Почему нужен": "первоисточники и регуляторы проще проверить, перепечатки слабее",
+            },
+            {
+                "Компонент": "novelty",
+                "Вес": "0.20",
+                "Что означает": "есть ли признаки запуска, пилота, изменения или guidance",
+                "Почему нужен": "свежие изменения чаще требуют внимания команды",
+            },
+            {
+                "Компонент": "impact",
+                "Вес": "0.15",
+                "Что означает": "насколько категория потенциально важна для банка",
+                "Почему нужен": "regulation, fraud и payments обычно имеют больший прикладной эффект",
+            },
+            {
+                "Компонент": "evidence_count",
+                "Вес": "0.15",
+                "Что означает": "сколько независимых источников подтверждает сигнал",
+                "Почему нужен": "несколько источников снижают риск случайного инфоповода",
+            },
+        ]
+    )
+    st.dataframe(score_table, width="stretch", hide_index=True)
+
+    with st.expander("Как считается качество источника?"):
+        st.write(
+            "Регуляторы и официальные первоисточники получают максимальный вес, потому что их проще проверить и они ближе к исходному событию "
+            "Отраслевые медиа помогают быстро находить сигналы, но могут быть пересказами. Перепечатки и слабые источники получают меньший вес"
+        )
+        tier_table = pd.DataFrame(
+            [
+                {
+                    "Tier": "regulator_or_public_authority",
+                    "source_quality": SOURCE_TIERS["regulator_or_public_authority"],
+                    "Примеры": "Банк России, BIS, ECB, CFPB, Bank of England",
+                },
+                {
+                    "Tier": "official_company_source",
+                    "source_quality": SOURCE_TIERS["official_company_source"],
+                    "Примеры": "Visa, Mastercard, Stripe Blog, PayPal, JPMorgan, Open Banking UK",
+                },
+                {
+                    "Tier": "specialized_fintech_media",
+                    "source_quality": SOURCE_TIERS["specialized_fintech_media"],
+                    "Примеры": "Finextra, The Paypers, PYMNTS",
+                },
+                {
+                    "Tier": "general_business_or_tech_media",
+                    "source_quality": SOURCE_TIERS["general_business_or_tech_media"],
+                    "Примеры": "РБК, TechCrunch",
+                },
+                {
+                    "Tier": "repost_or_low_confidence",
+                    "source_quality": SOURCE_TIERS["repost_or_low_confidence"],
+                    "Примеры": "Fintech Repost, слабые перепечатки",
+                },
+            ]
+        )
+        st.dataframe(tier_table, width="stretch", hide_index=True)
+        st.caption("confidence — отдельная вспомогательная оценка уверенности: она растет, когда сигнал подтверждается несколькими источниками и лучший источник имеет высокий source_quality")
+
+    with st.expander("Почему выбраны эти источники?"):
+        st.markdown(
+            """
+            Источники выбраны так, чтобы покрыть разные типы финтех-сигналов:
+            - **регуляторы**: изменения правил, compliance, платежная инфраструктура;
+            - **официальные источники компаний**: продуктовые запуски и первоисточники;
+            - **отраслевые финтех-медиа**: раннее обнаружение трендов, partnerships, payments, open banking;
+            - **деловые и технологические медиа**: широкий рыночный контекст
+
+            """
+        )
+
+    with st.expander("Как выбирать пороги дедупликации?"):
+        st.markdown(
+            """
+            Порог дедупликации управляет тем, насколько похожими должны быть две публикации, чтобы система объединила их в один сигнал
+
+            - Ниже порог → система объединяет больше публикаций, но выше риск склеить разные события
+            - Выше порог → система осторожнее объединяет материалы, но часть дублей может остаться в дайджесте
+            - **Fuzzy** сравнивает тексты напрямую и лучше работает для почти одинаковых заголовков. Рекомендуемый стартовый порог: `0.72`
+            - **TF-IDF** сравнивает публикации как векторы слов и n-грамм. Порог ниже, потому что cosine similarity на коротких title/snippet часто дает умеренные значения даже у похожих материалов. Рекомендуемый стартовый порог: `0.58`
+
+            """
+        )
 
     st.markdown("**Top candidates после фильтрации**")
     candidates = result.candidate_articles.copy()
@@ -369,7 +529,7 @@ with pipeline_tab:
             existing = [col for col in debug_cols if col in candidates.columns]
             st.dataframe(candidates[existing], width="stretch", hide_index=True)
     else:
-        st.info("После фильтрации не осталось кандидатов.")
+        st.info("После фильтрации не осталось кандидатов")
 
     st.markdown("**Группы дублей**")
     dedup_rows = []
@@ -420,11 +580,11 @@ with rejected_tab:
             hide_index=True,
         )
     else:
-        st.success("Шум не найден: все публикации прошли первичный фильтр.")
+        st.success("Шум не найден: все публикации прошли первичный фильтр")
 
 with prompts_tab:
     st.subheader("LLM-промпты")
-    st.write("Эти промпты используются только в опциональном режиме LLM-обогащения после дешевой фильтрации и дедупликации.")
+    st.write("Эти промпты используются только в опциональном режиме LLM-обогащения после дешевой фильтрации и дедупликации")
     prompt_dir = Path("prompts")
     for prompt_file in sorted(prompt_dir.glob("*.txt")):
         with st.expander(prompt_file.stem.replace("_", " ").title()):
