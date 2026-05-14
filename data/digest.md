@@ -1,12 +1,12 @@
 # Дайджест Fintech TrendWatcher
 
-_Сформировано: 2026-05-13 10:52 UTC_
+_Сформировано: 2026-05-14 14:55 UTC_
 
 Короткий дайджест для продуктовой, стратегической или команды конкурентной аналитики банка.
 
 ## 1. Результаты мониторинга максимальных процентных ставок кредитных организаций (05.05.2026)
 
-- Дата сигнала: 05.05.2026 · свежесть: 8 дней назад
+- Дата сигнала: 05.05.2026 · свежесть: 9 дней назад
 - Важность: 5/5 (85.9/100)
 - Категория/теги: banking_product | bank, banking_product, банк, вклад, депозит, кредит
 - Почему score такой: Высокий score: много финтех-триггеров; сильный первоисточник; сигнал подтвержден несколькими ссылками; высокая потенциальная значимость для банка.
@@ -17,7 +17,7 @@ _Сформировано: 2026-05-13 10:52 UTC_
 
 ## 2. Банк России принял ряд решений по макропруденциальной политике (29.04.2026)
 
-- Дата сигнала: 29.04.2026 · свежесть: 14 дней назад
+- Дата сигнала: 29.04.2026 · свежесть: старше двух недель
 - Важность: 4/5 (79.4/100)
 - Категория/теги: banking_product | banking_product, банк, банк россии, банки, банковский, заем
 - Почему score такой: Средний score: много финтех-триггеров; сильный первоисточник; высокая потенциальная значимость для банка.
@@ -26,31 +26,20 @@ _Сформировано: 2026-05-13 10:52 UTC_
 - Что сделать: Сравнить с текущей продуктовой линейкой и оценить, есть ли применимый сценарий для клиента банка.
 - Источники: Банк России — пресс-релизы · 29.04.2026 (https://cbr.ru/press/PR?file=639130820712099203FINSTAB.htm)
 
-## 3. 24% of Bank CEOs Put AI Cybersecurity First
+## 3. Revolut Mulls Private Banking as Trading Business Expands
 
-- Дата сигнала: 13 May 2026 · свежесть: сегодня
-- Важность: 4/5 (78.3/100)
-- Категория/теги: fraud_risk | ai, bank, embedded, fraud, fraud_risk, payment
-- Почему score такой: Средний score: много финтех-триггеров; надежное отраслевое медиа; высокая потенциальная значимость для банка.
-- Почему сейчас: Это свежий сигнал: fraud/authentication механики стоит оценивать до роста потерь и давления на UX.
-- Кратко: 24% of Bank CEOs Put AI Cybersecurity First. Embedded payments are forcing businesses to rethink fraud prevention as a design challenge, not just a cleanup job after something goes wrong. That was the central theme of “Embedding Security: Designing Fraud Risk Out of Business Transactions,” a March PYMNTS Intelligence Business Payments Tracker Series report in collaboration with WEX. The report found that […] The post 24% of Bank CEOs Put AI Cybersecurity First...
-- Что сделать: Передать risk/anti-fraud команде и оценить применимость к мониторингу операций, KYC/AML или авторизации.
-- Источники: PYMNTS · 13 May 2026 (https://pymnts.com/cybersecurity/2026/24percent-bank-ceos-put-ai-cybersecurity-first)
+- Дата сигнала: 14 May 2026 · свежесть: сегодня
+- Важность: 4/5 (77.4/100)
+- Категория/теги: regulation | ai, bank, banking, regulation, regulator
+- Почему score такой: Средний score: надежное отраслевое медиа; есть признаки свежего запуска/пилота; высокая потенциальная значимость для банка.
+- Почему сейчас: Это свежий сигнал: регуляторные изменения быстро превращаются в требования к продуктам и compliance.
+- Кратко: Revolut Mulls Private Banking as Trading Business Expands. Revolut has received regulatory permission to expand the scope of its trading business. The approval from the U.K.’s Financial Conduct Authority (FCA) will allow Revolut Trading to bring “investment, advisory and portfolio management under one roof,” Victoria Laffey, the unit’s head of operations, said in a news release provided to PYMNTS on Thursday (May 14). The approval, the […] The post Revolut Mulls Private...
+- Что сделать: Проверить, влияет ли изменение на документы, процессы, клиентские сценарии или compliance-требования.
+- Источники: PYMNTS · 14 May 2026 (https://pymnts.com/news/banking/2026/revolut-mulls-private-banking-as-trading-business-expands)
 
-## 4. Affirm Targets Card Networks With Broader Payments Push
+## 4. Giving agents the ability to pay
 
-- Дата сигнала: 13 May 2026 · свежесть: сегодня
-- Важность: 4/5 (77.7/100)
-- Категория/теги: payments | ai, bnpl, card, checkout, lending, payment
-- Почему score такой: Средний score: много финтех-триггеров; надежное отраслевое медиа; высокая потенциальная значимость для банка.
-- Почему сейчас: Это свежий сигнал: платежные механики быстро масштабируются через банки, сети и merchant-сценарии.
-- Кратко: Affirm Targets Card Networks With Broader Payments Push. As buy now, pay later (BNPL) firms compete to move beyond checkout financing, Affirm used its investor forum Tuesday (May 12) to argue that growth and share of spend across consumer payments will be cemented through data, underwriting and network scale rather than promotional lending alone. “We’ve built a network,” CEO Max Levchin said […] The post Affirm Targets Card Networks With Broader Payments Push appeared...
-- Что сделать: Сравнить механику с текущими платежными сценариями и оценить применимость для банковского продукта.
-- Источники: PYMNTS · 13 May 2026 (https://pymnts.com/buy-now-pay-later/2026/affirm-targets-card-networks-with-broader-payments-push)
-
-## 5. Giving agents the ability to pay
-
-- Дата сигнала: 29 Apr 2026 · свежесть: 14 дней назад
+- Дата сигнала: 29 Apr 2026 · свежесть: старше двух недель
 - Важность: 4/5 (74.8/100)
 - Категория/теги: payments | account, bank, card, payment, payments, wallet
 - Почему score такой: Средний score: много финтех-триггеров; надежное отраслевое медиа; высокая потенциальная значимость для банка.
@@ -59,24 +48,46 @@ _Сформировано: 2026-05-13 10:52 UTC_
 - Что сделать: Сравнить механику с текущими платежными сценариями и оценить применимость для банковского продукта.
 - Источники: Stripe Blog · 29 Apr 2026 (https://stripe.com/blog/giving-agents-the-ability-to-pay)
 
-## 6. Bank of England uncovers significant trade‑offs in use of DLT for wholesale settlement
+## 5. 35% of Firms Delay Embedded Finance Over Fraud Fears
 
-- Дата сигнала: 13 May 2026 · свежесть: сегодня
+- Дата сигнала: 14 May 2026 · свежесть: сегодня
+- Важность: 4/5 (74.5/100)
+- Категория/теги: payments | embedded, finance, fraud, payment, payments
+- Почему score такой: Средний score: много финтех-триггеров; надежное отраслевое медиа; высокая потенциальная значимость для банка.
+- Почему сейчас: Это свежий сигнал: платежные механики быстро масштабируются через банки, сети и merchant-сценарии.
+- Кратко: 35% of Firms Delay Embedded Finance Over Fraud Fears. Embedded finance is giving businesses a faster way to move money, but its next stage of growth may depend on how well companies build security into the transaction before it begins. That is the central message of “Embedding Security: Designing Fraud Risk Out of Business Transactions,” a March Business Payments Tracker Series report from PYMNTS […] The post 35% of Firms Delay Embedded Finance Over Fraud Fears...
+- Что сделать: Сравнить механику с текущими платежными сценариями и оценить применимость для банковского продукта.
+- Источники: PYMNTS · 14 May 2026 (https://pymnts.com/fraud-prevention/2026/35-of-firms-delay-embedded-finance-over-fraud-fears)
+
+## 6. Report Shows Real-Time Payments Promise CFOs More Than Speed
+
+- Дата сигнала: 14 May 2026 · свежесть: сегодня
+- Важность: 4/5 (74.5/100)
+- Категория/теги: payments | ai, card, finance, payment, payments
+- Почему score такой: Средний score: много финтех-триггеров; надежное отраслевое медиа; высокая потенциальная значимость для банка.
+- Почему сейчас: Это свежий сигнал: платежные механики быстро масштабируются через банки, сети и merchant-сценарии.
+- Кратко: Report Shows Real-Time Payments Promise CFOs More Than Speed. “Ready and Willing: B2B Payments Are Headed for Real-Time Rails. Here’s How They’re Getting There” is a collaboration between PYMNTS Intelligence and The Clearing House. Real-time payments are steadily moving from the edge of B2B finance toward the center of how businesses manage suppliers, liquidity and operations. While checks, cards and ACH still dominate […] The post Report Shows Real-Time Payments Promise CFOs...
+- Что сделать: Сравнить механику с текущими платежными сценариями и оценить применимость для банковского продукта.
+- Источники: PYMNTS · 14 May 2026 (https://pymnts.com/real-time-payments/2026/report-shows-real-time-payments-promise-cfos-more-than-speed)
+
+## 7. US fintech Parker files for bankruptcy
+
+- Дата сигнала: 14 May 2026 · свежесть: сегодня
+- Важность: 4/5 (73.5/100)
+- Категория/теги: payments | ai, bank, fintech, payment, payments
+- Почему score такой: Средний score: много финтех-триггеров; надежное отраслевое медиа; высокая потенциальная значимость для банка.
+- Почему сейчас: Это свежий сигнал: платежные механики быстро масштабируются через банки, сети и merchant-сценарии.
+- Кратко: US fintech Parker files for bankruptcy. US-based payments startup Parker has declared bankruptcy as questions remain over its future.
+- Что сделать: Сравнить механику с текущими платежными сценариями и оценить применимость для банковского продукта.
+- Источники: Finextra · 14 May 2026 (https://finextra.com/newsarticle/47750/us-fintech-parker-files-for-bankruptcy)
+
+## 8. Bank of England uncovers significant trade‑offs in use of DLT for wholesale settlement
+
+- Дата сигнала: 13 May 2026 · свежесть: 1 день назад
 - Важность: 4/5 (73.5/100)
 - Категория/теги: payments | ai, bank, payment, payments, settlement
 - Почему score такой: Средний score: много финтех-триггеров; надежное отраслевое медиа; высокая потенциальная значимость для банка.
 - Почему сейчас: Это свежий сигнал: платежные механики быстро масштабируются через банки, сети и merchant-сценарии.
-- Кратко: Bank of England uncovers significant trade‑offs in use of DLT for wholesale settlement. After months of trials the Bank of England remains no clearer about the applicability of distributed ledger technology in wholesale payments and settlement, uncovering critial trade-offs in governance, resilience and scalability.
+- Кратко: Bank of England uncovers significant trade‑offs in use of DLT for wholesale settlement. After months of trials the Bank of England remains no clearer about the applicability of distributed ledger technology in wholesale payments and settlement, uncovering critical trade-offs in governance, resilience and scalability.
 - Что сделать: Сравнить механику с текущими платежными сценариями и оценить применимость для банковского продукта.
 - Источники: Finextra · 13 May 2026 (https://finextra.com/newsarticle/47745/bank-of-england-uncovers--significant-tradeoffs-in-use-of-dlt-for-wholesale-settlement)
-
-## 7. Банк России уточнил требования к обеспечению по кредитам Банка России (22.04.2026)
-
-- Дата сигнала: 22.04.2026 · свежесть: старше двух недель
-- Важность: 4/5 (73.2/100)
-- Категория/теги: regulation | regulation, банк, банк россии, кредит, перевод
-- Почему score такой: Средний score: много финтех-триггеров; сильный первоисточник; высокая потенциальная значимость для банка.
-- Почему сейчас: Это сигнал остается актуальным: регуляторные изменения быстро превращаются в требования к продуктам и compliance.
-- Кратко: Банк России уточнил требования к обеспечению по кредитам Банка России (22.04.2026). С 4 мая 2026 года Банк России сможет переводить нерыночные активы 1 между пулами обеспечения кредитных организаций в соответствии с установленной процедурой . На первом этапе перевод будет возможен только в рамках реорганизации кредитной организации. Минимальная сумма остатка основного долга по кредиту, передаваемому кредитной организацией в обеспечение по кредитам Банка России, увеличена с 2 до 5 млн рублей. Теперь...
-- Что сделать: Проверить, влияет ли изменение на документы, процессы, клиентские сценарии или compliance-требования.
-- Источники: Банк России — пресс-релизы · 22.04.2026 (https://cbr.ru/press/PR?file=639124659359828774OBR.htm)
