@@ -298,27 +298,39 @@ CATEGORY_KEYWORDS: dict[str, set[str]] = {
     },
 }
 
+SOURCE_TIERS: dict[str, float] = {
+    "regulator_or_public_authority": 1.00,
+    "official_company_source": 0.90,
+    "specialized_fintech_media": 0.80,
+    "general_business_or_tech_media": 0.70,
+    "repost_or_low_confidence": 0.45,
+}
+
+SOURCE_TIER_BY_SOURCE: dict[str, str] = {
+    "BIS": "regulator_or_public_authority",
+    "ECB": "regulator_or_public_authority",
+    "CFPB": "regulator_or_public_authority",
+    "Bank of England": "regulator_or_public_authority",
+    "Банк России — новости": "regulator_or_public_authority",
+    "Банк России — события": "regulator_or_public_authority",
+    "Банк России — пресс-релизы": "regulator_or_public_authority",
+    "Regulator": "regulator_or_public_authority",
+    "Visa": "official_company_source",
+    "Mastercard": "official_company_source",
+    "JPMorgan": "official_company_source",
+    "PayPal": "official_company_source",
+    "Open Banking UK": "official_company_source",
+    "Stripe Blog": "official_company_source",
+    "Finextra": "specialized_fintech_media",
+    "The Paypers": "specialized_fintech_media",
+    "PYMNTS": "specialized_fintech_media",
+    "РБК — новости": "general_business_or_tech_media",
+    "TechCrunch": "general_business_or_tech_media",
+    "Fintech Repost": "repost_or_low_confidence",
+}
+
 SOURCE_QUALITY: dict[str, float] = {
-    "BIS": 1.00,
-    "ECB": 1.00,
-    "CFPB": 1.00,
-    "Bank of England": 1.00,
-    "Visa": 0.92,
-    "Mastercard": 0.92,
-    "JPMorgan": 0.90,
-    "PayPal": 0.88,
-    "Open Banking UK": 0.90,
-    "Банк России — новости": 1.00,
-    "Банк России — события": 1.00,
-    "Банк России — пресс-релизы": 1.00,
-    "РБК — новости": 0.72,
-    "Stripe Blog": 0.88,
-    "Finextra": 0.82,
-    "The Paypers": 0.80,
-    "PYMNTS": 0.76,
-    "TechCrunch": 0.72,
-    "Regulator": 0.88,
-    "Fintech Repost": 0.42,
+    source: SOURCE_TIERS[tier] for source, tier in SOURCE_TIER_BY_SOURCE.items()
 }
 
 TRACKING_PARAMS = {"utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "fbclid", "gclid"}
@@ -725,6 +737,18 @@ def _confidence_score(evidence_count: int, source_quality: float) -> float:
     return round(min(5.0, 2.2 + evidence_count * 0.55 + source_quality * 1.2), 2)
 
 
+def _normalized_confidence(confidence: float) -> float:
+    return max(0.0, min(1.0, float(confidence) / 5.0))
+
+
+def _signal_level(score: float, confidence: float, evidence_count: int) -> str:
+    if score >= 80 and confidence >= 0.70:
+        return "strong"
+    if score >= 65 and (confidence >= 0.50 or evidence_count >= 2):
+        return "medium"
+    return "weak"
+
+
 def _score_explanation(score: float, components: dict[str, Any]) -> str:
     if score >= 80:
         level = "Высокий score"
@@ -776,38 +800,101 @@ def _summary(title: str, category: str, sources: list[str], snippet: str = "", t
     )
 
 
-def _why_now(category: str, evidence_count: int, freshness_days: int) -> str:
-    timing = "свежий сигнал" if freshness_days <= 7 else "сигнал остается актуальным"
+def _why_important_for_bank(
+    category: str,
+    score: float,
+    confidence: float,
+    evidence_count: int,
+    freshness_days: int,
+    source_quality: float,
+) -> str:
+    level = _signal_level(score, confidence, evidence_count)
+    timing = "Сигнал свежий" if freshness_days <= 7 else "Сигнал не новый, но может оставаться актуальным"
+    evidence = (
+        "сигнал подтверждается несколькими источниками"
+        if evidence_count >= 2
+        else "сигнал пока основан на ограниченном числе источников"
+    )
+    source_note = "источник выглядит надежным" if source_quality >= 0.85 else "источник требует дополнительной проверки"
+
     if category == "regulation":
-        return f"Это {timing}: регуляторные изменения быстро превращаются в требования к продуктам и compliance."
-    if category == "fraud_risk":
-        return f"Это {timing}: fraud/authentication механики стоит оценивать до роста потерь и давления на UX."
-    if category == "payments":
-        return f"Это {timing}: платежные механики быстро масштабируются через банки, сети и merchant-сценарии."
-    if category == "banking_product":
-        return f"Это {timing}: конкурент меняет банковский сценарий, который можно проверить в продуктовой дорожной карте."
-    if evidence_count >= 2:
-        return f"Это {timing}: сигнал подтверждается несколькими источниками, значит это не единичный инфоповод."
-    return f"Это {timing}: тема может быть ранним индикатором изменения клиентского поведения."
+        base = (
+            "Сигнал затрагивает регуляторную повестку: такие изменения могут повлиять на документы, "
+            "клиентские коммуникации, compliance-процессы или правила запуска продукта."
+        )
+    elif category == "fraud_risk":
+        base = (
+            "Сигнал связан с fraud/security: такие изменения могут повлиять на потери, KYC/AML-процессы, "
+            "авторизацию или баланс между безопасностью и UX."
+        )
+    elif category == "payments":
+        base = (
+            "Сигнал затрагивает платежный сценарий: изменения в платежах быстро влияют на ожидания клиентов "
+            "к скорости, удобству, комиссии и доступности операций."
+        )
+    elif category == "banking_product":
+        base = (
+            "Сигнал связан с банковским продуктом: он может указывать на изменение конкурентного предложения "
+            "или ожиданий клиентов."
+        )
+    elif category == "UX":
+        base = (
+            "Сигнал затрагивает клиентский опыт: UX-механики в финтехе могут быстро становиться новым "
+            "стандартом удобства в мобильном банке или onboarding."
+        )
+    elif category == "partnership":
+        base = (
+            "Сигнал связан с партнерской моделью: такие новости могут показывать новый способ дистрибуции, "
+            "монетизации или расширения банковской экосистемы."
+        )
+    elif category == "market_signal":
+        base = (
+            "Сигнал отражает рыночный тренд: он может быть ранним индикатором изменения поведения клиентов, "
+            "конкурентов или финтех-инфраструктуры."
+        )
+    else:
+        base = "Сигнал может быть полезен для мониторинга, но его прикладное значение нужно проверить вручную."
+
+    caution = " Уровень сигнала слабый, поэтому это аналитическая подсказка, а не основание для решения." if level == "weak" else ""
+    return f"{base} {timing}; {evidence}; {source_note}.{caution}"
 
 
-def _suggested_action(category: str, score: float, components: dict[str, Any]) -> str:
-    confidence = float(components.get("confidence", 0))
-    relevance = float(components.get("relevance", 0))
+def _recommended_action(category: str, score: float, components: dict[str, Any]) -> str:
+    confidence = _normalized_confidence(float(components.get("confidence", 0)))
     evidence_count = int(components.get("evidence_count", 0))
-    if score < 60 or confidence < 3.5 or relevance < 3.0 or evidence_count <= 0:
-        return "Оставить в мониторинге и не выносить в продуктовые действия без дополнительных подтверждений."
+    level = _signal_level(score, confidence, evidence_count)
+
+    if level == "weak":
+        return (
+            "Оставить сигнал в мониторинге: проверить первоисточник, дождаться дополнительных подтверждений "
+            "и не выносить в продуктовые решения без ручной валидации."
+        )
+
+    if level == "medium":
+        medium_actions = {
+            "regulation": "Добавить в regulatory radar, проверить первоисточник вручную и оценить возможное влияние на процессы без запуска отдельной инициативы.",
+            "fraud_risk": "Добавить в risk/anti-fraud radar, вручную проверить применимость к текущим операциям, KYC/AML или авторизации.",
+            "payments": "Добавить в payments radar, вручную сравнить с текущими переводами, оплатой или acquiring-сценариями и собрать дополнительные подтверждения.",
+            "banking_product": "Добавить в product discovery radar, сравнить с текущим клиентским сценарием и не превращать сразу в продуктовую инициативу.",
+            "UX": "Добавить в UX/onboarding radar, вручную проверить механику и оценить, где она может снизить friction.",
+            "partnership": "Добавить в партнерский radar, проверить участников модели и дождаться подтверждений от первоисточников.",
+            "market_signal": "Добавить в аналитический radar, проверить тренд вручную и дождаться подтверждений от первоисточников.",
+        }
+        return medium_actions.get(
+            category,
+            "Добавить сигнал в radar, проверить вручную и не превращать сразу в продуктовую инициативу.",
+        )
 
     actions = {
-        "regulation": "Проверить, влияет ли изменение на документы, процессы, клиентские сценарии или compliance-требования.",
-        "fraud_risk": "Передать risk/anti-fraud команде и оценить применимость к мониторингу операций, KYC/AML или авторизации.",
-        "payments": "Сравнить механику с текущими платежными сценариями и оценить применимость для банковского продукта.",
-        "banking_product": "Сравнить с текущей продуктовой линейкой и оценить, есть ли применимый сценарий для клиента банка.",
-        "UX": "Оценить, можно ли использовать механику в мобильном банке или клиентском onboarding.",
-        "partnership": "Проверить партнерскую модель и возможный аналог для банковской экосистемы.",
-        "market_signal": "Оставить в radar и дождаться подтверждения от первоисточников.",
+        "regulation": "Передать сигнал compliance/legal и владельцу затронутого продукта. Проверить, нужны ли изменения в документах, клиентских сценариях, процессах идентификации, коммуникации или отчетности.",
+        "fraud_risk": "Передать risk/anti-fraud команде. Проверить, есть ли похожий риск в текущих операциях, KYC/AML, авторизации или мониторинге транзакций.",
+        "payments": "Передать владельцу платежного сценария. Сравнить механику с текущими переводами, оплатой, checkout/acquiring или merchant-сценариями и сформулировать гипотезу для discovery или A/B-теста.",
+        "banking_product": "Передать продуктовой команде для discovery. Сравнить с текущим предложением, клиентским путем и конкурентными альтернативами.",
+        "UX": "Передать команде мобильного банка или onboarding. Проверить, можно ли адаптировать механику в текущем клиентском пути и где она может снизить friction.",
+        "partnership": "Разобрать партнерскую модель: кто участники, какая ценность для клиента, какой канал дистрибуции используется и можно ли воспроизвести аналогичный сценарий.",
+        "market_signal": "Добавить в аналитический обзор для продуктовой/стратегической команды. Проверить, влияет ли тренд на клиентский спрос, конкурентов или приоритеты roadmap.",
     }
-    return actions.get(category, "Оставить в мониторинге и не выносить в продуктовые действия без дополнительных подтверждений.")
+    return actions.get(category, "Передать профильной команде для ручной проверки и формулирования гипотезы.")
 
 
 def build_signals(clustered: pd.DataFrame, use_llm: bool = False, max_llm_items: int = 10) -> list[dict[str, Any]]:
@@ -887,7 +974,15 @@ def build_signals(clustered: pd.DataFrame, use_llm: bool = False, max_llm_items:
                 round(score, 1),
                 score_components,
             ),
-            "why_now": _why_now(category, evidence_count, freshness_days),
+            "signal_level": _signal_level(round(score, 1), _normalized_confidence(confidence), evidence_count),
+            "why_now": _why_important_for_bank(
+                category,
+                round(score, 1),
+                _normalized_confidence(confidence),
+                evidence_count,
+                freshness_days,
+                source_quality,
+            ),
             "summary": _summary(
                 representative["title"],
                 category,
@@ -895,7 +990,7 @@ def build_signals(clustered: pd.DataFrame, use_llm: bool = False, max_llm_items:
                 snippet=representative_snippet,
                 text=representative_text,
             ),
-            "suggested_action": _suggested_action(category, round(score, 1), score_components),
+            "suggested_action": _recommended_action(category, round(score, 1), score_components),
             "sources": sources,
             "article_ids": group["id"].astype(str).tolist(),
             "deduped_titles": sorted(set(group["title"].astype(str))),
@@ -925,7 +1020,12 @@ def build_signals(clustered: pd.DataFrame, use_llm: bool = False, max_llm_items:
                 if isinstance(value, (int, float)):
                     signal["score_components"][component] = max(1, min(5, round(float(value), 2)))
             signal["score_explanation"] = _score_explanation(signal["score"], signal["score_components"])
-            signal["suggested_action"] = _suggested_action(signal["category"], signal["score"], signal["score_components"])
+            signal["signal_level"] = _signal_level(
+                signal["score"],
+                _normalized_confidence(float(signal["score_components"].get("confidence", 0))),
+                int(signal["score_components"].get("evidence_count", 0)),
+            )
+            signal["suggested_action"] = _recommended_action(signal["category"], signal["score"], signal["score_components"])
             signal["llm_enriched"] = True
     return signals
 
@@ -953,9 +1053,9 @@ def format_digest(signals: list[dict[str, Any]], top_n: int = 7) -> str:
                 f"- Важность: {signal['hotness']}/5 ({signal['score']}/100)",
                 f"- Категория/теги: {signal['category']} | {tags}",
                 f"- Почему score такой: {signal.get('score_explanation', '')}",
-                f"- Почему сейчас: {signal['why_now']}",
+                f"- Почему это может быть важно: {signal['why_now']}",
                 f"- Кратко: {signal['summary']}",
-                f"- Что сделать: {signal['suggested_action']}",
+                f"- Следующий шаг для команды: {signal['suggested_action']}",
                 f"- Источники: {source_links}",
                 "",
             ]
