@@ -11,12 +11,9 @@
 
 
 ```bash
-
-cd ~/Desktop/fintech-trendwatcher
 python -m pip install -r requirements.txt
 python scripts/run_pipeline.py
 streamlit run app.py
-
 ```
 
 
@@ -161,7 +158,6 @@ score_explanation
 Score считается по формуле:
 $$
 score = 0.30 * relevance + 0.20 * source\_quality + 0.20 * novelty + 0.15 * impact + 0.15 * evidence\_count
-
 $$
 
 relevance - среднее релевантности группы
