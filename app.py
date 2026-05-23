@@ -11,6 +11,7 @@ import streamlit as st
 from trendwatcher.demo_data import demo_articles
 from trendwatcher.pipeline import SOURCE_TIERS, format_publication_date, run_pipeline, save_outputs
 from trendwatcher.rss import DEFAULT_RSS_SOURCES, fetch_rss_articles_with_status
+from trendwatcher.score_weights import DEFAULT_WEIGHTS, FEATURES, load_score_weights, save_score_weights
 
 
 st.set_page_config(page_title="Fintech TrendWatcher", layout="wide")
@@ -149,6 +150,15 @@ CATEGORY_LABELS = {
 }
 
 
+FEATURE_LABELS = {
+    "relevance": "Релевантность",
+    "source_quality": "Качество источника",
+    "novelty": "Новизна",
+    "impact": "Impact",
+    "evidence_score": "Качество подтверждений",
+}
+
+
 def esc(value: object) -> str:
     return html.escape(str(value))
 
@@ -157,6 +167,72 @@ def load_uploaded_csv(uploaded_file) -> pd.DataFrame | None:
     if uploaded_file is None:
         return None
     return pd.read_csv(uploaded_file)
+
+
+def seed_score_weight_sliders(weights: dict[str, float]) -> None:
+    for feature in FEATURES:
+        st.session_state[f"score_weight_{feature}"] = float(weights.get(feature, DEFAULT_WEIGHTS[feature]))
+
+
+def format_score_weight(weights: dict, feature: str) -> str:
+    return f"{float(weights.get(feature, DEFAULT_WEIGHTS[feature])):.2f}"
+
+
+def score_weights_table(weights: dict) -> pd.DataFrame:
+    return pd.DataFrame(
+        [
+            {
+                "Компонент": "relevance",
+                "Вес": format_score_weight(weights, "relevance"),
+                "Что означает": "насколько публикация похожа на финтех/банковский сигнал",
+                "Почему нужен": "главный вклад, потому что прежде всего фильтруется шум",
+            },
+            {
+                "Компонент": "source_quality",
+                "Вес": format_score_weight(weights, "source_quality"),
+                "Что означает": "насколько надежен тип источника",
+                "Почему нужен": "первоисточники и регуляторы проще проверить, перепечатки слабее",
+            },
+            {
+                "Компонент": "novelty",
+                "Вес": format_score_weight(weights, "novelty"),
+                "Что означает": "есть ли признаки запуска, пилота, изменения или guidance",
+                "Почему нужен": "свежие изменения чаще требуют внимания команды",
+            },
+            {
+                "Компонент": "impact",
+                "Вес": format_score_weight(weights, "impact"),
+                "Что означает": "насколько категория потенциально важна для банка",
+                "Почему нужен": "regulation, fraud и payments обычно имеют больший прикладной эффект",
+            },
+            {
+                "Компонент": "evidence_score",
+                "Вес": format_score_weight(weights, "evidence_score"),
+                "Что означает": "сумма similarity × source_quality по похожим источникам",
+                "Почему нужен": "каждый качественный похожий источник добавляет вклад, слабые источники добавляют мало",
+            },
+        ]
+    )
+
+
+def render_score_formula(weights: dict) -> None:
+    st.markdown("**Формула оценки**")
+    st.markdown(
+        f"""
+        <div class="formula-card">
+          <div><b>score</b> — это оценка важности сигнала. Коэффициенты задаются вручную в настройках запуска.</div>
+          <div class="formula">score =
+  {format_score_weight(weights, "relevance")} × relevance
++ {format_score_weight(weights, "source_quality")} × source_quality
++ {format_score_weight(weights, "novelty")} × novelty
++ {format_score_weight(weights, "impact")} × impact
++ {format_score_weight(weights, "evidence_score")} × evidence_score</div>
+          <div class="flow-note">evidence_score считается как сумма similarity × source_quality по похожим источникам в кластере.</div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+    st.dataframe(score_weights_table(weights), width="stretch", hide_index=True)
 
 
 def render_signal_card(signal: dict) -> None:
@@ -190,11 +266,15 @@ def render_signal_card(signal: dict) -> None:
     )
     with st.expander("Как рассчитана оценка"):
         st.write(signal.get("score_explanation", "Подробное объяснение score недоступно."))
+        weights = signal.get("score_weights", {})
+        if weights:
+            st.write("Коэффициенты score:")
+            st.json({feature: weights.get(feature, DEFAULT_WEIGHTS[feature]) for feature in FEATURES})
         st.write(f"Релевантность: {components['relevance']}")
         st.write(f"Качество источника: {components['source_quality']}")
         st.write(f"Новизна: {components['novelty']}")
         st.write(f"Impact: {components['impact']}")
-        st.write(f"Количество подтверждений: {components['evidence_count']}")
+        st.write(f"Качество подтверждений: {components.get('evidence_score', 0)}")
         st.write(f"Confidence: {components['confidence']} / 5")
         st.write(f"Уровень сигнала: {signal.get('signal_level', 'не рассчитан')}")
         st.caption(signal.get("context_note", "Полный текст не загружался, анализ основан на RSS snippet."))
@@ -211,6 +291,11 @@ def flow_card(title: str, note: str) -> str:
 
 with st.sidebar:
     st.header("Настройки запуска")
+    saved_score_weights = load_score_weights()
+    score_weights = saved_score_weights.copy()
+    if "score_weight_sliders_ready" not in st.session_state:
+        seed_score_weight_sliders(saved_score_weights)
+        st.session_state["score_weight_sliders_ready"] = True
     data_source = st.radio("Источник данных", ["Демо-набор", "CSV-файл", "Live RSS"], index=0)
     uploaded = st.file_uploader("CSV: title, url, source, published_at, snippet, text", type=["csv"])
     st.caption(
@@ -242,6 +327,34 @@ with st.sidebar:
         st.caption("Порог TF-IDF сейчас не используется. Для стабильного демо можно оставить дефолтные значения и показать trade-off при переключении метода")
 
     st.divider()
+    st.subheader("Коэффициенты score")
+    with st.form("score_weights_form"):
+        edited_weights = {}
+        for feature in FEATURES:
+            edited_weights[feature] = st.slider(
+                FEATURE_LABELS[feature],
+                min_value=0.0,
+                max_value=1.0,
+                value=float(score_weights.get(feature, DEFAULT_WEIGHTS[feature])),
+                step=0.01,
+            )
+        save_weights = st.form_submit_button("Сохранить коэффициенты", width="stretch")
+        reset_weights = st.form_submit_button("Сбросить к базовым", width="stretch")
+    if save_weights:
+        score_weights = save_score_weights(edited_weights)
+        seed_score_weight_sliders(score_weights)
+        st.session_state.pop("result", None)
+        st.success("Коэффициенты score сохранены")
+        st.rerun()
+    if reset_weights:
+        score_weights = save_score_weights(DEFAULT_WEIGHTS)
+        seed_score_weight_sliders(score_weights)
+        st.session_state.pop("result", None)
+        st.success("Коэффициенты score сброшены")
+        st.rerun()
+    st.caption("Базовый вес evidence_score: 0.15")
+
+    st.divider()
     st.subheader("LLM-обогащение")
     use_llm = st.toggle("Включить OpenRouter", value=False)
     max_llm_items = st.slider("Сигналов для LLM", 1, 12, 6, disabled=not use_llm)
@@ -255,8 +368,6 @@ with st.sidebar:
         "Российские источники нужны для локальной применимости сигналов, международные — "
         "для отслеживания глобальных финтех-трендов"
     )
-
-
 st.title("Fintech TrendWatcher")
 st.caption("Внутренний инструмент банка: публикации → шум → дубли → важность → проверяемый дайджест")
 
@@ -272,6 +383,7 @@ config = (
     use_llm,
     max_llm_items,
     model,
+    tuple((feature, score_weights[feature]) for feature in FEATURES),
     dedup_label,
     fuzzy_threshold,
     tfidf_threshold,
@@ -305,6 +417,7 @@ if "result" not in st.session_state or run_clicked or st.session_state.get("conf
             dedup_method=dedup_method,
             fuzzy_threshold=fuzzy_threshold,
             tfidf_threshold=tfidf_threshold,
+            score_weights=score_weights,
         )
         save_outputs(result, "data")
         st.session_state["result"] = result
@@ -372,60 +485,7 @@ with pipeline_tab:
     cols = st.columns(len(steps))
     for col, (title, note) in zip(cols, steps):
         col.markdown(flow_card(title, note), unsafe_allow_html=True)
-    st.markdown("**Формула оценки**")
-    st.markdown(
-        """
-        <div class="formula-card">
-          <div><b>score</b> — это эвристическая оценка важности сигнала в draft-MVP. Она нужна,
-          чтобы прозрачно ранжировать публикации, а не заменить ручное решение аналитика.</div>
-          <div class="formula">score =
-  0.30 × relevance
-+ 0.20 × source_quality
-+ 0.20 × novelty
-+ 0.15 × impact
-+ 0.15 × evidence_count</div>
-          <div class="flow-note">Веса заданы экспертно и могут быть откалиброваны позже по ручной разметке аналитиков
-          useful / not useful. Это прозрачный baseline, а не обученная ML-модель.</div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-    score_table = pd.DataFrame(
-        [
-            {
-                "Компонент": "relevance",
-                "Вес": "0.30",
-                "Что означает": "насколько публикация похожа на финтех/банковский сигнал",
-                "Почему нужен": "главный вклад, потому что прежде всего фильтруется шум",
-            },
-            {
-                "Компонент": "source_quality",
-                "Вес": "0.20",
-                "Что означает": "насколько надежен тип источника",
-                "Почему нужен": "первоисточники и регуляторы проще проверить, перепечатки слабее",
-            },
-            {
-                "Компонент": "novelty",
-                "Вес": "0.20",
-                "Что означает": "есть ли признаки запуска, пилота, изменения или guidance",
-                "Почему нужен": "свежие изменения чаще требуют внимания команды",
-            },
-            {
-                "Компонент": "impact",
-                "Вес": "0.15",
-                "Что означает": "насколько категория потенциально важна для банка",
-                "Почему нужен": "regulation, fraud и payments обычно имеют больший прикладной эффект",
-            },
-            {
-                "Компонент": "evidence_count",
-                "Вес": "0.15",
-                "Что означает": "сколько независимых источников подтверждает сигнал",
-                "Почему нужен": "несколько источников снижают риск случайного инфоповода",
-            },
-        ]
-    )
-    st.dataframe(score_table, width="stretch", hide_index=True)
-
+    render_score_formula(score_weights)
     with st.expander("Как считается качество источника?"):
         st.write(
             "Регуляторы и официальные первоисточники получают максимальный вес, потому что их проще проверить и они ближе к исходному событию "

@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import html
 import json
-import math
 import re
 from dataclasses import dataclass
 from datetime import datetime, timezone
@@ -17,6 +16,7 @@ import pandas as pd
 
 from .demo_data import demo_articles
 from .llm import LLMClient
+from .score_weights import hotness_from_score, load_score_weights, score_from_components
 
 
 FINTECH_KEYWORDS = {
@@ -715,7 +715,7 @@ def _novelty_score(blob: str, freshness_days: int) -> float:
     return min(5.0, score)
 
 
-def _impact_score(category: str, evidence_count: int, source_quality: float, relevance: float) -> float:
+def _impact_score(category: str, evidence_score: float, source_quality: float, relevance: float) -> float:
     base_by_category = {
         "regulation": 4.4,
         "fraud_risk": 4.2,
@@ -727,24 +727,25 @@ def _impact_score(category: str, evidence_count: int, source_quality: float, rel
         "other": 2.0,
     }
     base = base_by_category.get(category, 2.5)
-    evidence_bonus = min(0.5, evidence_count * 0.15)
+    evidence_bonus = max(0.0, evidence_score) * 0.5
     quality_bonus = max(0.0, source_quality - 0.65)
     relevance_bonus = max(0.0, relevance - 3.5) * 0.15
     return round(min(5.0, base + evidence_bonus + quality_bonus + relevance_bonus), 2)
 
 
-def _confidence_score(evidence_count: int, source_quality: float) -> float:
-    return round(min(5.0, 2.2 + evidence_count * 0.55 + source_quality * 1.2), 2)
+def _confidence_score(evidence_score: float, source_quality: float) -> float:
+    evidence_bonus = max(0.0, evidence_score) * 1.65
+    return round(min(5.0, 2.2 + evidence_bonus + source_quality * 1.2), 2)
 
 
 def _normalized_confidence(confidence: float) -> float:
     return max(0.0, min(1.0, float(confidence) / 5.0))
 
 
-def _signal_level(score: float, confidence: float, evidence_count: int) -> str:
+def _signal_level(score: float, confidence: float) -> str:
     if score >= 80 and confidence >= 0.70:
         return "strong"
-    if score >= 65 and (confidence >= 0.50 or evidence_count >= 2):
+    if score >= 65 and confidence >= 0.50:
         return "medium"
     return "weak"
 
@@ -766,15 +767,16 @@ def _score_explanation(score: float, components: dict[str, Any]) -> str:
         drivers.append("надежное отраслевое медиа")
     if float(components["novelty"]) >= 4.0:
         drivers.append("есть признаки свежего запуска/пилота")
-    if int(components["evidence_count"]) >= 3:
-        drivers.append("сигнал подтвержден несколькими ссылками")
-    elif int(components["evidence_count"]) >= 2:
-        drivers.append("есть больше одного подтверждения")
+    evidence_score = float(components.get("evidence_score", 0))
+    if evidence_score >= 0.75:
+        drivers.append("есть качественные похожие подтверждения")
+    elif evidence_score >= 0.45:
+        drivers.append("есть подтверждения, но их качество или схожесть умеренные")
     if float(components["impact"]) >= 4.0:
         drivers.append("высокая потенциальная значимость для банка")
 
     if not drivers:
-        drivers.append("тема релевантна, но подтверждений и новизны пока немного")
+        drivers.append("тема релевантна, но качество подтверждений или новизна пока невысокие")
     return f"{level}: " + "; ".join(drivers[:4]) + "."
 
 
@@ -804,16 +806,16 @@ def _why_important_for_bank(
     category: str,
     score: float,
     confidence: float,
-    evidence_count: int,
     freshness_days: int,
     source_quality: float,
+    evidence_score: float,
 ) -> str:
-    level = _signal_level(score, confidence, evidence_count)
+    level = _signal_level(score, confidence)
     timing = "Сигнал свежий" if freshness_days <= 7 else "Сигнал не новый, но может оставаться актуальным"
     evidence = (
-        "сигнал подтверждается несколькими источниками"
-        if evidence_count >= 2
-        else "сигнал пока основан на ограниченном числе источников"
+        "подтверждения хорошо совпадают с темой и идут из надежных источников"
+        if evidence_score >= 0.7
+        else "подтверждения требуют ручной проверки качества и схожести"
     )
     source_note = "источник выглядит надежным" if source_quality >= 0.85 else "источник требует дополнительной проверки"
 
@@ -861,8 +863,7 @@ def _why_important_for_bank(
 
 def _recommended_action(category: str, score: float, components: dict[str, Any]) -> str:
     confidence = _normalized_confidence(float(components.get("confidence", 0)))
-    evidence_count = int(components.get("evidence_count", 0))
-    level = _signal_level(score, confidence, evidence_count)
+    level = _signal_level(score, confidence)
 
     if level == "weak":
         return (
@@ -897,11 +898,44 @@ def _recommended_action(category: str, score: float, components: dict[str, Any])
     return actions.get(category, "Передать профильной команде для ручной проверки и формулирования гипотезы.")
 
 
-def build_signals(clustered: pd.DataFrame, use_llm: bool = False, max_llm_items: int = 10) -> list[dict[str, Any]]:
+def _weighted_evidence_score(group: pd.DataFrame) -> float:
+    """Score evidence by source quality and similarity within the cluster."""
+
+    best_contribution_by_url: dict[str, float] = {}
+    for _, row in group.iterrows():
+        url = str(row.get("canonical_url") or row.get("url") or row.get("id"))
+        try:
+            similarity_score = float(row.get("dedup_similarity", 1.0))
+        except (TypeError, ValueError):
+            similarity_score = 1.0
+        try:
+            source_quality = float(row.get("source_quality", 0.55))
+        except (TypeError, ValueError):
+            source_quality = 0.55
+
+        similarity_score = max(0.0, min(1.0, similarity_score))
+        source_quality = max(0.0, min(1.0, source_quality))
+        contribution = similarity_score * source_quality
+        best_contribution_by_url[url] = max(best_contribution_by_url.get(url, 0.0), contribution)
+
+    if not best_contribution_by_url:
+        return 0.0
+
+    contributions = list(best_contribution_by_url.values())
+    return round(sum(contributions), 2)
+
+
+def build_signals(
+    clustered: pd.DataFrame,
+    use_llm: bool = False,
+    max_llm_items: int = 10,
+    score_weights: dict[str, Any] | None = None,
+) -> list[dict[str, Any]]:
     if clustered.empty:
         return []
 
     llm = LLMClient() if use_llm else None
+    active_score_weights = score_weights or load_score_weights()
     signals: list[dict[str, Any]] = []
 
     for cluster_id, group in clustered.groupby("cluster_id", sort=False):
@@ -910,7 +944,7 @@ def build_signals(clustered: pd.DataFrame, use_llm: bool = False, max_llm_items:
         blob = " ".join((_blob(row) for _, row in group.iterrows()))
         category = detect_category(blob)
         tags = extract_tags(blob, category)
-        evidence_count = int(group["canonical_url"].nunique())
+        evidence_score = _weighted_evidence_score(group)
         published_at = _latest_published_at(group["published_at"])
         representative_snippet = str(representative.get("snippet", ""))
         representative_text = str(representative.get("text", ""))
@@ -939,25 +973,18 @@ def build_signals(clustered: pd.DataFrame, use_llm: bool = False, max_llm_items:
         relevance = round(float(group["relevance"].mean()), 2)
         source_quality = round(float(group["source_quality"].max()), 2)
         novelty = round(_novelty_score(blob, freshness_days), 2)
-        impact = _impact_score(category, evidence_count, source_quality, relevance)
-        confidence = _confidence_score(evidence_count, source_quality)
-
-        score = (
-            0.30 * (relevance / 5.0)
-            + 0.20 * source_quality
-            + 0.20 * (novelty / 5.0)
-            + 0.15 * (impact / 5.0)
-            + 0.15 * (min(evidence_count, 3) / 3.0)
-        ) * 100
-        hotness = max(1, min(5, math.ceil(score / 20)))
+        impact = _impact_score(category, evidence_score, source_quality, relevance)
+        confidence = _confidence_score(evidence_score, source_quality)
         score_components = {
             "relevance": relevance,
             "source_quality": source_quality,
             "novelty": novelty,
             "impact": impact,
-            "evidence_count": evidence_count,
+            "evidence_score": evidence_score,
             "confidence": confidence,
         }
+        score = score_from_components(score_components, active_score_weights)
+        hotness = hotness_from_score(score)
 
         signal = {
             "id": cluster_id,
@@ -970,18 +997,19 @@ def build_signals(clustered: pd.DataFrame, use_llm: bool = False, max_llm_items:
             "date_label": format_publication_date(published_at, str(representative["source"])),
             "freshness_label": freshness_label(freshness_days),
             "score_components": score_components,
+            "score_weights": active_score_weights,
             "score_explanation": _score_explanation(
-                round(score, 1),
+                score,
                 score_components,
             ),
-            "signal_level": _signal_level(round(score, 1), _normalized_confidence(confidence), evidence_count),
+            "signal_level": _signal_level(score, _normalized_confidence(confidence)),
             "why_now": _why_important_for_bank(
                 category,
-                round(score, 1),
+                score,
                 _normalized_confidence(confidence),
-                evidence_count,
                 freshness_days,
                 source_quality,
+                evidence_score,
             ),
             "summary": _summary(
                 representative["title"],
@@ -990,7 +1018,7 @@ def build_signals(clustered: pd.DataFrame, use_llm: bool = False, max_llm_items:
                 snippet=representative_snippet,
                 text=representative_text,
             ),
-            "suggested_action": _recommended_action(category, round(score, 1), score_components),
+            "suggested_action": _recommended_action(category, score, score_components),
             "sources": sources,
             "article_ids": group["id"].astype(str).tolist(),
             "deduped_titles": sorted(set(group["title"].astype(str))),
@@ -1019,14 +1047,16 @@ def build_signals(clustered: pd.DataFrame, use_llm: bool = False, max_llm_items:
                 value = enrichment.get(component)
                 if isinstance(value, (int, float)):
                     signal["score_components"][component] = max(1, min(5, round(float(value), 2)))
+            signal["score"] = score_from_components(signal["score_components"], active_score_weights)
+            signal["hotness"] = hotness_from_score(signal["score"])
             signal["score_explanation"] = _score_explanation(signal["score"], signal["score_components"])
             signal["signal_level"] = _signal_level(
                 signal["score"],
                 _normalized_confidence(float(signal["score_components"].get("confidence", 0))),
-                int(signal["score_components"].get("evidence_count", 0)),
             )
             signal["suggested_action"] = _recommended_action(signal["category"], signal["score"], signal["score_components"])
             signal["llm_enriched"] = True
+        signals.sort(key=lambda item: (item["score"], item["score_components"]["confidence"]), reverse=True)
     return signals
 
 
@@ -1071,6 +1101,7 @@ def run_pipeline(
     dedup_method: str = "fuzzy",
     fuzzy_threshold: float = 0.72,
     tfidf_threshold: float = 0.58,
+    score_weights: dict[str, Any] | None = None,
 ) -> PipelineResult:
     raw = pd.DataFrame(articles if articles is not None else demo_articles())
     normalized = normalize_articles(raw)
@@ -1083,7 +1114,12 @@ def run_pipeline(
         fuzzy_threshold=fuzzy_threshold,
         tfidf_threshold=tfidf_threshold,
     )
-    signals = build_signals(clustered, use_llm=use_llm, max_llm_items=max_llm_items)
+    signals = build_signals(
+        clustered,
+        use_llm=use_llm,
+        max_llm_items=max_llm_items,
+        score_weights=score_weights,
+    )
     digest = format_digest(signals, top_n=top_n)
     return PipelineResult(
         raw_articles=raw,
