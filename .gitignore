@@ -4,3 +4,4 @@ __pycache__/
 .env
 data/llm_cache.json
 .DS_Store
+main.ipynb
