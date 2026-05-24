@@ -1,0 +1,57 @@
+{
+  "generated_at": "2026-05-23T14:27:08.374653+00:00",
+  "command": "python3 scripts/run_validation_experiment.py",
+  "sample": {
+    "source_mode": "live_rss",
+    "fallback_used": false,
+    "fallback_reason": "",
+    "rss_articles_fetched": 147,
+    "rss_warnings": [],
+    "rss_sources": [
+      "Банк России — новости",
+      "Банк России — события",
+      "Банк России — пресс-релизы",
+      "РБК — новости",
+      "Finextra",
+      "TechCrunch Fintech",
+      "PYMNTS",
+      "Stripe Blog"
+    ],
+    "seed": 42,
+    "requested_sample_size": 60,
+    "actual_sample_size": 60
+  },
+  "pipeline": {
+    "dedup_method_requested": "fuzzy",
+    "dedup_method_used": "fuzzy",
+    "pipeline_warnings": [],
+    "candidate_count": 33,
+    "rejected_count": 27,
+    "signal_count": 32
+  },
+  "counts": {
+    "sample_size": 60,
+    "manual_relevance_1": 40,
+    "manual_signal_1": 38,
+    "pipeline_signal_1": 33
+  },
+  "metrics": {
+    "precision_at_5": 1.0,
+    "precision_at_10": 1.0,
+    "recall_at_10": 0.2632,
+    "ndcg_at_10": 0.6778,
+    "category_accuracy": 0.425,
+    "signal_precision": 0.6061,
+    "signal_recall": 0.5263,
+    "spearman_pipeline_score_vs_manual_importance": 0.2198
+  },
+  "spearman_note": null,
+  "outputs": {
+    "rss_validation_sample": "data/validation/rss_validation_sample.csv",
+    "manual_labels": "data/validation/manual_labels.csv",
+    "pipeline_validation_output": "data/validation/pipeline_validation_output.csv",
+    "validation_joined": "data/validation/validation_joined.csv",
+    "validation_report_json": "data/validation/validation_report.json",
+    "validation_report_md": "data/validation/validation_report.md"
+  }
+}
