@@ -16,7 +16,7 @@ import pandas as pd
 
 from .demo_data import demo_articles
 from .llm import LLMClient
-from .score_weights import hotness_from_score, load_score_weights, score_from_components
+from .score_weights import hotness_from_score, load_score_weights, normalize_weights, score_from_components
 
 
 FINTECH_KEYWORDS = {
@@ -922,7 +922,7 @@ def _weighted_evidence_score(group: pd.DataFrame) -> float:
         return 0.0
 
     contributions = list(best_contribution_by_url.values())
-    return round(sum(contributions), 2)
+    return round(min(1.0, sum(contributions)), 2)
 
 
 def build_signals(
@@ -935,7 +935,7 @@ def build_signals(
         return []
 
     llm = LLMClient() if use_llm else None
-    active_score_weights = score_weights or load_score_weights()
+    active_score_weights = normalize_weights(score_weights or load_score_weights())
     signals: list[dict[str, Any]] = []
 
     for cluster_id, group in clustered.groupby("cluster_id", sort=False):

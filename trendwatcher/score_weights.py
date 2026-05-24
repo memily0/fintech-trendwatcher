@@ -19,6 +19,7 @@ DEFAULT_WEIGHTS: dict[str, float] = {
 }
 
 WEIGHTS_PATH = Path("data/score_weights.json")
+WEIGHT_PRECISION = 6
 
 
 def _clamp(value: float, lower: float = 0.0, upper: float = 1.0) -> float:
@@ -32,11 +33,25 @@ def _float_or_default(value: Any, default: float = 0.0) -> float:
         return default
 
 
-def normalize_weights(weights: dict[str, Any] | None) -> dict[str, float]:
+def _clean_weights(weights: dict[str, Any] | None) -> dict[str, float]:
     cleaned: dict[str, float] = {}
     for feature in FEATURES:
-        cleaned[feature] = round(_clamp(_float_or_default((weights or {}).get(feature), DEFAULT_WEIGHTS[feature])), 4)
+        cleaned[feature] = _clamp(_float_or_default((weights or {}).get(feature), DEFAULT_WEIGHTS[feature]))
     return cleaned
+
+
+def normalize_weights(weights: dict[str, Any] | None) -> dict[str, float]:
+    cleaned = _clean_weights(weights)
+    total = sum(cleaned.values())
+    if total <= 0:
+        cleaned = DEFAULT_WEIGHTS.copy()
+        total = sum(cleaned.values())
+    normalized = {feature: round(cleaned[feature] / total, WEIGHT_PRECISION) for feature in FEATURES}
+    rounding_diff = round(1.0 - sum(normalized.values()), WEIGHT_PRECISION)
+    if rounding_diff:
+        adjustment_feature = max(FEATURES, key=lambda feature: normalized[feature])
+        normalized[adjustment_feature] = round(normalized[adjustment_feature] + rounding_diff, WEIGHT_PRECISION)
+    return normalized
 
 
 def load_score_weights(path: str | Path = WEIGHTS_PATH) -> dict[str, float]:
@@ -65,7 +80,7 @@ def feature_vector(components: dict[str, Any]) -> dict[str, float]:
         "source_quality": _clamp(_float_or_default(components.get("source_quality"))),
         "novelty": _clamp(_float_or_default(components.get("novelty")) / 5.0),
         "impact": _clamp(_float_or_default(components.get("impact")) / 5.0),
-        "evidence_score": max(0.0, _float_or_default(components.get("evidence_score"))),
+        "evidence_score": _clamp(_float_or_default(components.get("evidence_score"))),
     }
 
 

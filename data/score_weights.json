@@ -1,6 +1,6 @@
 {
   "weights": {
-    "relevance": 0.3,
+    "relevance": 0.45,
     "source_quality": 0.2,
     "novelty": 0.2,
     "impact": 0.15,
